@@ -1,14 +1,143 @@
 <!doctype html>
 <html>
 
-<head>
+<head lang="en-gb">
+  <title>Decoupage Dreams</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="bundle.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab:400,700|Material+Icons">
 </head>
 
-<body>
-  <button class="foo-button mdc-button">
-    Button
-  </button>
+<body class="mdc-typography">
+  <nav class="fold-mastnav container">
+    <br>
+    <br>
+    <a href="/" class="active">About</a>
+    <a href="#">Venue Dressing</a>
+    <a href="#">Stationery</a>
+    <a href="#">Pricing</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <br>
+  <header class="fold-masthead container mdc-card" style="">
+    <h1 class="fold-title mdc-typography--headline1">Decoupage Dreams</h1>
+    <div class="fold-subtitle mdc-typography--subtitle2">Based in Lancashire UK, we provide bespoke (yep!) wedding
+      stationery and venue dressing services in our local community and beyond. Why not contact us for an
+      obligation-free conversation?
+    </div>
+
+    <div class="fold-masthead-form">
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
+        <i class="material-icons mdc-text-field__icon" tabindex="0" role="button">mail</i>
+        <input type="text" id="tf-outlined" class="mdc-text-field__input">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="tf-outlined" class="mdc-floating-label">Your Email</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <button class="mdc-button mdc-button--raised">
+        <span class="mdc-button__label">Say Hi</span>
+      </button>
+    </div>
+
+    <div class="shade"></div>
+  </header>
+
+  <section class="container fold-section">
+    <div class="mdc-typography--headline4">Venue Dressing</div>
+    <div class="mdc-typography--subtitle2">We work with you throughout the process to design all venue aesthetics.
+      Everything is handmade, high-quality and bespoke to ensure <b>your day goes your way</b>.
+    </div>
+
+    <ul class="mdc-image-list mdc-image-list--masonry fold-venue-image-list">
+      <li class="mdc-image-list__item mdc-card">
+        <img class="mdc-image-list__image"
+          src="https://images.unsplash.com/photo-1505744288177-8a097ba01de0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80">
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Text label</span>
+        </div>
+      </li>
+      <li class="mdc-image-list__item mdc-card">
+        <img class="mdc-image-list__image"
+          src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Text label</span>
+        </div>
+      </li>
+      <li class="mdc-image-list__item mdc-card">
+        <img class="mdc-image-list__image"
+          src="https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80">
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Text label</span>
+        </div>
+      </li>
+      <li class="mdc-image-list__item mdc-card">
+        <img class="mdc-image-list__image"
+          src="https://images.unsplash.com/photo-1526092817387-8f07b2904e48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Text label</span>
+        </div>
+      </li>
+      <li class="mdc-image-list__item mdc-card">
+        <img class="mdc-image-list__image"
+          src="https://images.unsplash.com/photo-1517722014278-c256a91a6fba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Text label</span>
+        </div>
+      </li>
+      <li class="mdc-image-list__item mdc-card">
+        <img class="mdc-image-list__image"
+          src="https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Text label</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="container fold-section">
+    <div class="mdc-typography--headline4">Stationery</div>
+  </section>
+
+  <section class="container fold-section">
+    <div class="mdc-typography--headline4">Pricing</div>
+  </section>
+
+  <section class="container fold-section">
+    <div class="mdc-typography--headline4">Get in Touch</div>
+
+    <div class="mdc-form-field mdc-form-field--align-end">
+      <div class="mdc-checkbox">
+        <input type="checkbox" id="my-checkbox" class="mdc-checkbox__native-control" />
+        <div class="mdc-checkbox__background">
+          ...
+        </div>
+      </div>
+      <label for="my-checkbox">This is my checkbox</label>
+    </div>
+
+    <div class="mdc-typography--headline6">Our Promise</div>
+    <div class="mdc-typography--body1">
+      On the big day, we’ll setup your venue and take the stuff away afterwards as part of service. We recognise that
+      your day has to be special and go off without a hitch - you can rely on us. And if something does go wrong, we
+      have business insurance covering everything.
+
+      With competitive prices, tailored packages and insurance, we provide the best, hassle free service designed to
+      help you get the most out of your special day! Discounts may be applicable for weddings with 100+ guests. Get in
+      touch for a no-obligation discussion! </div>
+  </section>
+
+  <footer>
+    <div class="fold-title fold-signature">Decoupage Dreams</div>
+  </footer>
+
   <script src="bundle.js" async></script>
 </body>
 
