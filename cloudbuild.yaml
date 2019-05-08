@@ -2,5 +2,5 @@ steps:
   - name: "gcr.io/cloud-builders/npm"
     args: ["run-script", "build"]
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy"]
+    args: ["app", "deploy", "--stop-previous-version", "--promote"]
 timeout: "1600s"
