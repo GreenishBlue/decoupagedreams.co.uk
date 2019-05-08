@@ -1,14 +1,15 @@
 {
-  "name": "web",
+  "name": "fold",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "Fold webapp (Decoupage Dreams)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p",
+    "build": "webpack --env prod --progress --profile --colors",
     "start": "webpack-dev-server"
   },
-  "author": "",
+  "author": "Cameron Brown <hello@cameronbrown.co.uk>",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.5.1",
