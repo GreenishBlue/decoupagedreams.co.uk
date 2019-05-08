@@ -1,8 +1,4 @@
-# Decoupage Dreams
-## Goals
-* Market products and services (venue dressing & stationery)
-* Collect, manage and send emails automatically via Google Sheets & Gmail
-
+# Decoupage Dreams webapp
 ## Dependencies
 * Node.js/NPM
 * Python 3.7
@@ -22,5 +18,5 @@ First build the program, and then use `gcloud` to deploy to App Engine
 
 `gcloud app deploy`
 
-## Design documents
-* Landing page design doc
+## Continuous integration with Cloud Build
+Make sure to [read the following guide](https://cloud.google.com/source-repositories/docs/quickstart-triggering-builds-with-source-repositories) on setting up Cloud Build's service account to have App Engine admin permissions.
