@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --env prod --progress --profile --colors",
+    "build": "webpack --env prod --progress --profile",
     "start": "webpack-dev-server"
   },
   "author": "Cameron Brown <hello@cameronbrown.co.uk>",
