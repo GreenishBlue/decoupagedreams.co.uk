@@ -1,4 +1,7 @@
 # Decoupage Dreams webapp
+To access the private staging environment at https://decoupage-dreams.appspot.com, 
+you must be whitelisted to get access.
+
 ## Dependencies
 * Node.js/NPM
 * Python 3.7
