@@ -1,6 +1,7 @@
 $fold-primary: #FF9800;
 $fold-secondary: #ce93d8;
-$fold-background: #ffebee;
+// $fold-background: #ffebee;
+$fold-background: #f1f1f1;
 
 $mdc-theme-primary: $fold-primary;
 // $mdc-theme-on-primary: #442C2E;
@@ -118,37 +119,40 @@ body {
   @include mdc-image-list-masonry-columns(3);
 }
 
-.fold-testimonial-card {
-  text-align: center;
-  padding: 0 1em;
-  padding-bottom: 1.5em;
-  color: #666;
+.fold-testimonial-layout-grid {
+  padding: 0;
 
-  $couple-photo-margin: 50px;
-  margin-top: $couple-photo-margin;
+  .fold-testimonial-card {
+    text-align: center;
+    padding: 0 1em;
+    padding-bottom: 1.5em;
+    color: #666;
 
-  .mdc-typography--headline5 {
-    padding: 0.5em 0;
-    color: #333;
-  }
+    $couple-photo-margin: 50px;
+    margin-top: $couple-photo-margin;
 
-  .mdc-typography--body2::before,
-  .mdc-typography--body2::after {
-    content: "\"";
-  }
+    .mdc-typography--headline5 {
+      color: #333;
+    }
 
-  .fold-testimonial-couple-photo {
-    border-radius: 50%;
-    margin: 0 auto;
-    height: 160px; width: 160px;
-    border: 4px solid #fff;
-    margin-top: - $couple-photo-margin;
-  }
+    .mdc-typography--caption {
+      padding: 0.5em 0;
+    }
 
-  .fold-testimonial-cover-photo,
-  .fold-testimonial-cover-photo img {
-    height: 100px;
-    width: 100px;
+    .fold-testimonial-couple-photo {
+      border-radius: 50%;
+      margin: 0 auto;
+      height: 160px; width: 160px;
+      border: 4px solid #eee;
+      margin-top: - $couple-photo-margin;
+      margin-bottom: 0.8em;
+    }
+
+    .fold-testimonial-cover-photo,
+    .fold-testimonial-cover-photo img {
+      height: 100px;
+      width: 100px;
+    }
   }
 }
 
