@@ -2,5 +2,13 @@
 {% set title = "Home - Decoupage Dreams" %}
 {% set full_header = True %}
 {% block content %}
-content here!
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Testimonials</div>
+  <div class="mdc-typography--subtitle2">We love our customers and work hard to design the best products we can for
+    their day. Here's what they have to say about our service.</div>
+
+  {% include 'testimonials.html' %}
+
+</section>
 {% endblock %}
