@@ -2,7 +2,7 @@
 <html>
 
 <head lang="en-gb">
-  <title>Decoupage Dreams</title>
+	<title>{{ title or "Decoupage Dreams" }}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,41 +11,7 @@
 </head>
 
 <body class="mdc-typography">
-  <nav class="fold-mastnav container">
-    <br>
-    <a href="/" class="active">About</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/contact">Contact</a>
-  </nav>
-
-  <header class="fold-masthead container mdc-card" style="">
-    <h1 class="fold-title mdc-typography--headline1">Decoupage Dreams</h1>
-    <div class="fold-subtitle mdc-typography--subtitle2">Based in Lancashire UK, we provide bespoke wedding
-      stationery and venue dressing services in our local community and beyond. Why not contact us for an
-      obligation-free conversation?
-    </div>
-
-    <div class="fold-masthead-form">
-      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-        <i class="material-icons mdc-text-field__icon" tabindex="0" role="button">mail</i>
-        <input type="text" id="tf-outlined" class="mdc-text-field__input">
-        <div class="mdc-notched-outline">
-          <div class="mdc-notched-outline__leading"></div>
-          <div class="mdc-notched-outline__notch">
-            <label for="tf-outlined" class="mdc-floating-label">Your Email</label>
-          </div>
-          <div class="mdc-notched-outline__trailing"></div>
-        </div>
-      </div>
-
-      <button class="mdc-button mdc-button--raised">
-        <span class="mdc-button__label">Say Hi</span>
-      </button>
-    </div>
-
-    <div class="shade"></div>
-  </header>
-
+  {% include 'header.html' %}
 
   <!-- <section class="container fold-section">
     <div class="mdc-typography--headline4">Venue Dressing</div>
@@ -275,13 +241,9 @@
   </section> -->
 
   <section class="container fold-section" style="text-align: center;">
-    <div class="mdc-typography--headline4">Get in Touch</div>
+    <div class="mdc-typography--headline4">Contact Us</div>
 
-    <div class="mdc-text-field">
-      <input type="text" id="my-text-field" class="mdc-text-field__input">
-      <label class="mdc-floating-label" for="my-text-field">Your Email</label>
-      <div class="mdc-line-ripple"></div>
-    </div>
+    {% include "contact_form.html" %}
 
     <div class="mdc-typography--headline4">Our Promise</div>
     <div class="mdc-typography--body1">

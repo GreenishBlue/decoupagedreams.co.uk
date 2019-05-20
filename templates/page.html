@@ -1,0 +1,30 @@
+{% set full_header = False %}
+
+<!doctype html>
+<html>
+
+<head lang="en-gb">
+	<title>{{ title or "Decoupage Dreams" }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/build/bundle.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab:400,700|Material+Icons">
+</head>
+
+<body class="mdc-typography">
+  {% if full_header == True %}
+    {% include "header.html" %} 
+  {% else %}
+    {% include "header_short.html" %} 
+  {% endif %}
+  {% block content %}{% endblock %}
+
+  <footer>
+    <div class="fold-title fold-signature">Decoupage Dreams</div>
+  </footer>
+
+  <script src="/build/bundle.js" async></script>
+</body>
+
+</html>

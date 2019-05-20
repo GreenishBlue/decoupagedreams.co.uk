@@ -83,6 +83,39 @@ body {
   font-weight: bold;
 }
 
+@media(min-width: 600px) {
+.fold-masthead-short {
+  .fold-title-short {
+    float: left;
+    text-align: left;
+    font-size: 32px !important;
+    padding: 0 !important;
+    margin: 0;
+    height: 60px !important;
+    line-height: 2.4em;
+    margin-top: -12px;
+    padding-top: -6px;
+    padding-left: 16px !important;
+  }
+
+  padding-bottom: 0 !important;
+}
+
+.fold-mastnav-short {
+  text-align: right;
+}
+}
+
+@media(max-width: 600px) {
+  .fold-title-short {
+    display: none;
+  }
+
+  .fold-masthead-short {
+    height: 46px;
+  }
+}
+
 .fold-masthead {
   margin-top: 12px;
 
