@@ -84,8 +84,15 @@ body {
 }
 
 .fold-masthead {
+  margin-top: 12px;
+
   @media(max-width: 1200px) {
+    margin-top: 0;
     border-radius: 0;
+  }
+
+  @media(min-width: 1200px) {
+    padding-bottom: 10vh;
   }
 
   text-align: center;
@@ -146,8 +153,6 @@ body {
   }
 
   .mdc-button {
-    margin-bottom: 10vh;
-
     @media(max-width: 1200px) {
       margin: 1vh 0;
     }
