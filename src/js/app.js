@@ -1,8 +1,29 @@
-import { MDCRipple } from '@material/ripple/index';
+// Entrypoint for the application.
+//
 
-import { MDCTopAppBar } from '@material/top-app-bar';
-// const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-// const topAppBar = new MDCTopAppBar(topAppBarElement);
+class App {
 
-import { MDCTextField } from '@material/textfield';
-const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
+  constructor() {
+  }
+
+  onStart() {
+    console.log('onStart called');
+
+    const mastheadContainer = document.querySelector('.data-masthead');
+
+    const appShell = document.querySelector('.data-app-shell');
+
+    // Setup navigation event listeners.
+    const navLinks = document.querySelectorAll('.data-href-spa');
+    navLinks.forEach((link) => {
+      console.log('Binding link: ' + link.href);
+    });
+
+  }
+}
+
+window.app = new App();
+(() => app.onStart())();
+
+
+

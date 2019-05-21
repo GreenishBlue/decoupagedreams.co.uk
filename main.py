@@ -10,6 +10,16 @@ def home():
   return render_template('index2.html')
 
 
+@app.route('/signup')
+def signup():
+  return render_template('signup.html')
+
+
+@app.route('/gallery')
+def gallery():
+  return render_template('page_gallery.html')
+
+
 @app.route('/build/bundle.css')
 def build_css():
   """Request compiled CSS. This is only for development, and will be

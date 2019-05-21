@@ -11,12 +11,11 @@
 </head>
 
 <body class="mdc-typography">
-  {% if full_header == True %}
-    {% include "header.html" %} 
-  {% else %}
-    {% include "header_short.html" %} 
-  {% endif %}
-  {% block content %}{% endblock %}
+  {% include "header.html" %} 
+
+  <div class="data-app-shell">
+    {% block content %}{% endblock %}
+  </div>
 
   <footer>
     <div class="fold-title fold-signature">Decoupage Dreams</div>
