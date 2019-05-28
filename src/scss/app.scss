@@ -21,6 +21,7 @@ $mdc-typography-styles-headline4: (
   font-family: unquote("Great Vibes, Arial, sans-serif")
 );
 
+@import "@material/fab/mdc-fab";
 @import "@material/typography/mdc-typography";
 @import "@material/card/mdc-card";
 @import "@material/image-list/mdc-image-list";
@@ -37,6 +38,18 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1200px;
+}
+
+.fold-fab {
+  position: fixed;
+
+  @media(max-width: 600px) {
+    bottom: 8px;
+    right: 8px;
+  }
+
+  bottom: 16px;
+  right: 16px;
 }
 
 .fold-mastnav {
