@@ -6,11 +6,13 @@ you must be whitelisted to get access.
 * Node.js/NPM
 * Python 3.7
 * Google Cloud SDK (for deployment only)
+* Use `pip install -r requirements.txt` to install Python deps
 
 ## Debugging
-Make sure Node.js/NPM are up-to-date.
+Make sure Node.js/NPM/Python 3 and dependencies are up-to-date. 
 
-`npm start`
+`export FLASK_DEBUG=1; export FLASK_APP=main.py`
+Run `npm start` and `flask run` simultaneously. 
 
 ## Building
 
