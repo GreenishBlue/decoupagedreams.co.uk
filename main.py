@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
 from requests import get
 
 
@@ -8,6 +8,15 @@ app = Flask(__name__)
 @app.route('/')
 def home():
   return render_template('index2.html')
+
+
+@app.route('/confirm')
+def confirm():
+  email_addr = request.args.get('email')
+  if not email_addr:
+    abort(500)
+  print("New signup: " + email_addr)
+  return render_template('confirmed.html')
 
 
 @app.route('/signup')
