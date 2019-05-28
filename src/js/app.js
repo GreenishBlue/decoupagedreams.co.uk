@@ -1,5 +1,6 @@
 // Entrypoint for the application.
-//
+import { MDCRipple } from '@material/ripple/index';
+import { MDCTextField } from '@material/textfield';
 
 class App {
 
@@ -19,6 +20,10 @@ class App {
       console.log('Binding link: ' + link.href);
     });
 
+    const textFields = document.querySelectorAll('.mdc-text-field'); 
+    textFields.forEach((field) => {
+      const textField = new MDCTextField(field);
+    });
   }
 }
 
