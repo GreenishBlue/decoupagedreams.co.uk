@@ -93,11 +93,7 @@ body {
 
 .fold-masthead {
   border-radius: 0;
-
-  @media(min-width: 1200px) {
-    padding-bottom: 10vh;
-  }
-
+  color: #e0e0e0;
   text-align: center;
 
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), 
@@ -107,7 +103,9 @@ body {
   background-position-y: 0;
   background-position-x: center;
 
-  color: #e0e0e0;
+  @media(min-width: 1200px) {
+    padding-bottom: 10vh;
+  }
 
   .fold-title {
     font-size: 62px;
@@ -148,11 +146,14 @@ body {
     @include mdc-text-field-ink-color(#fff);
     @include mdc-text-field-label-color(#fff);
     @include mdc-text-field-icon-color(#fff);
+    @include mdc-text-field-focused-outline-color($fold-primary);
+    @include mdc-text-field-hover-outline-color($fold-primary);
     @include mdc-text-field-outline-color(#fff);
   }
 
   .mdc-button, .mdc-text-field {
     height: 56px;
+    margin-top: -4px;
   }
 
   .mdc-button {
@@ -223,5 +224,12 @@ body {
     padding-bottom: 24px;
     max-width: 540px;
     margin: 0 auto;
+  }
+}
+
+.fold-footer {
+  .mdc-button, .mdc-text-field {
+    height: 56px;
+    margin-top: -4px;
   }
 }
