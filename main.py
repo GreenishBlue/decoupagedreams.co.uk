@@ -5,6 +5,11 @@ from requests import get
 app = Flask(__name__)
 
 
+# The URL to the Google Apps Script service which to send emails to.
+# Param: ?email=XXXXXXXXXX
+APPS_SCRIPT_EMAIL_URL = "https://script.google.com/macros/s/AKfycbyYnXyA7b3KrgU3P7ZZBN1TYRf7BW_koI1Ouw6x4pXrVVPBC-w/exec"
+
+
 @app.route('/')
 def home():
   return render_template('index2.html')
@@ -16,6 +21,7 @@ def confirm():
   if not email_addr:
     abort(500)
   print("New signup: " + email_addr)
+  get(APPS_SCRIPT_EMAIL_URL + "?email=" + email_addr)
   return render_template('confirmed.html')
 
 
