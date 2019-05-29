@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # The URL to the Google Apps Script service which to send emails to.
 # Param: ?email=XXXXXXXXXX
-APPS_SCRIPT_EMAIL_URL = "https://script.google.com/macros/s/AKfycbyYnXyA7b3KrgU3P7ZZBN1TYRf7BW_koI1Ouw6x4pXrVVPBC-w/exec"
+APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macros/s/AKfycbxClyaeZUd5mjsdPYjWJqrmESeI9ch5BZdQ-k_5/exec"
 
 
 @app.route('/')
