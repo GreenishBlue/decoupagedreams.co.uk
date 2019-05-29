@@ -179,6 +179,18 @@ body {
 .fold-venue-image-list,
 .fold-testimonial-list {
   @include mdc-image-list-masonry-columns(3);
+  @include mdc-image-list-shape-radius(4px);
+}
+
+@media(max-width: 600px) {
+  .fold-venue-image-list {
+    @include mdc-image-list-masonry-columns(2);
+    column-gap: 8px;
+
+    .mdc-image-list__item {
+      margin-bottom: 8px;
+    }
+  }
 }
 
 .fold-testimonial-layout-grid {
