@@ -12,7 +12,7 @@ APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macro
 
 @app.route('/')
 def home():
-  return render_template('index2.html')
+  return render_template('index.html')
 
 
 @app.route('/confirm')
