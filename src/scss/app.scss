@@ -63,20 +63,7 @@ body {
   top: 0;
   left: 0; right: 0;
 
-  a {
-    padding: 12px 24px;
-    color: #eee;
-    text-decoration: none;
 
-    @media(max-width: 400px) {
-      padding: 12px 12px;
-    }
-  }
-
-  a:hover, .active {
-    border-bottom: 4px solid $fold-primary;
-    color: #fff;
-  }
 
   @media(max-width: 1200px) {
     padding: 0;
@@ -94,6 +81,39 @@ body {
   text-align: center;
   padding: 64px 0;
   font-weight: bold;
+}
+
+.fold-header-logo,
+.fold-header-nav {
+  position: absolute;
+  top: 16px;
+
+  a {
+    padding: 6px;
+    color: #333;
+    text-decoration: none;
+
+    @media(max-width: 400px) {
+      padding: 12px 12px;
+    }
+  }
+
+  a:hover, .active {
+    border-bottom: 4px solid $fold-primary;
+    color: #fff;
+  }
+}
+
+.fold-header-logo {
+  left: 16px;
+}
+
+.fold-header-nav {
+  right: 16px;
+}
+
+.fold-header-nav-home a {
+  color: #fff;
 }
 
 .fold-masthead-short {

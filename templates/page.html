@@ -36,7 +36,9 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDGMNRW"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  {% if flags.ENABLE_HEADER %}
   {% include "header.html" %} 
+  {% endif %}
 
   <div class="data-app-shell">
     {% block content %}{% endblock %}
