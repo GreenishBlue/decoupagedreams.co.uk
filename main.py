@@ -10,11 +10,13 @@ FLAG_ENABLE_CALLS = "FLAG_ENABLE_CALLS"
 FLAG_ENABLE_BLOG = "FLAG_ENABLE_BLOG"
 FLAG_ENABLE_SOCIAL = "FLAG_ENABLE_SOCIAL"
 FLAG_ENABLE_NAV = "FLAG_ENABLE_NAV"
+FLAG_ENABLE_INQUIRY = "FLAG_ENABLE_INQUIRY"
 flags = {
   "ENABLE_CALLS": (os.environ.get(FLAG_ENABLE_CALLS) == "True"),
   "ENABLE_BLOG": (os.environ.get(FLAG_ENABLE_BLOG) == "True"),
   "ENABLE_SOCIAL": (os.environ.get(FLAG_ENABLE_SOCIAL) == "True"),
   "ENABLE_NAV": (os.environ.get(FLAG_ENABLE_NAV) == "True"),
+  "ENABLE_INQUIRY": (os.environ.get(FLAG_ENABLE_INQUIRY) == "True"),
 }
 
 # The URL to the Google Apps Script service which to send emails to.
