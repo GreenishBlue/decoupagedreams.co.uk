@@ -6,13 +6,15 @@ from requests import get
 app = Flask(__name__)
 
 
-FLAG_ENABLE_HEADER = "FLAG_ENABLE_HEADER"
 FLAG_ENABLE_CALLS = "FLAG_ENABLE_CALLS"
 FLAG_ENABLE_BLOG = "FLAG_ENABLE_BLOG"
+FLAG_ENABLE_SOCIAL = "FLAG_ENABLE_SOCIAL"
+FLAG_ENABLE_NAV = "FLAG_ENABLE_NAV"
 flags = {
-  "ENABLE_HEADER": (os.environ.get(FLAG_ENABLE_HEADER) == "True"),
   "ENABLE_CALLS": (os.environ.get(FLAG_ENABLE_CALLS) == "True"),
   "ENABLE_BLOG": (os.environ.get(FLAG_ENABLE_BLOG) == "True"),
+  "ENABLE_SOCIAL": (os.environ.get(FLAG_ENABLE_SOCIAL) == "True"),
+  "ENABLE_NAV": (os.environ.get(FLAG_ENABLE_NAV) == "True"),
 }
 
 # The URL to the Google Apps Script service which to send emails to.
@@ -21,7 +23,14 @@ APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macro
 
 
 def is_call_hours():
-  return True 
+  """Check if we're currently within call hours.
+  Weekdays from 8 AM to 6 PM."""
+  from datetime import datetime, time
+  now = datetime.now()
+  if 0 <= now.weekday() <= 4:
+    if time(8) <= now.time() <= time(18):
+      return True 
+  return False 
 
 
 @app.route('/')

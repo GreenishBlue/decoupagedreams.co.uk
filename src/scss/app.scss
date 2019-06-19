@@ -1,20 +1,10 @@
+$fold-background: #ffffff;
 $fold-primary: #FF9800;
 $fold-secondary: #ce93d8;
-// $fold-background: #ffebee;
-$fold-background: #ffffff;
-// $fold-background: #f1f1f1;
-
-$mdc-theme-primary: $fold-primary;
-// $mdc-theme-on-primary: #442C2E;
-$mdc-theme-secondary: $fold-secondary;
-// $mdc-theme-on-secondary: #442C2E;
-// $mdc-theme-surface: #FFFBFA;
-// $mdc-theme-on-surface: #442C2E;
-// $mdc-theme-background: #FFFFFF;
-// $mdc-theme-on-background: #442C2E;
 
 $mdc-typography-font-family: "Roboto Slab";
-
+$mdc-theme-primary: $fold-primary;
+$mdc-theme-secondary: $fold-secondary;
 $mdc-typography-styles-headline1: (
   font-family: unquote("Great Vibes, Arial, sans-serif")
 );
@@ -87,7 +77,9 @@ body {
 .fold-header-nav {
   position: absolute;
   top: 16px;
+}
 
+.fold-header-nav {
   a {
     padding: 6px;
     color: #333;
@@ -102,6 +94,18 @@ body {
     border-bottom: 4px solid $fold-primary;
     color: #fff;
   }
+}
+
+.fold-header-social {
+  display: inline-block;
+  margin: 0; padding: 0;
+  list-style: none;
+}
+
+.fold-header-social li {
+  display: inline;
+  float: left;
+  padding-left: 6px;
 }
 
 .fold-header-logo {

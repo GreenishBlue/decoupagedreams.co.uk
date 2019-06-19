@@ -1,13 +1,33 @@
-<img src="/static/favicon-32x32.png" class="fold-header-logo" href="/">
+{% if flags.ENABLE_SOCIAL %}
+<header class="fold-header-logo">
+  <a href="/"><img src="/static/favicon-32x32.png"></a>
+  <ul class="fold-header-social">
+    <li>
+      <a href="https://www.facebook.com/Decoupage-Dreams-1258375284223753/">
+        <img src="/static/social/fb.png">
+      </a>
+    </li>
 
+    <li>
+      <a href="https://www.instagram.com/decoupagedreamsuk/">
+        <img src="/static/social/ig.png">
+      </a>
+    </li>
+
+    <li>
+      <a href="https://www.pinterest.co.uk/decoupagedreamsuk/">
+        <img src="/static/social/pin.png">
+      </a>
+    </li>
+  </ul>
+</header>
+{% endif %}
+
+{% if flags.ENABLE_NAV %}
 <nav class="fold-header-nav fold-header-nav-home">
   <a href="/" class="active data-href-spa">Home</a>
-  <a href="/gallery" class="data-href-spa">Venue Dressing</a>
-  <a href="/gallery" class="data-href-spa">Stationery</a>
-  <a href="/gallery" class="data-href-spa">Products</a>
-  <a href="/gallery" class="data-href-spa">Gallery</a>
   <a href="/gallery" class="data-href-spa">Blog</a>
-  <a href="/gallery" class="data-href-spa">Contact Us</a>
 </nav>
+{% endif %}
 
 
