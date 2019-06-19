@@ -21,7 +21,7 @@ APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macro
 
 
 def is_call_hours():
-  return False 
+  return True 
 
 
 @app.route('/')
