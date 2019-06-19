@@ -1,7 +1,8 @@
 $fold-primary: #FF9800;
 $fold-secondary: #ce93d8;
 // $fold-background: #ffebee;
-$fold-background: #f1f1f1;
+$fold-background: #ffffff;
+// $fold-background: #f1f1f1;
 
 $mdc-theme-primary: $fold-primary;
 // $mdc-theme-on-primary: #442C2E;
@@ -21,10 +22,10 @@ $mdc-typography-styles-headline4: (
   font-family: unquote("Great Vibes, Arial, sans-serif")
 );
 
+@import "@material/fab/mdc-fab";
 @import "@material/typography/mdc-typography";
 @import "@material/card/mdc-card";
 @import "@material/image-list/mdc-image-list";
-@import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/button/mdc-button";
 @import "@material/layout-grid/mdc-layout-grid";
 @import "@material/textfield/mdc-text-field";
@@ -39,6 +40,18 @@ body {
   max-width: 1200px;
 }
 
+.fold-fab {
+  position: fixed;
+
+  @media(max-width: 600px) {
+    bottom: 8px;
+    right: 8px;
+  }
+
+  bottom: 16px;
+  right: 16px;
+}
+
 .fold-mastnav {
   padding: calc(12px + 3px) 0;
   text-align: center;
@@ -50,20 +63,7 @@ body {
   top: 0;
   left: 0; right: 0;
 
-  a {
-    padding: 12px 24px;
-    color: #eee;
-    text-decoration: none;
 
-    @media(max-width: 400px) {
-      padding: 12px 12px;
-    }
-  }
-
-  a:hover, .active {
-    border-bottom: 4px solid $fold-primary;
-    color: #fff;
-  }
 
   @media(max-width: 1200px) {
     padding: 0;
@@ -81,6 +81,39 @@ body {
   text-align: center;
   padding: 64px 0;
   font-weight: bold;
+}
+
+.fold-header-logo,
+.fold-header-nav {
+  position: absolute;
+  top: 16px;
+
+  a {
+    padding: 6px;
+    color: #333;
+    text-decoration: none;
+
+    @media(max-width: 400px) {
+      padding: 12px 12px;
+    }
+  }
+
+  a:hover, .active {
+    border-bottom: 4px solid $fold-primary;
+    color: #fff;
+  }
+}
+
+.fold-header-logo {
+  left: 16px;
+}
+
+.fold-header-nav {
+  right: 16px;
+}
+
+.fold-header-nav-home a {
+  color: #fff;
 }
 
 .fold-masthead-short {
@@ -163,9 +196,27 @@ body {
   }
 }
 
+.fold-form1 {
+  .mdc-text-field {
+    width: 100%;
+  }
+}
+
 .fold-venue-image-list,
 .fold-testimonial-list {
   @include mdc-image-list-masonry-columns(3);
+  @include mdc-image-list-shape-radius(4px);
+}
+
+@media(max-width: 600px) {
+  .fold-venue-image-list {
+    @include mdc-image-list-masonry-columns(2);
+    column-gap: 8px;
+
+    .mdc-image-list__item {
+      margin-bottom: 8px;
+    }
+  }
 }
 
 .fold-testimonial-layout-grid {

@@ -2,16 +2,51 @@
 <html>
 
 <head lang="en-gb">
-	<title>{{ title or "Decoupage Dreams" }}</title>
+  <!-- Anti-Flicker Snippet -->
+  <style>.async-hide { opacity: 0 !important} </style>
+  <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+  h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+  (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+  })(window,document.documentElement,'async-hide','dataLayer',4000,
+  {'GTM-KDGMNRW':true});</script>
+	
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KDGMNRW');</script>
+  <!-- End Google Tag Manager -->
+	
+  <title>{{ title or "Decoupage Dreams" }}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+  <link rel="manifest" href="/static/site.webmanifest">
+  <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#ce93d8">
+  <meta name="apple-mobile-web-app-title" content="Decoupage Dreams">
+  <meta name="application-name" content="Decoupage Dreams">
+  <meta name="msapplication-TileColor" content="#fffbba">
+  <meta name="theme-color" content="#fffbba">
+
   <link rel="stylesheet" href="/build/bundle.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab:400,700|Material+Icons">
+  <link rel="manifest" href="/static/manifest.json">
+
+  {% include 'schema_localbusiness.html' %}
 </head>
 
 <body class="mdc-typography">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDGMNRW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  {% if flags.ENABLE_HEADER %}
   {% include "header.html" %} 
+  {% endif %}
 
   <div class="data-app-shell">
     {% block content %}{% endblock %}
@@ -22,6 +57,13 @@
   </footer>
 
   <script src="/build/bundle.js" async></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141003614-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+
 </body>
 
 </html>

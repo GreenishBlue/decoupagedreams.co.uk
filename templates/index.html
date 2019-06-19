@@ -1,199 +1,54 @@
-<!doctype html>
-<html>
+{% extends 'page.html' %}
+{% set title = "Home - Decoupage Dreams" %}
+{% block content %}
+{% include 'home_header.html' %}
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Our Products</div>
+  <div class="mdc-typography--subtitle2">We have a wide range of <b>stationery</b> products and <b>venue dressing</b> services. Here's a few examples of our work:</div>
 
-<head lang="en-gb">
-	<title>{{ title or "Decoupage Dreams" }}</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'gallery.html' %}
 
-  <link rel="stylesheet" href="/build/bundle.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab:400,700|Material+Icons">
-</head>
+</section>
 
-<body class="mdc-typography">
-  {% include 'header.html' %}
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Testimonials</div>
+  <div class="mdc-typography--subtitle2">We love our customers and work hard to design the best products we can for
+    their day. Here's what they have to say about our service.</div>
 
-  <!-- <section class="container fold-section">
-    <div class="mdc-typography--headline4">Venue Dressing</div>
-    <div class="mdc-typography--subtitle2">We work with you throughout the process to design all venue aesthetics.
-      Everything is handmade, high-quality and bespoke to ensure <b>your day goes your way</b>.
-    </div>
+  {% include 'testimonials.html' %}
 
-    <ul class="mdc-image-list mdc-image-list--masonry fold-venue-image-list">
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1505744288177-8a097ba01de0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1526092817387-8f07b2904e48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1517722014278-c256a91a6fba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-    </ul>
-  </section> -->
+</section>
 
-  <!-- <section class="container fold-section">
-    <div class="mdc-typography--headline4">Stationery</div>
-    <div class="mdc-typography--subtitle2">Wedding invitations, RSVPs, save-the-dates, you name it. We've got it. We go
-      the extra mile when designing your bespoke stationery, your design choices are always front-and-centre. Here are
-      some examples we've made to give you some ideas!</b>
-    </div>
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Product List</div>
+  <div class="mdc-typography--subtitle2">
+We offer our products at competitive prices. Bride and Bridegroom can choose as much or as little as desired.
+Discounts may be available when purchasing for more than 100 guests. Please get in touch for more details.
+  </div>
 
-    <ul class="mdc-image-list mdc-image-list--masonry fold-venue-image-list">
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1505744288177-8a097ba01de0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1526092817387-8f07b2904e48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1517722014278-c256a91a6fba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-    </ul>
-  </section> -->
+  {% include 'pricing.html' %}
+
+</section>
 
 
+<section class="container fold-section fold-footer" style="max-width: 600px">
+  <div class="mdc-typography--headline4">Contact</div>
+  <div class="mdc-typography--subtitle2">Want to know more about our service? Fill in your email and we'll be in touch right away! Alternatively you can <a href="https://www.facebook.com/Decoupage-Dreams-1258375284223753">find us on Facebook</a> or phone us directly on <a href="tel:07419 111 922" class="utm-phone">07419 111 922</a>.</div>
 
-  <!-- <section class="container fold-section">
-    <div class="mdc-typography--headline4">Stationery</div>
-    <div class="mdc-typography--subtitle2">Wedding invitations, RSVPs, save-the-dates, you name it. We've got it. We go
-      the extra mile when designing your bespoke stationery, your design choices are always front-and-centre. Here are
-      some examples we've made to give you some ideas!</b>
-    </div>
+  <div style="text-align: center">
+    {% include 'contact_form.html' %}
+  </div>
 
-    <ul class="mdc-image-list mdc-image-list--masonry fold-venue-image-list">
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1505744288177-8a097ba01de0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1526092817387-8f07b2904e48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1517722014278-c256a91a6fba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-      <li class="mdc-image-list__item mdc-card">
-        <img class="mdc-image-list__image"
-          src="https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
-        <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">Text label</span>
-        </div>
-      </li>
-    </ul>
-  </section> -->
+</section>
 
-  <!-- <section class="container fold-section">
-    <div class="mdc-typography--headline4">About</div>
-    <div class="mdc-typography--subtitle2">Hi there, I'm Ann, founder of Decoupage Dreams</div>
-  </section> -->
+{% if flags.ENABLE_CALLS and call_hours %}
+  <button class="mdc-fab mdc-fab--extended"
+       	  style="position: fixed; bottom: 8px; right: 8px">
+    <span class="material-icons mdc-fab__icon">call</span>
+    <a href="tel:07419 111 922" class="utm-phone-fab" style="text-decoration: none; color: #333;">
+      <span class="mdc-fab__label">07419 111 922</span>
+    </a>
+  </button>
+{% endif %}
 
-  <section class="container fold-section" style="text-align: center;">
-    <div class="mdc-typography--headline4">Contact Us</div>
-
-    {% include "contact_form.html" %}
-
-    <div class="mdc-typography--headline4">Our Promise</div>
-    <div class="mdc-typography--body1">
-      We recognise that your special day has to be perfect - you can rely on us. <b>And if something does go
-        wrong, we have business insurance covering everything</b>, so you'll get quality service no matter what.
-  </section>
-
-  <footer>
-    <div class="fold-title fold-signature">Decoupage Dreams</div>
-  </footer>
-
-  <script src="/build/bundle.js" async></script>
-</body>
-
-</html>
+{% endblock %}
