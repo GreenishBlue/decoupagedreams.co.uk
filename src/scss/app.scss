@@ -1,7 +1,8 @@
 $fold-primary: #FF9800;
 $fold-secondary: #ce93d8;
 // $fold-background: #ffebee;
-$fold-background: #f1f1f1;
+$fold-background: #ffffff;
+// $fold-background: #f1f1f1;
 
 $mdc-theme-primary: $fold-primary;
 // $mdc-theme-on-primary: #442C2E;
@@ -25,10 +26,10 @@ $mdc-typography-styles-headline4: (
 @import "@material/typography/mdc-typography";
 @import "@material/card/mdc-card";
 @import "@material/image-list/mdc-image-list";
-@import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/button/mdc-button";
 @import "@material/layout-grid/mdc-layout-grid";
 @import "@material/textfield/mdc-text-field";
+@import "@material/checkbox"
 
 body {
   background-color: $fold-background;
@@ -193,6 +194,12 @@ body {
     @media(max-width: 1200px) {
       margin: 1vh 0;
     }
+  }
+}
+
+.fold-form1 {
+  .mdc-text-field {
+    width: 100%;
   }
 }
 

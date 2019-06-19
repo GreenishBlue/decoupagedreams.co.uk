@@ -7,8 +7,12 @@ app = Flask(__name__)
 
 
 FLAG_ENABLE_HEADER = "FLAG_ENABLE_HEADER"
+FLAG_ENABLE_CALLS = "FLAG_ENABLE_CALLS"
+FLAG_ENABLE_BLOG = "FLAG_ENABLE_BLOG"
 flags = {
   "ENABLE_HEADER": (os.environ.get(FLAG_ENABLE_HEADER) == "True"),
+  "ENABLE_CALLS": (os.environ.get(FLAG_ENABLE_CALLS) == "True"),
+  "ENABLE_BLOG": (os.environ.get(FLAG_ENABLE_BLOG) == "True"),
 }
 
 # The URL to the Google Apps Script service which to send emails to.
@@ -16,9 +20,23 @@ flags = {
 APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macros/s/AKfycbxClyaeZUd5mjsdPYjWJqrmESeI9ch5BZdQ-k_5/exec"
 
 
+def is_call_hours():
+  return False 
+
+
 @app.route('/')
 def home():
-  return render_template('index.html', flags=flags)
+  return render_template('index.html', flags=flags, call_hours=is_call_hours())
+
+
+@app.route('/blog')
+def blog():
+  return render_template('blog.html', flags=flags, posts=[], call_hours=is_call_hours())
+
+
+@app.route('/blog/<string:post_id>')
+def blog_post(post_id):
+  return render_template('blog_post.html', flags=flags, post={}, call_hours=is_call_hours())
 
 
 @app.route('/confirm')
