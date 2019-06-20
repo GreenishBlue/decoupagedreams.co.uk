@@ -20,22 +20,44 @@
   <div class="mdc-typography--headline4">Any Occasion</div>
   <div class="mdc-typography--subtitle2">We have a wide range of <b>stationery</b> products and <b>venue dressing</b> services across a range of occasions. Please click to see more.</div>
 
-  <ul class="mdc-image-list mdc-image-list--masonry fold-venue-image-list">
-    <li class="mdc-image-list__item mdc-card">
-      <img class="mdc-image-list__image"
- 	   src="/static/images/products2/IMG_20190504_152910.jpg">
-    </li>
+  <div class="mdc-layout-grid fold-verticals-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell">
+	<a href="/occasions">
+ 	  <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_152910.jpg')">
+	    <div class="fold-title-card--text">
+              <div class="mdc-typography--headline5">Occasions</div>
+              <div class="mdc-typography--caption">Birthdays, Christenings &amp; Funerals</div>
+	    </div>
+          </div>
+	</a>
+      </div>
 
-    <li class="mdc-image-list__item mdc-card">
-      <img class="mdc-image-list__image"
- 	   src="/static/images/products2/IMG_20190504_152910.jpg">
-    </li>
+      <div class="mdc-layout-grid__cell">
+        <a href="/weddings">
+ 	  <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_152910.jpg')">
+	    <div class="fold-title-card--text">
+              <div class="mdc-typography--headline5">Weddings</div>
+              <div class="mdc-typography--caption">Bespoke Table Decorations, Chair Covers, Table Plans &amp; Stationery For Your Special Day</div>
+	    </div>
+          </div>
+	</a>
+      </div>
 
-    <li class="mdc-image-list__item mdc-card">
-      <img class="mdc-image-list__image"
- 	   src="/static/images/products2/IMG_20190504_152910.jpg">
-    </li>
-  </ul>
+      <div class="mdc-layout-grid__cell">
+	<a href="/gifts">
+ 	  <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_152910.jpg')">
+	    <div class="fold-title-card--text">
+              <div class="mdc-typography--headline5">Gifts</div>
+              <div class="mdc-typography--caption">Bespoke Cards &amp; Favour Boxes</div>
+	    </div>
+          </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+  {% include 'includes/cta_inquiry.html' %}
 </section>
 
 
@@ -82,8 +104,6 @@
           <div class="mdc-typography--body2">
             <p>Ann offers a unique, bespoke service. We have relied on Decoupage Dreams
               to dress our events and design centre pieces that showcase our catering service.</p>
-            <!-- <p>Every new business faces challenges, some more difficult than others. With the support and guidance Ann -->
-            <!-- provides, we were better positioned to ensure we delievered 100% customer satisfaction.</p> -->
             <p>Ann has dressed our corporate events, provided centre pieces for our wedding fayres and business
               expo's, as well as spondoring and designing our Christmas cards. Finally, she has produced unique
               packaging for our clients.</p>
