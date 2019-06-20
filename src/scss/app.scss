@@ -203,8 +203,6 @@ a {
     }
   }
 
-
-
   .mdc-text-field {
     @include mdc-text-field-ink-color(#fff);
     @include mdc-text-field-label-color(#fff);
@@ -269,6 +267,24 @@ a {
     .mdc-image-list__item {
       margin-bottom: 8px;
     }
+  }
+}
+
+.fold-verticals-layout-grid {
+  padding: 0;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.fold-title-card {
+  background-size: cover !important;
+  height: 245px;
+
+  .fold-title-card--text {
+    padding: 12px;
   }
 }
 
