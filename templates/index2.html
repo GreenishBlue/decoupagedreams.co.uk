@@ -1,0 +1,157 @@
+{% extends 'page.html' %}
+{% set title = "Home - Decoupage Dreams" %}
+{% set home_page = True %}
+{% block content %}
+<!-- Masthead -->
+<header class="fold-masthead data-masthead mdc-card">
+  <h1 class="fold-title mdc-typography--headline1">Decoupage Dreams</h1>
+  <div class="fold-subtitle mdc-typography--subtitle2">Based in Lancashire UK, we provide bespoke wedding
+  stationery and venue dressing services in our local community and beyond. Why not contact us for an
+  obligation-free conversation?
+  </div>
+
+  {% include 'contact_form.html' %}
+
+  <div class="shade"></div>
+</header>
+
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Any Occasion</div>
+  <div class="mdc-typography--subtitle2">We have a wide range of <b>stationery</b> products and <b>venue dressing</b> services across a range of occasions. Please click to see more.</div>
+
+  <ul class="mdc-image-list mdc-image-list--masonry fold-venue-image-list">
+    <li class="mdc-image-list__item mdc-card">
+      <img class="mdc-image-list__image"
+ 	   src="/static/images/products2/IMG_20190504_152910.jpg">
+    </li>
+
+    <li class="mdc-image-list__item mdc-card">
+      <img class="mdc-image-list__image"
+ 	   src="/static/images/products2/IMG_20190504_152910.jpg">
+    </li>
+
+    <li class="mdc-image-list__item mdc-card">
+      <img class="mdc-image-list__image"
+ 	   src="/static/images/products2/IMG_20190504_152910.jpg">
+    </li>
+  </ul>
+</section>
+
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Our Products</div>
+  <div class="mdc-typography--subtitle2"></div>
+</section>
+
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Our Service</div>
+  <div class="mdc-typography--subtitle2">We offer our products at competitive prices. 
+    Bride and Bridegroom can choose as much or as little as desired. Discounts may be available when purchasing 
+    for more than 100 guests. Please get in touch for more details.</div>
+</section>
+
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Testimonials</div>
+  <div class="mdc-typography--subtitle2">We love our customers and work hard to design the best products we can for
+    their day. Here's what they have to say about our service.</div>
+
+  <div class="mdc-layout-grid fold-testimonial-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell">
+        <div class="mdc-card fold-testimonial-card">
+          <img class="fold-testimonial-couple-photo"
+                src="https://images.unsplash.com/photo-1493970172592-658147e0a761?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=200&q=80">
+          <div class="mdc-typography--headline5">Mr. &amp; Mrs. Wilson</div>
+          <div class="mdc-typography--caption">June 2018</div>
+          <div class="mdc-typography--body2">
+            <p>We can highly recommend Decoupage Dreams! Ann is amazing, and goes above and beyond. Our wedding
+              venue and flowers were so beautiful!</p>
+            <p><b>We would have no hesitation to use Decoupage Dreams for future events.</b></p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mdc-layout-grid__cell">
+        <div class="mdc-card fold-testimonial-card">
+          <img class="fold-testimonial-couple-photo" style="
+            background: url(/static/images/chefs-catering.png);
+            background-repeat: no-repeat;
+            background-color: #fff;
+            background-size: 135px; 
+            background-position:50% 45%;
+            overflow:hidden;">
+          <div class="mdc-typography--headline5">Chef's Catering Ltd.</div>
+          <div class="mdc-typography--caption">2018</div>
+          <div class="mdc-typography--body2">
+            <p>Ann offers a unique, bespoke service. We have relied on Decoupage Dreams
+              to dress our events and design centre pieces that showcase our catering service.</p>
+            <!-- <p>Every new business faces challenges, some more difficult than others. With the support and guidance Ann -->
+            <!-- provides, we were better positioned to ensure we delievered 100% customer satisfaction.</p> -->
+            <p>Ann has dressed our corporate events, provided centre pieces for our wedding fayres and business
+              expo's, as well as spondoring and designing our Christmas cards. Finally, she has produced unique
+              packaging for our clients.</p>
+            <p><b>Chef's Catering believes in Ann because she always delivers!</b></p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mdc-layout-grid__cell">
+        <div class="mdc-card fold-testimonial-card">
+          <img class="fold-testimonial-couple-photo"
+            src="https://media.licdn.com/dms/image/C4D03AQFRVysgMmNlZg/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=joaqYBVTRR7w36oKBIBL0upeQZ0_PLDN5El-ixEnl8Y">
+          <div class="mdc-typography--headline5">Paul Rodman, Kendal Wills</div>
+          <div class="mdc-typography--caption">February 2019</div>
+          <div class="mdc-typography--body2">
+            <p>My stepson is getting married abroad soon, and I wanted some little gifts
+              I could take to the wedding. Ann suggested some little boxes (favour boxes) we could put sweets in</p>
+            <p>She has manufactured fifteen of these, and are made out of card. Each one is carefully hand-made with a
+              name-tag on. The price was also very reasonable.</p>
+            <p><b>Thank you Ann again, for your help with these!</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% if flags.ENABLE_BLOG %}
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Latest Blog Posts</div>
+  <div class="mdc-typography--subtitle2"></div>
+  <div class="mdc-layout-grid fold-blog-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell">
+          <div class="mdc-card">
+      <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+            <div class="mdc-typography--headline5">10 Tips For Your Wedding</div>
+            <div class="mdc-typography--caption">Written 20th June 2019</div>
+            <div class="mdc-typography--body2">
+              <p>We can highly recommend Decoupage Dreams! Ann is amazing, and goes above and beyond. Our wedding
+                venue and flowers were so beautiful!</p>
+              <p><b>We would have no hesitation to use Decoupage Dreams for future events.</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endif %}
+
+
+{% if flags.ENABLE_MAP %}
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Based in Lancashire</div>
+  <div class="mdc-typography--subtitle2">
+Founded in Morecambe, we have since branched out to serve the whole Lancashire area.
+We work with hotels &amp; venues across the area and beyond. 
+  </div>
+  <div class="mdc-card">
+    <iframe class="fold-local-map" src="https://www.google.com/maps/d/u/1/embed?mid=14b7IsPk9ClKtERllOKX9FodZxomX5ls8" style="width: 100%; height: 500px"></iframe>
+  </div>
+</section>
+{% endif %}
+{% endblock %}
