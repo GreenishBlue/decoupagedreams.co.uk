@@ -69,6 +69,26 @@ def blog_post(post_id):
   return render_template('blog_post.html', flags=flags, post={}, call_hours=is_call_hours())
 
 
+@app.route('/confirm_expanded')
+def confirm_expanded():
+  email_addr = request.args.get('email')
+  if not email_addr:
+    abort(500)
+  name = request.args.get('name')
+  if not name:
+    name = ""
+  message = request.args.get('message')
+  if not message:
+    message = ""
+  budget = request.args.get('budget')
+  if not budget:
+    budget = ""
+  print("New signup: " + email_addr)
+  get(APPS_SCRIPT_EMAIL_URL + "?email=" + email_addr + "&name=" + name +
+      "&message=" + message + "&budget=" + budget)
+  return render_template('confirmed.html', flags=flags)
+
+
 @app.route('/confirm')
 def confirm():
   email_addr = request.args.get('email')
