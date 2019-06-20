@@ -111,11 +111,12 @@ a {
 }
 
 .fold-header-nav-hamburger {
-  display: none;
   left: 16px;
+}
 
-  @media(max-width: 600px) {
-    display: block;
+@media(min-width: 600px) {
+  .fold-header-nav-hamburger {
+    display: none;
   }
 }
 
@@ -130,16 +131,22 @@ a {
 }
 
 .fold-header-social {
-  display: inline-block;
-  margin: 0; padding: 0;
-  list-style: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 
   @media(max-width: 600px) {
     display: none;
   }
 }
 
-.fold-header-social li {
+.fold-social {
+  display: inline-block;
+  margin: 0; padding: 0;
+  list-style: none;
+}
+
+.fold-social li {
   display: inline;
   float: left;
   padding-left: 6px;
@@ -156,7 +163,8 @@ a {
 }
 
 .fold-header-nav {
-  right: 16px;
+  width: 100%;
+  text-align: center;
 }
 
 .fold-masthead-short {

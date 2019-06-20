@@ -83,46 +83,17 @@
   <header class="fold-header-logo">
     <!-- Main Logo -->
     <a href="/"><img src="/static/favicon-32x32.png"></a>
+  </header>
 
-    <!-- Social Links -->
-    {% if flags.ENABLE_SOCIAL %}
-    <ul class="fold-header-social">
-      <li>
-        <a href="https://www.facebook.com/Decoupage-Dreams-1258375284223753/">
-    {% if home_page %}
-          <img src="/static/social/fb.png">
-    {% else %}
-          <img src="/static/social/fb_dark.png">
-    {% endif %}
-        </a>
-      </li>
-
-      <li>
-        <a href="https://www.instagram.com/decoupagedreamsuk/">
-    {% if home_page %}
-          <img src="/static/social/ig.png">
-    {% else %}
-          <img src="/static/social/ig_dark.png">
-    {% endif %}
-        </a>
-      </li>
-
-      <li>
-        <a href="https://www.pinterest.co.uk/decoupagedreamsuk/">
-    {% if home_page %}
-          <img src="/static/social/pin.png">
-    {% else %}
-          <img src="/static/social/pin_dark.png">
-    {% endif %}
-        </a>
-      </li>
-    </ul>
-    {% endif %}
+  <header class="fold-header-social">
+    {% include 'includes/social_icons.html' %}
   </header>
 
   {% if flags.ENABLE_NAV %}
-    <i class="material-icons mdc-text-field__icon fold-header-nav-hamburger" 
-      tabindex="0" role="button">menu</i>
+    <div class="fold-header-nav-hamburger">
+      <i class="material-icons mdc-text-field__icon"
+         tabindex="0" role="button">menu</i>
+    </div>
 
     {% if home_page %}
     <nav class="fold-header-nav fold-header-nav-dark">
@@ -136,9 +107,12 @@
       {% if flags.ENABLE_FAQ %}
       <a href="/faq">FAQ</a>
       {% endif %}
-      <a href="/occasions">Occasions</a>
-      <a href="/weddings">Weddings</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/occasions">For Occasions</a>
+      <a href="/weddings">For Weddings</a>
       <a href="/gifts">Gifts</a>
+      <a href="#fold-testimonials">Testimonials</a>
+      <a href="#fold-inquiry">Contact</a>
     </nav>
   {% endif %}
 
@@ -163,6 +137,8 @@
       <div class="mdc-typography--subtitle2">Want to know more about our service? Fill in your email and we'll be in touch right away! Alternatively you can <a href="https://www.facebook.com/Decoupage-Dreams-1258375284223753">find us on Facebook</a> or phone us directly on <a href="tel:07419 111 922" class="utm-phone">07419 111 922</a>. We'd like to know (roughly) the date of your event, as well as your desired styles &amp; colours. We typically respond whtin a few hours!</div>
   
       <div style="text-align: center">
+	{% include 'includes/social_icons.html' %}
+	<br><br>
         {% include 'includes/form_inquiry.html' %}
       </div>
     </div>
