@@ -1,12 +1,12 @@
 <div class="fold-form1" style="text-align: center;">
-  <form action="/confirm">
+  <form action="/confirm_expanded">
     <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
       <i class="material-icons mdc-text-field__icon" tabindex="0" role="button">face</i>
-      <input type="email" id="tf-outlined" class="mdc-text-field__input" name="name">
+      <input type="text" id="tf-outlined" class="mdc-text-field__input" name="name">
       <div class="mdc-notched-outline">
         <div class="mdc-notched-outline__leading"></div>
         <div class="mdc-notched-outline__notch">
-          <label for="tf-outlined" class="mdc-floating-label">Your Name</label>
+          <label for="tf-outlined" class="mdc-floating-label">What is your name?</label>
         </div>
         <div class="mdc-notched-outline__trailing"></div>
       </div>
@@ -19,7 +19,20 @@
       <div class="mdc-notched-outline">
         <div class="mdc-notched-outline__leading"></div>
         <div class="mdc-notched-outline__notch">
-          <label for="tf-outlined" class="mdc-floating-label">Your Email</label>
+          <label for="tf-outlined" class="mdc-floating-label">What is your email address?</label>
+        </div>
+        <div class="mdc-notched-outline__trailing"></div>
+      </div>
+    </div>
+    <br><br>
+
+    <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
+      <i class="material-icons mdc-text-field__icon" tabindex="0" role="button">money</i>
+      <input type="number" id="tf-outlined" class="mdc-text-field__input" name="budget">
+      <div class="mdc-notched-outline">
+        <div class="mdc-notched-outline__leading"></div>
+        <div class="mdc-notched-outline__notch">
+          <label for="tf-outlined" class="mdc-floating-label">What is your allocated budget? (optional)</label>
         </div>
         <div class="mdc-notched-outline__trailing"></div>
       </div>
@@ -27,7 +40,7 @@
     <br><br>
 
     <div class="mdc-text-field mdc-text-field--outlined" style="height: 300px">
-      <input type="email" id="tf-outlined" class="mdc-text-field__input" name="message">
+      <input type="text" id="tf-outlined" class="mdc-text-field__input" name="message">
       <div class="mdc-notched-outline">
         <div class="mdc-notched-outline__leading"></div>
         <div class="mdc-notched-outline__notch">

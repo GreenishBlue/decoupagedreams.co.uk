@@ -4,8 +4,8 @@
 {% block content %}
 {% include 'home_header.html' %}
 <section class="container fold-section">
-  <div class="mdc-typography--headline4">Our Products</div>
-  <div class="mdc-typography--subtitle2">We have a wide range of <b>stationery</b> products and <b>venue dressing</b> services. Here's a few examples of our work:</div>
+  <div class="mdc-typography--headline4">Any Occasion</div>
+  <div class="mdc-typography--subtitle2">We have a wide range of <b>stationery</b> products and <b>venue dressing</b> services across a range of occasions. Please click to see more.</div>
 
   <ul class="mdc-image-list mdc-image-list--masonry fold-venue-image-list">
     <li class="mdc-image-list__item mdc-card">
@@ -23,6 +23,16 @@
  	   src="/static/images/products2/IMG_20190504_152910.jpg">
     </li>
   </ul>
+</section>
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Our Products</div>
+  <div class="mdc-typography--subtitle2"></div>
+</section>
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Our Service</div>
+  <div class="mdc-typography--subtitle2"></div>
 </section>
 
 <section class="container fold-section">
@@ -36,29 +46,16 @@
 
 </section>
 
+
 {% if flags.ENABLE_BLOG %}
 <section class="container fold-section">
   <div class="mdc-typography--headline4">Latest Blog Posts</div>
   <div class="mdc-typography--subtitle2">
-todo
   </div>
 
-  <ul class="mdc-image-list mdc-image-list--masonry fold-venue-image-list">
-    <li class="mdc-image-list__item mdc-card">
-      <img class="mdc-image-list__image"
- 	   src="/static/images/products2/IMG_20190504_152910.jpg">
-    </li>
-
-    <li class="mdc-image-list__item mdc-card">
-      <img class="mdc-image-list__image"
- 	   src="/static/images/products2/IMG_20190504_152910.jpg">
-    </li>
-
-    <li class="mdc-image-list__item mdc-card">
-      <img class="mdc-image-list__image"
- 	   src="/static/images/products2/IMG_20190504_152910.jpg">
-    </li>
-  </ul>
+  <div>
+    {% include 'home_blog_recent.html' %} 
+  </div>
 </section>
 {% endif %}
 
@@ -70,24 +67,12 @@ todo
 <section class="container fold-section">
   <div class="mdc-typography--headline4">Based in Lancashire</div>
   <div class="mdc-typography--subtitle2">
-todo
+Founded in Morecambe, we have since branched out to serve the whole Lancashire area.
+We work with hotels &amp; venues across the area and beyond.
   </div>
 
   {% include 'local_map.html' %}
 
 </section>
 {% endif %}
-
-
-{% if flags.ENABLE_CALLS and call_hours %}
-  <button class="mdc-fab mdc-fab--extended"
-       	  style="position: fixed; bottom: 8px; right: 8px">
-    <span class="material-icons mdc-fab__icon">call</span>
-    <a href="tel:07419 111 922" class="utm-phone-fab" style="text-decoration: none; color: #333;">
-      <span class="mdc-fab__label">07419 111 922</span>
-    </a>
-  </button>
-{% endif %}
-
-{% include 'home_footer.html' %}
 {% endblock %}
