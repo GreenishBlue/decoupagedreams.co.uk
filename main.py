@@ -12,6 +12,7 @@ FLAG_ENABLE_SOCIAL = "FLAG_ENABLE_SOCIAL"
 FLAG_ENABLE_NAV = "FLAG_ENABLE_NAV"
 FLAG_ENABLE_INQUIRY = "FLAG_ENABLE_INQUIRY"
 FLAG_ENABLE_MAP = "FLAG_ENABLE_MAP"
+FLAG_ENABLE_FAQ = "FLAG_ENABLE_FAQ"
 flags = {
   "ENABLE_CALLS": (os.environ.get(FLAG_ENABLE_CALLS) == "True"),
   "ENABLE_BLOG": (os.environ.get(FLAG_ENABLE_BLOG) == "True"),
@@ -19,6 +20,7 @@ flags = {
   "ENABLE_NAV": (os.environ.get(FLAG_ENABLE_NAV) == "True"),
   "ENABLE_INQUIRY": (os.environ.get(FLAG_ENABLE_INQUIRY) == "True"),
   "ENABLE_MAP": (os.environ.get(FLAG_ENABLE_MAP) == "True"),
+  "ENABLE_FAQ": (os.environ.get(FLAG_ENABLE_FAQ) == "True"),
 }
 
 # The URL to the Google Apps Script service which to send emails to.
@@ -39,7 +41,22 @@ def is_call_hours():
 
 @app.route('/')
 def home():
-  return render_template('index.html', flags=flags, call_hours=is_call_hours())
+  return render_template('index2.html', flags=flags, call_hours=is_call_hours())
+
+
+@app.route('/occasions')
+def landing_occasions():
+  return render_template('pages/landing_occasions.html', flags=flags, call_hours=is_call_hours())
+
+
+@app.route('/weddings')
+def landing_weddings():
+  return render_template('pages/landing_weddings.html', flags=flags, call_hours=is_call_hours())
+
+
+@app.route('/gifts')
+def landing_gifts():
+  return render_template('pages/landing_gifts.html', flags=flags, posts=[], call_hours=is_call_hours())
 
 
 @app.route('/blog')

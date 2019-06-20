@@ -1,4 +1,4 @@
-{% extends 'page.html' %}
+{% extends 'base.html' %}
 {% set title = "Home - Decoupage Dreams" %}
 {% set home_page = True %}
 {% block content %}
@@ -10,7 +10,7 @@
   obligation-free conversation?
   </div>
 
-  {% include 'contact_form.html' %}
+  {% include 'includes/form_email.html' %}
 
   <div class="shade"></div>
 </header>
@@ -36,12 +36,6 @@
  	   src="/static/images/products2/IMG_20190504_152910.jpg">
     </li>
   </ul>
-</section>
-
-
-<section class="container fold-section">
-  <div class="mdc-typography--headline4">Our Products</div>
-  <div class="mdc-typography--subtitle2"></div>
 </section>
 
 
