@@ -6,21 +6,15 @@ from requests import get
 app = Flask(__name__)
 
 
-FLAG_ENABLE_CALLS = "FLAG_ENABLE_CALLS"
-FLAG_ENABLE_BLOG = "FLAG_ENABLE_BLOG"
-FLAG_ENABLE_SOCIAL = "FLAG_ENABLE_SOCIAL"
-FLAG_ENABLE_NAV = "FLAG_ENABLE_NAV"
-FLAG_ENABLE_INQUIRY = "FLAG_ENABLE_INQUIRY"
-FLAG_ENABLE_MAP = "FLAG_ENABLE_MAP"
-FLAG_ENABLE_FAQ = "FLAG_ENABLE_FAQ"
 flags = {
-  "ENABLE_CALLS": (os.environ.get(FLAG_ENABLE_CALLS) == "True"),
-  "ENABLE_BLOG": (os.environ.get(FLAG_ENABLE_BLOG) == "True"),
-  "ENABLE_SOCIAL": (os.environ.get(FLAG_ENABLE_SOCIAL) == "True"),
-  "ENABLE_NAV": (os.environ.get(FLAG_ENABLE_NAV) == "True"),
-  "ENABLE_INQUIRY": (os.environ.get(FLAG_ENABLE_INQUIRY) == "True"),
-  "ENABLE_MAP": (os.environ.get(FLAG_ENABLE_MAP) == "True"),
-  "ENABLE_FAQ": (os.environ.get(FLAG_ENABLE_FAQ) == "True"),
+  "ENABLE_CALLS": (os.environ.get("FLAG_ENABLE_CALLS") == "True"),
+  "ENABLE_BLOG": (os.environ.get("FLAG_ENABLE_BLOG") == "True"),
+  "ENABLE_SOCIAL": (os.environ.get("FLAG_ENABLE_SOCIAL") == "True"),
+  "ENABLE_NAV": (os.environ.get("FLAG_ENABLE_NAV") == "True"),
+  "ENABLE_INQUIRY": (os.environ.get("FLAG_ENABLE_INQUIRY") == "True"),
+  "ENABLE_MAP": (os.environ.get("FLAG_ENABLE_MAP") == "True"),
+  "ENABLE_FAQ": (os.environ.get("FLAG_ENABLE_FAQ") == "True"),
+  "ENABLE_GALLERY": (os.environ.get("FLAG_ENABLE_GALLERY") == "True"),
 }
 
 # The URL to the Google Apps Script service which to send emails to.
