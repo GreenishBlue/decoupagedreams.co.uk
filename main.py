@@ -27,9 +27,8 @@ def is_call_hours():
   from datetime import datetime, time
   import pytz
   now = datetime.now(pytz.timezone('Europe/London'))
-  if 0 <= now.weekday() <= 4:
-    if time(8) <= now.time() <= time(18):
-      return True 
+  if time(8) <= now.time() <= time(18):
+    return True 
   return False 
 
 
