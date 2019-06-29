@@ -130,9 +130,23 @@
 	  <a href="/">Home</a>
 	</li>
 
+	{% if flags.ENABLE_BLOG %}
+        <li>
+	  <a href="/blog">Blog</a>
+	</li>
+	{% endif %}
+
+	{% if flags.ENABLE_FAQ %}
         <li>
 	  <a href="/faq">FAQ</a>
 	</li>
+	{% endif %}
+
+	{% if flags.ENABLE_GALLERY %}
+        <li>
+	  <a href="/gallery">Gallery</a>
+	</li>
+	{% endif %}
 
         <li>
 	  <a href="/#fold-testimonials" class="data-nav-toggle">Testimonials</a>
