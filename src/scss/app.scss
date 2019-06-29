@@ -295,6 +295,26 @@ a {
   .fold-title-card--text {
     padding: 12px;
   }
+
+  color: #fff;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.fold-products-list {
+  padding: 0;
+  display: block;
+
+  .fold-title-card {
+    float: left;
+    width: 24%;
+    margin-right: calc(4%/3);
+  }
+
+  height: 245px;
 }
 
 .fold-testimonial-layout-grid {
