@@ -11,12 +11,11 @@ automatic_scaling:
   max_concurrent_requests: 50
 
 env_variables:
-  FLAG_ENABLE_NAV: False 
+  FLAG_ENABLE_NAV: True 
   FLAG_ENABLE_CALLS: True
   FLAG_ENABLE_SOCIAL: True
   FLAG_ENABLE_MAP: False
   FLAG_ENABLE_BLOG: False
-  FLAG_ENABLE_INQUIRY: False
   FLAG_ENABLE_FAQ: False
   FLAG_ENABLE_GALLERY: False
 #   GA_TRACKING_ID: UA-11213581-15
