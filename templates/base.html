@@ -91,7 +91,7 @@
 
   {% if flags.ENABLE_NAV %}
     <div class="fold-header-nav-hamburger">
-      <i class="material-icons mdc-text-field__icon" style="float: left; color: #fff;" 
+      <i class="material-icons mdc-text-field__icon data-nav-toggle" style="float: left; color: #fff;" 
          tabindex="0" role="button">menu</i>
 
       <div class="fold-mobile-page-title fold-mobile-only">{{ short_title }}</div>
@@ -117,6 +117,32 @@
       <a href="/gifts">Gifts</a -->
       <a href="/#fold-testimonials">Testimonials</a>
       <a href="/#fold-inquiry">Contact</a>
+    </nav>
+
+    <nav class="fold-mobile-only fold-nav-drawer data-nav-drawer fold-nav-drawer-closed">
+      <div class="fold-header-nav-hamburger">
+        <i class="material-icons mdc-text-field__icon data-nav-toggle" 
+           tabindex="0" role="button">close</i>
+      </div>
+
+      <ul>
+        <li>
+	  <a href="/">Home</a>
+	</li>
+
+        <li>
+	  <a href="/faq">FAQ</a>
+	</li>
+
+        <li>
+	  <a href="/#fold-testimonials" class="data-nav-toggle">Testimonials</a>
+	</li>
+
+        <li>
+	  <a href="/#fold-inquiry" class="data-nav-toggle">Conttact</a>
+	</li>
+
+      </ul>
     </nav>
   {% endif %}
 

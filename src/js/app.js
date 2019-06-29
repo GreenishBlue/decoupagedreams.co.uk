@@ -12,6 +12,22 @@ class App {
       const textField = new MDCTextField(field);
     });
 
+
+    const navDrawer = document.querySelector('.data-nav-drawer');
+    const navDrawerButtons = document.querySelectorAll('.data-nav-toggle');
+    navDrawerButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        // Toggle drawer.
+	const closedStyle = 'fold-nav-drawer-closed';
+	if(navDrawer.classList.contains(closedStyle)) {
+          navDrawer.classList.remove(closedStyle);
+	} else {
+          navDrawer.classList.add(closedStyle);
+	}
+      }, false)
+    });
+
+
     // Register service worker.
     if ('serviceWorker' in navigator) {
       console.log("Attempting to reigster service worker.");

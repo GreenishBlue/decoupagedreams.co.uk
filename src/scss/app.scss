@@ -69,6 +69,25 @@ a {
   }
 }
 
+@media(min-width: 600px) {
+  .fold-mobile-only {
+    display: none;
+  }
+}
+
+@media(max-width: 600px) {
+  .fold-desktop-only {
+    display: none;
+  }
+}
+
+.fold-mobile-page-title {
+  color: #fff;
+  padding-left: 36px;
+  font-size: 20px;
+  margin-top: -2px;
+}
+
 .fold-title {
   font-family: 'Great Vibes', sans-serif;
   color: #333;
@@ -87,6 +106,10 @@ a {
 .fold-header-nav-hamburger {
   position: absolute;
   top: 16px;
+}
+
+.fold-header-logo {
+  z-index: 110;
 }
 
 .fold-header-nav {
@@ -108,6 +131,34 @@ a {
   @media(max-width: 600px) {
     display: none;
   }
+}
+
+.fold-nav-drawer {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0; left: 0;
+  background-color: #fff;
+  z-index: 100;
+  font-size: 26px;
+
+  ul {
+    li {
+      a {
+        text-decoration: none;
+      }
+    }
+
+    margin: 0; padding: 0;
+    list-style: none;
+  }
+
+  padding: 0 20px;
+  padding-top: 64px;
+}
+
+.fold-nav-drawer-closed {
+  display: none;
 }
 
 .fold-header-nav-hamburger {
@@ -168,11 +219,7 @@ a {
 }
 
 .fold-masthead-short {
-  .fold-title-short {
-    display: none !important;
-  }
-
-  height: 48px !important;
+  height: 60px !important;
 }
 
 .fold-masthead {
