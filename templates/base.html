@@ -99,6 +99,10 @@
   <nav class="fold-header-nav fold-header-nav-dark">
     <a href="/" {% if home_page %}class="active"{% endif %}>Home</a>
 
+    {% if flags.ENABLE_PRODUCTS %}
+    <a href="/products">Products</a>
+    {% endif %}
+
     {% if flags.ENABLE_BLOG %}
     <a href="/blog">Blog</a>
     {% endif %}
@@ -128,6 +132,12 @@
       <li>
         <a href="/">Home</a>
       </li>
+
+      {% if flags.ENABLE_PRODUCTS %}
+      <li>
+        <a href="/products">Products</a>
+      </li>
+      {% endif %}
 
       {% if flags.ENABLE_BLOG %}
       <li>
