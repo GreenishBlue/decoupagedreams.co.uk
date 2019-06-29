@@ -89,83 +89,80 @@
     {% include 'includes/social_icons.html' %}
   </header>
 
-  {% if flags.ENABLE_NAV %}
-    <div class="fold-header-nav-hamburger">
-      <i class="material-icons mdc-text-field__icon data-nav-toggle" style="float: left; color: #fff;" 
-         tabindex="0" role="button">menu</i>
+  <div class="fold-header-nav-hamburger">
+    <i class="material-icons mdc-text-field__icon data-nav-toggle" style="float: left; color: #fff;" 
+       tabindex="0" role="button">menu</i>
 
-      <div class="fold-mobile-page-title fold-mobile-only">{{ short_title }}</div>
+    <div class="fold-mobile-page-title fold-mobile-only">{{ short_title }}</div>
+  </div>
+
+  <nav class="fold-header-nav fold-header-nav-dark">
+    <a href="/" {% if home_page %}class="active"{% endif %}>Home</a>
+
+    {% if flags.ENABLE_BLOG %}
+    <a href="/blog">Blog</a>
+    {% endif %}
+
+    {% if flags.ENABLE_FAQ %}
+    <a href="/faq" {% if not home_page %}class="active"{% endif %}>FAQ</a>
+    {% endif %}
+
+    {% if flags.ENABLE_GALLERY %}
+    <a href="/gallery">Gallery</a>
+    {% endif %}
+
+    <!--a href="/occasions">For Occasions</a>
+    <a href="/weddings">For Weddings</a>
+    <a href="/gifts">Gifts</a -->
+    <a href="/#fold-testimonials">Testimonials</a>
+    <a href="/#fold-inquiry">Make An Inquiry</a>
+  </nav>
+
+  <nav class="fold-mobile-only fold-nav-drawer data-nav-drawer fold-nav-drawer-closed">
+    <div class="fold-header-nav-hamburger">
+      <i class="material-icons mdc-text-field__icon data-nav-toggle" 
+         tabindex="0" role="button">close</i>
     </div>
 
-    <nav class="fold-header-nav fold-header-nav-dark">
-      <a href="/" {% if home_page %}class="active"{% endif %}>Home</a>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
 
       {% if flags.ENABLE_BLOG %}
-      <a href="/blog">Blog</a>
+      <li>
+        <a href="/blog">Blog</a>
+      </li>
       {% endif %}
 
       {% if flags.ENABLE_FAQ %}
-      <a href="/faq" {% if not home_page %}class="active"{% endif %}>FAQ</a>
+      <li>
+        <a href="/faq">FAQ</a>
+      </li>
       {% endif %}
 
       {% if flags.ENABLE_GALLERY %}
-      <a href="/gallery">Gallery</a>
+      <li>
+        <a href="/gallery">Gallery</a>
+      </li>
       {% endif %}
 
-      <!--a href="/occasions">For Occasions</a>
-      <a href="/weddings">For Weddings</a>
-      <a href="/gifts">Gifts</a -->
-      <a href="/#fold-testimonials">Testimonials</a>
-      <a href="/#fold-inquiry">Make An Inquiry</a>
-    </nav>
+      <li>
+        <a href="/#fold-testimonials" class="data-nav-toggle">Testimonials</a>
+      </li>
 
-    <nav class="fold-mobile-only fold-nav-drawer data-nav-drawer fold-nav-drawer-closed">
-      <div class="fold-header-nav-hamburger">
-        <i class="material-icons mdc-text-field__icon data-nav-toggle" 
-           tabindex="0" role="button">close</i>
-      </div>
-
-      <ul>
-        <li>
-	  <a href="/">Home</a>
-	</li>
-
-	{% if flags.ENABLE_BLOG %}
-        <li>
-	  <a href="/blog">Blog</a>
-	</li>
-	{% endif %}
-
-	{% if flags.ENABLE_FAQ %}
-        <li>
-	  <a href="/faq">FAQ</a>
-	</li>
-	{% endif %}
-
-	{% if flags.ENABLE_GALLERY %}
-        <li>
-	  <a href="/gallery">Gallery</a>
-	</li>
-	{% endif %}
-
-        <li>
-	  <a href="/#fold-testimonials" class="data-nav-toggle">Testimonials</a>
-	</li>
-
-        <li>
-	  <a href="/#fold-inquiry" class="data-nav-toggle">Make An Inquiry</a>
-	</li>
-
-      </ul>
-    </nav>
-  {% endif %}
+      <li>
+        <a href="/#fold-inquiry" class="data-nav-toggle">Make An Inquiry</a>
+      </li>
+    </ul>
+  </nav>
 
   <main>
     {% block content %}{% endblock %}
   </main>
 
   <!-- Phone FAB -->
-  {% if flags.ENABLE_CALLS and call_hours %}
+  {% if call_hours %}
     <button class="mdc-fab mdc-fab--extended"
             style="position: fixed; bottom: 8px; right: 8px">
       <span class="material-icons mdc-fab__icon">call</span>

@@ -7,10 +7,7 @@ app = Flask(__name__)
 
 
 flags = {
-  "ENABLE_CALLS": (os.environ.get("FLAG_ENABLE_CALLS") == "True"),
   "ENABLE_BLOG": (os.environ.get("FLAG_ENABLE_BLOG") == "True"),
-  "ENABLE_SOCIAL": (os.environ.get("FLAG_ENABLE_SOCIAL") == "True"),
-  "ENABLE_NAV": (os.environ.get("FLAG_ENABLE_NAV") == "True"),
   "ENABLE_INQUIRY": (os.environ.get("FLAG_ENABLE_INQUIRY") == "True"),
   "ENABLE_MAP": (os.environ.get("FLAG_ENABLE_MAP") == "True"),
   "ENABLE_FAQ": (os.environ.get("FLAG_ENABLE_FAQ") == "True"),

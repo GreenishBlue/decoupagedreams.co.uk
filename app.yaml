@@ -11,9 +11,6 @@ automatic_scaling:
   max_concurrent_requests: 50
 
 env_variables:
-  FLAG_ENABLE_NAV: True 
-  FLAG_ENABLE_CALLS: True
-  FLAG_ENABLE_SOCIAL: True
   FLAG_ENABLE_MAP: True
   FLAG_ENABLE_BLOG: False
   FLAG_ENABLE_FAQ: False
