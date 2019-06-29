@@ -104,7 +104,7 @@
     {% endif %}
 
     {% if flags.ENABLE_FAQ %}
-    <a href="/faq" {% if not home_page %}class="active"{% endif %}>FAQ</a>
+    <a href="/#fold-faq" {% if not home_page %}class="active"{% endif %}>FAQ</a>
     {% endif %}
 
     {% if flags.ENABLE_GALLERY %}
@@ -137,7 +137,7 @@
 
       {% if flags.ENABLE_FAQ %}
       <li>
-        <a href="/faq">FAQ</a>
+        <a href="/#fold-faq">FAQ</a>
       </li>
       {% endif %}
 
