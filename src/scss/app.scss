@@ -108,10 +108,6 @@ a {
   top: 16px;
 }
 
-.fold-header-logo {
-  z-index: 110;
-}
-
 .fold-header-nav {
   a {
     padding: 6px;
@@ -186,10 +182,6 @@ a {
   top: 16px;
   right: 16px;
   z-index: 2;
-
-  @media(max-width: 600px) {
-    display: none;
-  }
 }
 
 .fold-social {
@@ -210,7 +202,9 @@ a {
   }
 
   @media(max-width: 600px) {
-    right: 16px;
+    margin-top: -4px;
+    width: 100%;
+    text-align: center;
   }
 }
 
