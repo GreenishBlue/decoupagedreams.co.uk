@@ -26,7 +26,8 @@ def is_call_hours():
   """Check if we're currently within call hours.
   Weekdays from 8 AM to 6 PM."""
   from datetime import datetime, time
-  now = datetime.now()
+  import pytz
+  now = datetime.now(pytz.timezone('Europe/London'))
   if 0 <= now.weekday() <= 4:
     if time(8) <= now.time() <= time(18):
       return True 
@@ -36,6 +37,11 @@ def is_call_hours():
 @app.route('/')
 def home():
   return render_template('index2.html', flags=flags, call_hours=is_call_hours())
+
+
+@app.route('/faq')
+def landing_faq():
+  return render_template('pages/faq.html', flags=flags, call_hours=is_call_hours())
 
 
 @app.route('/occasions')
