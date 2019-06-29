@@ -91,30 +91,32 @@
 
   {% if flags.ENABLE_NAV %}
     <div class="fold-header-nav-hamburger">
-      <i class="material-icons mdc-text-field__icon"
+      <i class="material-icons mdc-text-field__icon" style="float: left; color: #fff;" 
          tabindex="0" role="button">menu</i>
+
+      <div class="fold-mobile-page-title fold-mobile-only">{{ short_title }}</div>
     </div>
 
-    {% if home_page %}
     <nav class="fold-header-nav fold-header-nav-dark">
-    {% else %}
-    <nav class="fold-header-nav">
-    {% endif %}
-      <a href="/" class="active">Home</a>
+      <a href="/" {% if home_page %}class="active"{% endif %}>Home</a>
+
       {% if flags.ENABLE_BLOG %}
       <a href="/blog">Blog</a>
       {% endif %}
+
       {% if flags.ENABLE_FAQ %}
-      <a href="/faq">FAQ</a>
+      <a href="/faq" {% if not home_page %}class="active"{% endif %}>FAQ</a>
       {% endif %}
+
       {% if flags.ENABLE_GALLERY %}
       <a href="/gallery">Gallery</a>
       {% endif %}
+
       <!--a href="/occasions">For Occasions</a>
       <a href="/weddings">For Weddings</a>
       <a href="/gifts">Gifts</a -->
-      <a href="#fold-testimonials">Testimonials</a>
-      <a href="#fold-inquiry">Contact</a>
+      <a href="/#fold-testimonials">Testimonials</a>
+      <a href="/#fold-inquiry">Contact</a>
     </nav>
   {% endif %}
 
@@ -136,7 +138,7 @@
   <footer id="fold-inquiry" class="fold-section fold-masthead fold-footer mdc-card" style="margin-top: 60px;">
     <div style="max-width: 600px; margin: 0 auto; padding: 60px 0 80px 0; ">
       <div class="mdc-typography--headline4">Inquiry Form</div>
-      <div class="mdc-typography--subtitle2">Want to know more about our service? Fill in your email and we'll be in touch right away! Alternatively you can <a href="https://www.facebook.com/Decoupage-Dreams-1258375284223753">find us on Facebook</a> or phone us directly on <a href="tel:07419 111 922" class="utm-phone">07419 111 922</a>. We'd like to know (roughly) the date of your event, as well as your desired styles &amp; colours. We typically respond whtin a few hours!</div>
+      <div class="mdc-typography--subtitle2">Want to know more about our service? Fill in your email and we'll be in touch right away! Alternatively you can <a href="https://www.facebook.com/Decoupage-Dreams-1258375284223753">find us on Facebook</a> or phone us directly on <a href="tel:07419 111 922" class="utm-phone">07419 111 922</a>. We'd like to know (roughly) the date of your event, as well as your desired styles &amp; colours. We typically respond within a few hours!</div>
   
       <div style="text-align: center">
 	{% include 'includes/social_icons.html' %}
