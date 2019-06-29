@@ -56,11 +56,20 @@
 </section>
 
 
-<!--section class="container fold-section">
+{% if flags.ENABLE_PRODUCTS %}
+<section class="container fold-section">
   <div class="mdc-typography--headline4">Our Products</div>
   <div class="mdc-typography--subtitle2">We offer our products at competitive prices. 
 	  Bride and Bridegroom can choose as much or as little as desired. </div>
+</section>
 
+<ol class="fold-carousel">
+  <li>
+    <div class="mdc-card" style="background: url('/static/images/products2/IMG_20190504_161833.jpg');"></div>
+  </li>
+</ol>
+
+<section class="container">
   <div class="mdc-layout-grid fold-products-list">
       <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_164701.jpg')">
         <div class="fold-title-card--text">
@@ -89,18 +98,25 @@
 
   {% include 'includes/cta_inquiry.html' %}
 </section>
+{% endif %}
 
 
+{% if flags.ENABLE_HOME_SERVICE %}
 <section class="container fold-section">
   <div class="mdc-typography--headline4">Venue Dressing Service</div>
-  <div class="mdc-typography--subtitle2">
-    <ul>
+  <div class="mdc-typography--subtitle2">todo</div>
+
+  <div class="mdc-card" style="background: red; color: white; width: 50%; float: left; height: 200px">
+
       <li>Our service is fully insured - giving you peace of mind</li> 
-      <li>Through the process, we work with you to create bespoke designs, so your day truly says "you"!</li>
-    </ul>
   </div>
-  {% include 'includes/cta_inquiry.html' %}
-</section-->
+
+  <div class="mdc-card" style="background: blue; color: white; width: 50%; float: left; height: 200px">
+
+      <li>Through the process, we work with you to create bespoke designs, so your day truly says "you"!</li>
+  </div>
+</section>
+{% endif %}
 
 
 
