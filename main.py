@@ -16,6 +16,9 @@ flags = {
 APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macros/s/AKfycbxClyaeZUd5mjsdPYjWJqrmESeI9ch5BZdQ-k_5/exec"
 
 
+products = {}
+
+
 def is_call_hours():
   """Check if we're currently within call hours.
   Weekdays from 8 AM to 6 PM."""
@@ -30,6 +33,17 @@ def is_call_hours():
 @app.route('/')
 def home():
   return render_template('pages/index.html', flags=flags, call_hours=is_call_hours())
+
+
+@app.route('/products')
+def list_products():
+  return render_template('products.html', flags=flags, call_hours=is_call_hours(), products=products)
+
+
+@app.route('/products/<product_id>')
+def view_product(product_id):
+  product = products[product_id]
+  return render_template('view_product.html', flags=flags, call_hours=is_call_hours(), product=product)
 
 
 @app.route('/faq')
