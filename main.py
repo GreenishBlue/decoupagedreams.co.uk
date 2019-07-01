@@ -34,7 +34,7 @@ def is_call_hours():
 
 @app.route('/')
 def home():
-  return render_template('index2.html', flags=flags, call_hours=is_call_hours())
+  return render_template('pages/index.html', flags=flags, call_hours=is_call_hours())
 
 
 @app.route('/faq')
