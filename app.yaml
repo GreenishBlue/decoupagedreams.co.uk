@@ -11,7 +11,6 @@ automatic_scaling:
   max_concurrent_requests: 50
 
 env_variables:
-  FLAG_ENABLE_HOME_SERVICE: False
   FLAG_ENABLE_PRODUCTS: False
   FLAG_ENABLE_MAP: True
   FLAG_ENABLE_BLOG: False
