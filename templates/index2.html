@@ -104,17 +104,17 @@
 {% if flags.ENABLE_HOME_SERVICE %}
 <section class="container fold-section">
   <div class="mdc-typography--headline4">Venue Dressing Service</div>
-  <div class="mdc-typography--subtitle2">todo</div>
+  <div class="mdc-typography--subtitle2"></div>
 
-  <div class="mdc-card" style="background: red; color: white; width: 50%; float: left; height: 200px">
-
-      <li>Our service is fully insured - giving you peace of mind</li> 
+  <div class="mdc-card" style="margin-right: 0.6%; width: 49.4%; float: left; height: 200px">
+      Our service is fully insured - giving you peace of mind.
   </div>
 
-  <div class="mdc-card" style="background: blue; color: white; width: 50%; float: left; height: 200px">
-
-      <li>Through the process, we work with you to create bespoke designs, so your day truly says "you"!</li>
+  <div class="mdc-card" style="margin-left: 0.6%; width: 49.4%; float: left; height: 200px; margin-bottom: 12px;">
+      Through the process, we work with you to create bespoke designs, so your day truly says "you"!
   </div>
+
+  {% include 'includes/cta_inquiry.html' %}
 </section>
 {% endif %}
 
@@ -155,6 +155,7 @@
 
 {% if flags.ENABLE_FAQ %}
 {% include 'includes/section_faq.html' %}
+{% include 'includes/cta_inquiry.html' %}
 {% endif %}
 
 
