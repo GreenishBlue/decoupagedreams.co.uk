@@ -179,7 +179,7 @@ a {
 
 .fold-header-social {
   position: absolute;
-  top: 16px;
+  top: 20px;
   right: 16px;
   z-index: 2;
 }
@@ -214,7 +214,9 @@ a {
 }
 
 .fold-masthead-short {
-  height: 60px !important;
+  height: 64px !important;
+  background-color: #ce93d8;
+  border-radius: 0;
 }
 
 .fold-masthead {
