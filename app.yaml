@@ -12,7 +12,6 @@ automatic_scaling:
 
 env_variables:
   FLAG_ENABLE_PRODUCTS: False
-  FLAG_ENABLE_MAP: True
   FLAG_ENABLE_BLOG: False
 #   GA_TRACKING_ID: UA-11213581-15
 
