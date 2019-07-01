@@ -100,20 +100,20 @@
     <a href="/" {% if home_page %}class="active"{% endif %}>Home</a>
 
     {% if flags.ENABLE_PRODUCTS %}
-    <a href="/products">Products</a>
+    <a href="/products" {%if short_title == "Products"%}class="active"{%endif%}>Products</a>
     {% endif %}
 
     {% if flags.ENABLE_BLOG %}
-    <a href="/blog">Blog</a>
+    <a href="/blog" {%if short_title == "Blog"%}class="active"{%endif%}>Blog</a>
     {% endif %}
 
     {% if flags.ENABLE_FAQ %}
-    <a href="/#fold-faq" {% if not home_page %}class="active"{% endif %}>FAQ</a>
+    <a href="/#fold-faq">FAQ</a>
     {% endif %}
 
-    <!--a href="/occasions">For Occasions</a-->
-    <a href="/weddings">For Weddings</a>
-    <!--a href="/gifts">Gifts</a -->
+    <a href="/occasions" {%if short_title == "For Occasions"%}class="active"{%endif%}>Occasions</a>
+    <a href="/weddings" {%if short_title == "For Weddings"%}class="active"{%endif%}>Weddings</a>
+    <a href="/gifts" {%if short_title == "Gifts"%}class="active"{%endif%}>Gifts</a>
     <a href="/#fold-testimonials">Testimonials</a>
     <a href="/#fold-inquiry">Make An Inquiry</a>
   </nav>
@@ -148,7 +148,15 @@
       {% endif %}
 
       <li>
+        <a href="/occasions">Occasions</a>
+      </li>
+
+      <li>
         <a href="/weddings">For Weddings</a>
+      </li>
+
+      <li>
+        <a href="/gifts">Gifts</a>
       </li>
 
       <li>
