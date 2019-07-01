@@ -14,8 +14,6 @@ env_variables:
   FLAG_ENABLE_PRODUCTS: False
   FLAG_ENABLE_MAP: True
   FLAG_ENABLE_BLOG: False
-  FLAG_ENABLE_FAQ: True 
-  FLAG_ENABLE_GALLERY: False
 #   GA_TRACKING_ID: UA-11213581-15
 
 handlers:
