@@ -17,111 +17,7 @@
 </header>
 
 
-<section class="container fold-section">
-  <div class="mdc-typography--headline4">Any Occasion</div>
-  <div class="mdc-typography--subtitle2">We have a wide range of <b>stationery</b> products and <b>venue dressing</b> services across a range of occasions. Please click to see more.</div>
-
-  <div class="mdc-layout-grid fold-verticals-layout-grid">
-    <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell">
- 	  <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_161833.jpg')">
-	    <div class="fold-title-card--text">
-              <div class="mdc-typography--headline5">Occasions</div>
-              <div class="mdc-typography--caption">Birthdays, Christenings &amp; Funerals</div>
-	    </div>
-          </div>
-      </div>
-
-      <div class="mdc-layout-grid__cell">
-	  <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products/IMG_20190504_153051.jpg'">
-	    <div class="fold-title-card--text">
-              <div class="mdc-typography--headline5">Weddings</div>
-              <div class="mdc-typography--caption">Bespoke Table Decorations, Chair Covers, Table Plans &amp; Stationery For Your Special Day</div>
-	    </div>
-          </div>
-      </div>
-
-      <div class="mdc-layout-grid__cell">
-	  <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_160743.jpg'">
-	    <div class="fold-title-card--text">
-              <div class="mdc-typography--headline5">Gifts</div>
-              <div class="mdc-typography--caption">Bespoke Cards &amp; Favour Boxes</div>
-	    </div>
-          </div>
-      </div>
-    </div>
-  </div>
-
-  {% include 'includes/cta_inquiry.html' %}
-</section>
-
-
-{% if flags.ENABLE_PRODUCTS %}
-<section class="container fold-section">
-  <div class="mdc-typography--headline4">Our Products</div>
-  <div class="mdc-typography--subtitle2">We offer our products at competitive prices. 
-	  Bride and Bridegroom can choose as much or as little as desired. </div>
-</section>
-
-<ol class="fold-carousel">
-  <li>
-    <div class="mdc-card" style="background: url('/static/images/products2/IMG_20190504_161833.jpg');"></div>
-  </li>
-</ol>
-
-<section class="container">
-  <div class="mdc-layout-grid fold-products-list">
-      <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_164701.jpg')">
-        <div class="fold-title-card--text">
-          <div class="mdc-typography--headline5">Chair Covers &amp; Sashes</div>
-        </div>
-      </div>
-
-      <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products/IMG_20190504_165613.jpg'">
-        <div class="fold-title-card--text">
-          <div class="mdc-typography--headline5">Table Decorations</div>
-        </div>
-      </div>
-
-      <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_152910.jpg'">
-        <div class="fold-title-card--text">
-          <div class="mdc-typography--headline5">Cards &amp; Stationery</div>
-        </div>
-      </div>
-
-      <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_163416.jpg'); margin-right: 0 !important;">
-	<div class="fold-title-card--text">
-          <div class="mdc-typography--headline5">Favour Boxes</div>
-	</div>
-      </div>
-  </div>
-
-  {% include 'includes/cta_inquiry.html' %}
-</section>
-{% endif %}
-
-
-<section class="container fold-section">
-  <div class="mdc-typography--headline4">Why choose us?</div>
-  <div class="mdc-typography--subtitle2">We believe our unique approach has many benefits to offer.</div>
-
-  <div class="mdc-card" style="padding: 2%; margin-right: 0.6%; width: 49.4%; float: left; height: 220px">
-    <div class="mdc-typography--headline5">Fully Insured</div>
-    <div class="mdc-typography--subtitle3">We carry full business insurance on our products & services, to make sure that your day goes your way no matter what.</div>
-  </div>
-
-  <div class="mdc-card" style="padding: 2%; margin-left: 0.6%; width: 49.4%; float: left; height: 220px; margin-bottom: 12px;">
-    <div class="mdc-typography--headline5">Bespoke, End-To-End</div>
-    <div class="mdc-typography--subtitle3">Throughout the process we'll work with you, as much or as little as you want, to produce the best designs tailored to your day.</div>
-  </div>
-
-  {% include 'includes/cta_inquiry.html' %}
-</section>
-
-
-
-{% include 'includes/section_testimonials.html' %}
-
+{% include 'includes/section_any_occasion.html' %}
 
 
 {% if flags.ENABLE_BLOG %}
@@ -144,11 +40,11 @@
       </div>
     </div>
   </div>
-
-  {% include 'includes/cta_inquiry.html' %}
 </section>
 {% endif %}
 
+{% include 'includes/section_testimonials.html' %}
+{% include 'includes/cta_inquiry.html' %}
 
 {% include 'includes/section_google_map.html' %}
 
