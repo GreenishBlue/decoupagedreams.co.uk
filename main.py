@@ -11,7 +11,6 @@ flags = {
   "ENABLE_PRODUCTS": (os.environ.get("FLAG_ENABLE_PRODUCTS") == "True"),
   "ENABLE_INQUIRY": (os.environ.get("FLAG_ENABLE_INQUIRY") == "True"),
   "ENABLE_MAP": (os.environ.get("FLAG_ENABLE_MAP") == "True"),
-  "ENABLE_FAQ": (os.environ.get("FLAG_ENABLE_FAQ") == "True"),
   "ENABLE_GALLERY": (os.environ.get("FLAG_ENABLE_GALLERY") == "True"),
 }
 
