@@ -1,3 +1,5 @@
+{% set fold_header_transparent = False %}
+
 <!doctype html>
 <html>
 
@@ -80,94 +82,28 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <header class="fold-header-logo">
-    <!-- Main Logo -->
-    <a href="/"><img src="/static/favicon-32x32.png"></a>
-  </header>
-
-  <header class="fold-header-social">
-    {% include 'includes/social_icons.html' %}
-  </header>
-
-  <div class="fold-header-nav-hamburger">
-    <i class="material-icons mdc-text-field__icon data-nav-toggle" style="float: left; color: #fff;" 
-       tabindex="0" role="button">menu</i>
-
-    <div class="fold-mobile-page-title fold-mobile-only">{{ short_title }}</div>
-  </div>
-
-  <nav class="fold-header-nav fold-header-nav-dark">
-    <a href="/" {% if home_page %}class="active"{% endif %}>Home</a>
-
-    {% if flags.ENABLE_PRODUCTS %}
-    <a href="/products" {%if short_title == "Products"%}class="active"{%endif%}>Products</a>
-    {% endif %}
-
-    {% if flags.ENABLE_BLOG %}
-    <a href="/blog" {%if short_title == "Blog"%}class="active"{%endif%}>Blog</a>
-    {% endif %}
-
-    {% if flags.ENABLE_FAQ %}
-    <a href="/#fold-faq">FAQ</a>
-    {% endif %}
-
-    <a href="/occasions" {%if short_title == "For Occasions"%}class="active"{%endif%}>Occasions</a>
-    <a href="/weddings" {%if short_title == "Weddings"%}class="active"{%endif%}>Weddings</a>
-    <a href="/gifts" {%if short_title == "Gifts"%}class="active"{%endif%}>Gifts</a>
-    <a href="/#fold-testimonials">Testimonials</a>
-    <a href="/#fold-inquiry">Make An Inquiry</a>
-  </nav>
-
-  <nav class="fold-mobile-only fold-nav-drawer data-nav-drawer fold-nav-drawer-closed">
-    <div class="fold-header-nav-hamburger">
-      <i class="material-icons mdc-text-field__icon data-nav-toggle" 
-         tabindex="0" role="button">close</i>
+  <!-- Transparent when we have a masthead to showcase -->
+  <header class="fold-top-app-bar {% if transparent_header %}fold-top-app-bar--transparent{% else %}fold-top-app-bar--filled{% endif %}">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+        <span class="mdc-top-app-bar__title">{{ short_title }}</span>
+      </section>
     </div>
+  </header>
+  <!--ul>
+    <li><a href="#">Home</a></li>
 
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
+    <li><a href="#">Occasions</a></li>
+    <li><a href="#">For Weddings</a></li>
+    <li><a href="#">Gifts</a></li>
 
-      {% if flags.ENABLE_PRODUCTS %}
-      <li>
-        <a href="/products">Products</a>
-      </li>
-      {% endif %}
-
-      {% if flags.ENABLE_BLOG %}
-      <li>
-        <a href="/blog">Blog</a>
-      </li>
-      {% endif %}
-
-      {% if flags.ENABLE_FAQ %}
-      <li>
-        <a href="/#fold-faq">FAQ</a>
-      </li>
-      {% endif %}
-
-      <li>
-        <a href="/occasions">Occasions</a>
-      </li>
-
-      <li>
-        <a href="/weddings">For Weddings</a>
-      </li>
-
-      <li>
-        <a href="/gifts">Gifts</a>
-      </li>
-
-      <li>
-        <a href="/#fold-testimonials" class="data-nav-toggle">Testimonials</a>
-      </li>
-
-      <li>
-        <a href="/#fold-inquiry" class="data-nav-toggle">Make An Inquiry</a>
-      </li>
-    </ul>
-  </nav>
+    <li><a href="#">Products Gallery</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Testimonials</a></li>
+    <li><a href="#">FAQ</a></li>
+    <li><a href="#">Make An Inquiry</a></li>
+  </ul-->
 
   <main>
     {% block content %}{% endblock %}

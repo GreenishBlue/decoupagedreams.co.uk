@@ -1,0 +1,23 @@
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/elevation/mdc-elevation";
+
+/* Header which is at the top of the screen. */
+.fold-top-app-bar {
+  @extend .mdc-top-app-bar;
+  @extend .mdc-top-app-bar--short;
+}
+
+/* For situations when we have a masthead */
+.fold-top-app-bar--transparent {
+  background: transparent;
+  color: #fff;
+
+  .material-icons {
+    color: #fff;
+  }
+}
+
+/* For situations with no masthead */
+.fold-top-app-bar--filled {
+  @extend .mdc-elevation--z1;
+}
