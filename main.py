@@ -106,16 +106,6 @@ def confirm():
   return render_template('confirmed.html', flags=flags)
 
 
-@app.route('/signup')
-def signup():
-  return render_template('signup.html', flags=flags)
-
-
-@app.route('/gallery')
-def gallery():
-  return render_template('page_gallery.html', flags=flags)
-
-
 @app.route('/build/bundle.css')
 def build_css():
   """Request compiled CSS. This is only for development, and will be
