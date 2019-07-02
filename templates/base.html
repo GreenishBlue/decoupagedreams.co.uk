@@ -1,4 +1,21 @@
 {% set fold_header_transparent = False %}
+{% set social = [{
+  "name": "Facebook",
+  "url": "https://www.facebook.com/Decoupage-Dreams-1258375284223753",
+  "icon_url": "/static/social/fb_dark.png",
+  "icon_url_light": "/static/social/fb.png",
+}, {
+  "name": "Instagram",
+  "url": "https://www.instagram.com/decoupagedreamsuk",
+  "icon_url": "/static/social/ig_dark.png",
+  "icon_url_light": "/static/social/ig.png",
+}, {
+  "name": "Pinterest",
+  "url": "https://www.pinterest.co.uk/decoupagedreamsuk",
+  "icon_url": "/static/social/pin_dark.png",
+  "icon_url_light": "/static/social/pin.png",
+}] %}
+
 
 <!doctype html>
 <html>
@@ -108,8 +125,8 @@
           <span class="mdc-list-item__text">Occasions</span>
         </a>
 
-        <a class="mdc-list-item {%if short_title == "Weddings" %}mdc-list-item--activated{% endif %}" href="/weddings" 
-	  {% if short_title == "Weddings" %} aria-current="page"{% endif %}>
+        <a class="mdc-list-item {%if short_title == "For Weddings" %}mdc-list-item--activated{% endif %}" href="/weddings" 
+	  {% if short_title == "For Weddings" %} aria-current="page"{% endif %}>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">favorite</i>
           <span class="mdc-list-item__text">For Weddings</span>
         </a>
@@ -149,20 +166,13 @@
         <hr class="mdc-list-divider">
         <h6 class="mdc-list-group__subheader">Social</h6>
 
-        <a class="mdc-list-item" href="https://www.facebook.com/Decoupage-Dreams-1258375284223753" target="_blank">
-	  <img src="/static/social/fb_dark.png" class="fold-drawer-social-icon mdc-list-item__graphic">
-          <span class="mdc-list-item__text">Facebook</span>
-        </a>
 
-        <a class="mdc-list-item" href="https://www.instagram.com/decoupagedreamsuk" target="_blank">
-	  <img src="/static/social/ig_dark.png" class="mdc-list-item__graphic">
-          <span class="mdc-list-item__text">Instagram</span>
+	{% for s in social %}
+	<a class="mdc-list-item" href="{{ s.url }}" target="_blank">
+	  <img src="{{ s.icon_url }}" class="fold-drawer-social-icon mdc-list-item__graphic">
+	  <span class="mdc-list-item__text">{{ s.name }}</span>
         </a>
-
-        <a class="mdc-list-item" href="https://www.pinterest.co.uk/decoupagedreamsuk" target="_blank">
-	  <img src="/static/social/pin_dark.png" class="mdc-list-item__graphic">
-          <span class="mdc-list-item__text">Pinterest</span>
-        </a>
+	{% endfor %}
 
         <a class="mdc-list-item" href="https://www.twitter.com/decoupagedreams" target="_blank">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">link</i>
@@ -183,13 +193,13 @@
       </section>
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
 	{% if transparent_header %}
-        <a href="#"><img src="/static/social/fb.png" class="mdc-top-app-bar__action-item"></a>
-        <a href="#"><img src="/static/social/ig.png" class="mdc-top-app-bar__action-item"></a>
-        <a href="#"><img src="/static/social/pin.png" class="mdc-top-app-bar__action-item"></a>
+	  {% for s in social %}
+	  <a href="{{ s.url }}"><img src="{{ s.icon_url_light }}" class="mdc-top-app-bar__action-item"></a>
+	  {% endfor %}
 	{% else %}
-        <a href="#"><img src="/static/social/fb_dark.png" class="mdc-top-app-bar__action-item"></a>
-        <a href="#"><img src="/static/social/ig_dark.png" class="mdc-top-app-bar__action-item"></a>
-        <a href="#"><img src="/static/social/pin_dark.png" class="mdc-top-app-bar__action-item"></a>
+	  {% for s in social %}
+	  <a href="{{ s.url }}"><img src="{{ s.icon_url }}" class="mdc-top-app-bar__action-item"></a>
+	  {% endfor %}
 	{% endif %}
       </section>
     </div>
