@@ -35,6 +35,25 @@ products = [
 ] 
 
 
+tags = [
+  "Centrepiece",
+  "Chair Cover",
+  "Sash",
+  "Favour Box",
+  "Stationery",
+  "Table Decoration",
+  "Card",
+  "Wedding",
+  "Invitation",
+  "Extras",
+  "Venue Dressing",
+  "Table Plan"
+] 
+
+import random
+random.shuffle(tags)
+
+
 def is_call_hours():
   """Check if we're currently within call hours.
   Weekdays from 8 AM to 6 PM."""
@@ -53,7 +72,8 @@ def home():
 
 @app.route('/gallery')
 def list_products():
-  return render_template('products.html', flags=flags, call_hours=is_call_hours(), products=products)
+  return render_template('products.html', flags=flags, call_hours=is_call_hours(), 
+                         products=products, tags=tags)
 
 
 @app.route('/gallery/<product_id>')
