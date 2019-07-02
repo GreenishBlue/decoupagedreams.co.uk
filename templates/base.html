@@ -106,7 +106,8 @@
     </div>
     <div class="mdc-drawer__content">
       <nav class="mdc-list">
-        <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+        <a class="mdc-list-item {% if short_title == "Home" %}mdc-list-item--activated{% endif %}" href="/" 
+	  {% if short_title == "Home" %} aria-current="page"{% endif %}>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
           <span class="mdc-list-item__text">Home</span>
         </a>
@@ -114,17 +115,20 @@
         <hr class="mdc-list-divider">
         <h6 class="mdc-list-group__subheader">Events</h6>
 
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item {%if short_title == "Occasions" %}mdc-list-item--activated{% endif %}" href="/occasions" 
+	  {% if short_title == "Occasions" %} aria-current="page"{% endif %}>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">event</i>
           <span class="mdc-list-item__text">Occasions</span>
         </a>
 
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item {%if short_title == "Weddings" %}mdc-list-item--activated{% endif %}" href="/weddings" 
+	  {% if short_title == "Weddings" %} aria-current="page"{% endif %}>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">favorite</i>
           <span class="mdc-list-item__text">For Weddings</span>
         </a>
 	
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item {%if short_title == "Gifts" %}mdc-list-item--activated{% endif %}" href="/gifts" 
+	  {% if short_title == "Gifts" %} aria-current="page"{% endif %}>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">card_giftcard</i>
           <span class="mdc-list-item__text">Gifts</span>
         </a>
@@ -132,24 +136,50 @@
         <hr class="mdc-list-divider">
         <h6 class="mdc-list-group__subheader">Learn More</h6>
 
-        <a class="mdc-list-item" href="#">
+	{% if flags.ENABLE_BLOG %}
+        <a class="mdc-list-item {%if short_title == "Blog" %}mdc-list-item--activated{% endif %}" href="/blog" 
+	  {% if short_title == "Blog" %} aria-current="page"{% endif %}>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">notes</i>
           <span class="mdc-list-item__text">Blog</span>
         </a>
+	{% endif %}
 
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="/#fold-testimonials">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>
           <span class="mdc-list-item__text">Testimonials</span>
         </a>
 
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="/#fold-faq">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">question_answer</i>
           <span class="mdc-list-item__text">FAQ</span>
         </a>
 
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="#fold-inquiry">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">email</i>
           <span class="mdc-list-item__text">Make An Inquiry</span>
+        </a>
+
+        <hr class="mdc-list-divider">
+        <h6 class="mdc-list-group__subheader">Social</h6>
+
+        <a class="mdc-list-item" href="https://www.facebook.com/Decoupage-Dreams-1258375284223753" target="_blank">
+	  <img src="/static/social/fb_dark.png" class="fold-drawer-social-icon mdc-list-item__graphic">
+          <span class="mdc-list-item__text">Facebook</span>
+        </a>
+
+        <a class="mdc-list-item" href="https://www.instagram.com/decoupagedreamsuk" target="_blank">
+	  <img src="/static/social/ig_dark.png" class="mdc-list-item__graphic">
+          <span class="mdc-list-item__text">Instagram</span>
+        </a>
+
+        <a class="mdc-list-item" href="https://www.pinterest.co.uk/decoupagedreamsuk" target="_blank">
+	  <img src="/static/social/pin_dark.png" class="mdc-list-item__graphic">
+          <span class="mdc-list-item__text">Pinterest</span>
+        </a>
+
+        <a class="mdc-list-item" href="https://www.twitter.com/decoupagedreams" target="_blank">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">link</i>
+          <span class="mdc-list-item__text">Twitter</span>
         </a>
       </nav>
     </div>
