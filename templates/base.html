@@ -85,19 +85,6 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   {% endif %}
   <!-- End Google Tag Manager (noscript) -->
-  <!--ul>
-    <li><a href="#">Home</a></li>
-
-    <li><a href="#">Occasions</a></li>
-    <li><a href="#">For Weddings</a></li>
-    <li><a href="#">Gifts</a></li>
-
-    <li><a href="#">Products Gallery</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a href="#">Testimonials</a></li>
-    <li><a href="#">FAQ</a></li>
-    <li><a href="#">Make An Inquiry</a></li>
-  </ul-->
 
   <aside class="fold-drawer mdc-drawer mdc-drawer--modal">
     <div class="mdc-drawer__header">
@@ -195,9 +182,15 @@
         <span class="mdc-top-app-bar__title">{{ short_title }}</span>
       </section>
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+	{% if transparent_header %}
+        <a href="#"><img src="/static/social/fb.png" class="mdc-top-app-bar__action-item"></a>
+        <a href="#"><img src="/static/social/ig.png" class="mdc-top-app-bar__action-item"></a>
+        <a href="#"><img src="/static/social/pin.png" class="mdc-top-app-bar__action-item"></a>
+	{% else %}
         <a href="#"><img src="/static/social/fb_dark.png" class="mdc-top-app-bar__action-item"></a>
         <a href="#"><img src="/static/social/ig_dark.png" class="mdc-top-app-bar__action-item"></a>
         <a href="#"><img src="/static/social/pin_dark.png" class="mdc-top-app-bar__action-item"></a>
+	{% endif %}
       </section>
     </div>
   </header>
