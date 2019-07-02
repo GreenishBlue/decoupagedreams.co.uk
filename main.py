@@ -17,7 +17,22 @@ flags = {
 APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macros/s/AKfycbxClyaeZUd5mjsdPYjWJqrmESeI9ch5BZdQ-k_5/exec"
 
 
-products = {}
+products = [
+  {
+    "photo_url": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+    "label": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut dui mattis, pellentesque augue vel, rhoncus lacus."
+  },
+
+  {
+      "photo_url": "https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
+    "label": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut dui mattis, pellentesque augue vel, rhoncus lacus."
+  },
+
+  {
+      "photo_url": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+    "label": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut dui mattis, pellentesque augue vel, rhoncus lacus."
+  },
+] 
 
 
 def is_call_hours():
@@ -36,12 +51,12 @@ def home():
   return render_template('pages/index.html', flags=flags, call_hours=is_call_hours())
 
 
-@app.route('/products')
+@app.route('/gallery')
 def list_products():
   return render_template('products.html', flags=flags, call_hours=is_call_hours(), products=products)
 
 
-@app.route('/products/<product_id>')
+@app.route('/gallery/<product_id>')
 def view_product(product_id):
   product = products[product_id]
   return render_template('view_product.html', flags=flags, call_hours=is_call_hours(), product=product)
