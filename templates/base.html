@@ -4,6 +4,7 @@
 <html>
 
 <head lang="en-gb">
+  {% if flags.ENABLE_GTM %}
   <!-- Anti-Flicker Snippet -->
   <style>.async-hide { opacity: 0 !important} </style>
   <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
@@ -19,6 +20,7 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KDGMNRW');</script>
   <!-- End Google Tag Manager -->
+  {% endif %}
 	
   <title>{{ title or "Decoupage Dreams" }}</title>
   <meta charset="utf-8">
@@ -78,19 +80,11 @@
 
 <body class="mdc-typography">
   <!-- Google Tag Manager (noscript) -->
+  {% if flags.ENABLE_GTM %}
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDGMNRW"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  {% endif %}
   <!-- End Google Tag Manager (noscript) -->
-
-  <!-- Transparent when we have a masthead to showcase -->
-  <header class="fold-top-app-bar {% if transparent_header %}fold-top-app-bar--transparent{% else %}fold-top-app-bar--filled{% endif %}">
-    <div class="mdc-top-app-bar__row">
-      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-        <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-        <span class="mdc-top-app-bar__title">{{ short_title }}</span>
-      </section>
-    </div>
-  </header>
   <!--ul>
     <li><a href="#">Home</a></li>
 
@@ -105,7 +99,75 @@
     <li><a href="#">Make An Inquiry</a></li>
   </ul-->
 
-  <main>
+  <aside class="fold-drawer mdc-drawer mdc-drawer--modal">
+    <div class="mdc-drawer__header">
+      <h3 class="mdc-drawer__title">Decoupage Dreams</h3>
+      <h6 class="mdc-drawer__subtitle">Your Day, Your Way</h6>
+    </div>
+    <div class="mdc-drawer__content">
+      <nav class="mdc-list">
+        <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+          <span class="mdc-list-item__text">Home</span>
+        </a>
+
+        <hr class="mdc-list-divider">
+        <h6 class="mdc-list-group__subheader">Events</h6>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">event</i>
+          <span class="mdc-list-item__text">Occasions</span>
+        </a>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">favorite</i>
+          <span class="mdc-list-item__text">For Weddings</span>
+        </a>
+	
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">card_giftcard</i>
+          <span class="mdc-list-item__text">Gifts</span>
+        </a>
+
+        <hr class="mdc-list-divider">
+        <h6 class="mdc-list-group__subheader">Learn More</h6>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">notes</i>
+          <span class="mdc-list-item__text">Blog</span>
+        </a>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>
+          <span class="mdc-list-item__text">Testimonials</span>
+        </a>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">question_answer</i>
+          <span class="mdc-list-item__text">FAQ</span>
+        </a>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">email</i>
+          <span class="mdc-list-item__text">Make An Inquiry</span>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="mdc-drawer-scrim"></div>
+
+  <!-- Transparent when we have a masthead to showcase -->
+  <header id="app-bar" class="fold-top-app-bar {% if transparent_header %}fold-top-app-bar--transparent{% else %}fold-top-app-bar--filled{% endif %}">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+        <span class="mdc-top-app-bar__title">{{ short_title }}</span>
+      </section>
+    </div>
+  </header>
+
+  <main id="main-content">
     {% block content %}{% endblock %}
   </main>
 
@@ -141,11 +203,13 @@
 
   <script src="/build/bundle.js" async></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141003614-1"></script>
+  {% if flags.ENABLE_GTM %}
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   </script>
+  {% endif %}
 
 </body>
 
