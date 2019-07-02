@@ -1,13 +1,27 @@
 {% extends 'base.html' %}
-{% set title = "Products - Decoupage Dreams" %}
-{% set short_title = "Products" %}
+{% set title = "Gallery - Decoupage Dreams" %}
+{% set short_title = "Gallery" %}
 {% block content %}
-<!-- Masthead -->
-<header class="fold-masthead-short data-masthead mdc-card">
+<!-- Bump Content Down -->
+<div style="height: 48px"></div>
 
-</header>
+<div class="mdc-chip-set" style="max-width: 800px; padding: 8px; padding-bottom: 0;">
+  {% for t in tags %}
+  <div class="mdc-chip" tabindex="0">
+    <div class="mdc-chip__text">{{ t }}</div>
+  </div>
+  {% endfor %}
+</div>
 
-{% include 'includes/cta_inquiry.html' %}
-
+<ul class="fold-gallery2-image-list mdc-image-list mdc-image-list--masonry my-masonry-image-list">
+  {% for p in products %}
+  <li class="mdc-image-list__item">
+    <img class="mdc-image-list__image" src="{{ p.photo_url }}">
+    <div class="mdc-image-list__supporting">
+      <span class="mdc-image-list__label">{{ p.label }}</span>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
