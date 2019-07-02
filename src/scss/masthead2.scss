@@ -29,4 +29,11 @@
   .mdc-typography--subtitle2 {
     font-family: 'Roboto Slab', serif;
   }
+
+  @media(max-width: 600px) {
+    .mdc-typography--headline3 {
+      font-size: 30px;
+      line-height: 1.2em;
+    }
+  }
 }
