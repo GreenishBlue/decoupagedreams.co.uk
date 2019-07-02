@@ -4,7 +4,7 @@
 /* Header which is at the top of the screen. */
 .fold-top-app-bar {
   @extend .mdc-top-app-bar;
-  @extend .mdc-top-app-bar--short;
+  @extend .mdc-top-app-bar--dense;
 }
 
 /* For situations when we have a masthead */

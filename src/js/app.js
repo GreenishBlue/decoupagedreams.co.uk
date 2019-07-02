@@ -14,7 +14,6 @@ class App {
       const textField = new MDCTextField(field);
     });
 
-
     const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
 
     const topAppBar = MDCTopAppBar.attachTo(document.getElementById('app-bar'));
