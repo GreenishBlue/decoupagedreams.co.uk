@@ -148,6 +148,12 @@
         </a>
 	{% endif %}
 
+        <a class="mdc-list-item {%if short_title == "Gallery" %}mdc-list-item--activated{% endif %}" href="/gallery" 
+	  {% if short_title == "Gallery" %} aria-current="page"{% endif %}>
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">photo_album</i>
+          <span class="mdc-list-item__text">Gallery</span>
+        </a>
+
         <a class="mdc-list-item" href="/#fold-testimonials">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>
           <span class="mdc-list-item__text">Testimonials</span>
