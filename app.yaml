@@ -11,6 +11,7 @@ automatic_scaling:
   max_concurrent_requests: 50
 
 env_variables:
+  FLAG_ENABLE_GTM: True
   FLAG_ENABLE_PRODUCTS: False
   FLAG_ENABLE_BLOG: False
 #   GA_TRACKING_ID: UA-11213581-15

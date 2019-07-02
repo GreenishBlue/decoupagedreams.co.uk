@@ -9,6 +9,7 @@ app = Flask(__name__)
 flags = {
   "ENABLE_BLOG": (os.environ.get("FLAG_ENABLE_BLOG") == "True"),
   "ENABLE_PRODUCTS": (os.environ.get("FLAG_ENABLE_PRODUCTS") == "True"),
+  "ENABLE_GTM": (os.environ.get("FLAG_GTM") == "True"),
 }
 
 # The URL to the Google Apps Script service which to send emails to.
