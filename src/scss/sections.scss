@@ -1,4 +1,5 @@
 @import "@material/button/mdc-button";
+@import "@material/textfield/mdc-text-field";
 
 .fold-feature-layout-grid {
   --mdc-layout-grid-margin-desktop: 0px;
@@ -12,6 +13,16 @@
   .mdc-card {
     padding: 12px;
   }
+}
+
+.fold-cta-text-field {
+  @include mdc-text-field-ink-color(#fff);
+  @include mdc-text-field-label-color(#fff);
+  @include mdc-text-field-icon-color(#fff);
+  @include mdc-text-field-focused-outline-color($fold-secondary);
+  @include mdc-text-field-hover-outline-color($fold-secondary);
+  @include mdc-text-field-outline-color(#fff);
+  @include mdc-text-field-ink-color(#fff);
 }
 
 .fold-cta-button.mdc-button--raised { 
