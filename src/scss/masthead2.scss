@@ -1,0 +1,32 @@
+@import "@material/card/mdc-card";
+
+.fold-masthead2 {
+  @extend .mdc-card;
+
+  border-radius: 0; // remove card corners
+
+  padding-top: 48px + 24px;
+  padding-bottom: 24px;
+
+  text-align: center;
+  color: #fff;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), 
+  url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&h=1000&q=80');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position-y: 0;
+  background-position-x: center;
+
+  .mdc-typography--headline4 {
+    font-family: 'Great Vibes', sans-serif;
+  }
+
+  .mdc-typography--headline1,
+  .mdc-typography--headline2,
+  .mdc-typography--headline3,
+  .mdc-typography--subtitle1,
+  .mdc-typography--subtitle2 {
+    font-family: 'Roboto Slab', serif;
+  }
+}

@@ -1,0 +1,24 @@
+@import "@material/button/mdc-button";
+
+.fold-feature-layout-grid {
+  --mdc-layout-grid-margin-desktop: 0px;
+  --mdc-layout-grid-margin-tablet: 0px;
+  --mdc-layout-grid-margin-phone: 0px;
+
+  --mdc-layout-grid-gutter-desktop: 8px;
+  --mdc-layout-grid-gutter-tablet: 8px;
+  --mdc-layout-grid-gutter-phone: 8px;
+
+  .mdc-card {
+    padding: 12px;
+  }
+}
+
+.fold-cta-button.mdc-button--raised { 
+  @include mdc-button-container-fill-color($fold-secondary);
+}
+
+.fold-cta-button.mdc-button--outlined { 
+  @include mdc-button-ink-color($fold-secondary);
+  @include mdc-button-outline-color($fold-secondary);
+}

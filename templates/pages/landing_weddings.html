@@ -1,90 +1,172 @@
 {% extends 'base.html' %}
 {% set title = "For Weddings - Bespoke Venue Dressing & Stationery - Decoupage Dreams" %}
-{% set short_title = "Weddings" %}
+{% set short_title = "For Weddings" %}
+{% set photo_credits = ["@nate_dumlao", "@priscilladupreez", "@kchance8", "@freestocks"] %}
 {% set transparent_header = False %}
-{% set cta = "Save My Date" %}
+{% set cta = "Make An Inquiry" %}
 {% set cta_url = "#fold-inquiry" %}
 {% block content %}
 <!-- Masthead -->
-<header class="fold-masthead data-masthead mdc-card">
-  <h1 class="fold-title mdc-typography--headline1">Weddings</h1>
-  <div class="fold-subtitle mdc-typography--subtitle2">Bespoke wedding venue decoration service and
-  stationery products in the Lancashire area. We carry full business insurance for your peace of mind. 
-  Your day, your way.</div>
+<header class="fold-masthead2 data-masthead">
+  <div class="mdc-typography--headline4">Decoupage Dreams</div>
+  <br>
+  <div class="mdc-typography--headline3">Venue Dressing For Your Special Day</div>
+  <div class="mdc-typography--subtitle1">Bespoke venue decor and stationery for your wedding venue in Lancashire.</div>
+  <br>
 
-  {% include 'includes/form_weddings.html' %}
+  {% include 'includes/form_email.html' %}
 
   <br>
-  <div class="fold-subtitle mdc-typography--subtitle2">Reserve our services for your special date, obligation free.</div>
-
+  <div class="mdc-typography--caption">Reserve our services for your special date, obligation free.</div>
   <div class="shade"></div>
 </header>
 
 
-{% if flags.ENABLE_PRODUCTS %}
 <section class="container fold-section">
   <div class="mdc-typography--headline4">Our Products</div>
   <div class="mdc-typography--subtitle2">We offer our products at competitive prices. 
 	  Bride and Bridegroom can choose as much or as little as desired. </div>
-</section>
+  <div class="fold-feature-layout-grid mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      {% set products = [
+        {
+          "title": "Chair Covers & Sashes",
+	  "description": "Any colour, any style.",
+	  "image": "/static/images/products2/IMG_20190504_164701.jpg",
+	}, 
 
-<!--ol class="fold-carousel">
-  <li>
-    <div class="mdc-card" style="background: url('/static/images/products2/IMG_20190504_161833.jpg');"></div>
-  </li>
-</ol-->
+	{
+          "title": "Table Decorations",
+	  "description": "Bespoke table centrepieces and sashes designed for you",
+	  "image": "/static/images/products/IMG_20190504_165613.jpg",
+	}, 
 
-<section class="container">
-  <div class="mdc-layout-grid fold-products-list">
-      <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_164701.jpg')">
-        <div class="fold-title-card--text">
-          <div class="mdc-typography--headline5">Chair Covers &amp; Sashes</div>
-        </div>
+	{
+          "title": "Stationery",
+	  "description": "Place cards, RSVPs, breakfast invites and more..",
+	  "image": "/static/images/products2/IMG_20190504_152910.jpg",
+	}, 
+
+	{
+          "title": "Favour Boxes",
+	  "description": "Hand-crafted luxury favours",
+	  "image": "/static/images/products2/IMG_20190504_163416.jpg",
+	}] %}
+      {% for p in products %}
+      <div class="mdc-card fold-title-card mdc-layout-grid__cell 
+	   mdc-layout-grid__cell--span-3-desktop
+	   mdc-layout-grid__cell--span-4-tablet
+	   mdc-layout-grid__cell--span-4-phone"
+	   style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('{{ p.image }}');">
+	<div class="mdc-typography--headline5">{{ p.title }}</div>
+	<div class="mdc-typography--subtitle3">{{ p.description }}</div>
       </div>
-
-      <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products/IMG_20190504_165613.jpg'">
-        <div class="fold-title-card--text">
-          <div class="mdc-typography--headline5">Table Decorations</div>
-        </div>
-      </div>
-
-      <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_152910.jpg'">
-        <div class="fold-title-card--text">
-          <div class="mdc-typography--headline5">Cards &amp; Stationery</div>
-        </div>
-      </div>
-
-      <div class="mdc-card fold-title-card" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('/static/images/products2/IMG_20190504_163416.jpg'); margin-right: 0 !important;">
-	<div class="fold-title-card--text">
-          <div class="mdc-typography--headline5">Favour Boxes</div>
-	</div>
-      </div>
+      {% endfor %}
+    </div>
   </div>
 
   {% include 'includes/cta_inquiry.html' %}
 </section>
-{% endif %}
 
 
 <section class="container fold-section">
-  <div class="mdc-typography--headline4">Why choose us?</div>
-  <div class="mdc-typography--subtitle2">We believe our unique approach has many benefits to offer.</div>
+  <div class="mdc-typography--headline4">Our Service</div>
+  <br>
+  <!--div class="mdc-typography--subtitle2">We believe our unique approach has many benefits to offer.</div-->
 
-  <div class="mdc-card" style="padding: 2%; margin-right: 0.6%; width: 49.4%; float: left; height: 220px">
-    <div class="mdc-typography--headline5">Fully Insured</div>
-    <div class="mdc-typography--subtitle3">We carry full business insurance on our products & services, to make sure that your day goes your way no matter what.</div>
-  </div>
-
-  <div class="mdc-card" style="padding: 2%; margin-left: 0.6%; width: 49.4%; float: left; height: 220px; margin-bottom: 12px;">
-    <div class="mdc-typography--headline5">Bespoke, End-To-End</div>
-    <div class="mdc-typography--subtitle3">Throughout the process we'll work with you, as much or as little as you want, to produce the best designs tailored to your day.</div>
+  <div class="mdc-card" style="padding: 24px 12px;">
+    <div class="fold-feature-layout-grid mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        {% set features = [
+          {
+            "title": "Fully Insured",
+            "description": "We carry full business insurance on our service, to make sure that your day goes your way no matter what."
+  	  },
+  	  {
+            "title": "Bespoke, End-To-End",
+            "description": "Throughout the process we'll work with you, as much or as little as you want, to produce the best designs tailored to your day."
+	  },
+  	  {
+            "title": "Full Service Included",
+            "description": "We'll deliver and setup your venue, and collect the goods once your day is over - all included at no extra charge."
+  	  },
+        ] %}
+        {% for f in features %}
+        <div class="mdc-layout-grid__cell 
+             mdc-layout-grid__cell--span-4-desktop
+             mdc-layout-grid__cell--span-8-tablet
+             mdc-layout-grid__cell--span-8-phone">
+          <div class="mdc-typography--headline5">{{ f.title }}</div>
+	  <hr>
+          <div class="mdc-typography--subtitle3">{{ f.description }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 
   {% include 'includes/cta_inquiry.html' %}
 </section>
 
+
 {% include 'includes/section_testimonials.html' %}
+
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Our Products</div>
+  <div class="mdc-typography--subtitle2">We offer our products at competitive prices. 
+	  Bride and Bridegroom can choose as much or as little as desired. </div>
+<ol class="fold-carousel">
+  <li>
+    <div class="mdc-card" style="background: url('/static/images/products2/IMG_20190504_161833.jpg');"></div>
+  </li>
+</ol>
+
+{% include 'includes/cta_inquiry.html' %}
+</section>
+
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Any Occasion</div>
+  <div class="mdc-typography--subtitle2">We'll always find a way to make it more beautiful. That's our promise.</div>
+
+  <div class="fold-feature-layout-grid mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      {% set occasions = [{
+        "title": "Wedding Day",
+	"image": "https://images.unsplash.com/photo-1498192512043-a20305136767?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=250&q=80",
+      }, {
+        "title": "Hen Nights & Stag Dos",
+	"image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=250&q=80",
+      }, {
+        "title": "Anniversaries",
+	"image": "https://images.unsplash.com/photo-1518199128314-4f127ebfece8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=250&q=80",
+      },] %}
+      {% for o in occasions %}
+      <div class="mdc-card fold-title-card mdc-layout-grid__cell 
+	   mdc-layout-grid__cell--span-4-desktop
+	   mdc-layout-grid__cell--span-8-tablet
+	   mdc-layout-grid__cell--span-4-phone"
+	   style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('{{ o.image }}');">
+        <div class="mdc-typography--headline5">{{ o.title }}</div>
+	<div class="mdc-typography--subtitle3"></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% include 'includes/cta_inquiry.html' %}
+</section>
+
+
 {% include 'includes/section_google_map.html' %}
+
+
+<div class="mdc-typography--caption" style="text-align: center; padding-top: 42px;">
+Additional photos by {% for p in photo_credits %}
+<a href="https://unsplash.com/{{ p }}">{{ p }}</a> 
+{% endfor %} on <a href="https://www.unsplash.com">Unsplash</a>.
+</div>
 
 
 {% endblock %}

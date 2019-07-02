@@ -1,6 +1,6 @@
 $fold-background: #f9f9f9;
-$fold-primary: #FF9800;
-$fold-secondary: #ce93d8;
+$fold-primary: #ce93d8;
+$fold-secondary: #ff9800;
 
 $mdc-typography-font-family: "Roboto Slab";
 $mdc-theme-primary: $fold-primary;
@@ -25,6 +25,8 @@ $mdc-typography-styles-headline4: (
 
 @import "./header2";
 @import "./nav_drawer";
+@import "./sections";
+@import "./masthead2";
 
 body {
   background-color: $fold-background;
@@ -32,7 +34,7 @@ body {
 }
 
 a {
-  color: #ff9800;
+  color: $fold-secondary;
 }
 
 .container {
