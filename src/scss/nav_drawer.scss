@@ -1,0 +1,10 @@
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+
+.fold-drawer {
+  .mdc-drawer__title {
+    font-family: 'Great Vibes', sans-serif;
+    font-size: 2em;
+    padding: 12px 0;
+  }
+}
