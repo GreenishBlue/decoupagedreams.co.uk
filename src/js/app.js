@@ -47,6 +47,29 @@ class App {
           console.log("Failed to register service worker:", err)
         });
     }
+
+    // down: 40
+    const konamiKeys = [
+      38, 38, // up up
+      40, 40, // down down,
+      37, 39, // left right
+      37, 39, // left right
+      66, 65, // b, a
+      13, // enter
+    ];
+    var recentKeys = [];
+    document.onkeydown = (e) => {
+      recentKeys.push(e.keyCode);
+      const lastKeys = recentKeys.slice(-11);
+	    console.log(lastKeys);
+	    console.log(konamiKeys);
+      if(JSON.stringify(konamiKeys) == JSON.stringify(lastKeys)) {
+	      console.log("triggered!");
+        const easterEggStyle = 'easter-egg';
+        const bodyElement = document.querySelector('body');    
+        bodyElement.classList.add(easterEggStyle);
+      }
+    };
   }
 }
 
