@@ -74,56 +74,78 @@ def is_call_hours():
   return False 
 
 
+
+def get_flags(request):
+  gtm = request.args.get('gtm')
+  my_flags = flags
+  if not gtm:
+    return my_flags
+  elif gtm == str(0):
+    my_flags['ENABLE_GTM'] = False
+  elif gtm == str(1):
+    my_flags['ENABLE_GTM'] = True 
+  return my_flags
+
+
 @app.route('/')
 def home():
-  return render_template('pages/index.html', flags=flags, call_hours=is_call_hours())
+  return render_template('pages/index.html', flags=get_flags(request), 
+                         call_hours=is_call_hours())
 
 
 @app.route('/gallery')
 def list_products():
-  return render_template('products.html', flags=flags, call_hours=is_call_hours(), 
-                         products=products, tags=tags)
+  return render_template('products.html', flags=get_flags(request),
+                         call_hours=is_call_hours(), products=products, tags=tags)
 
 
 @app.route('/gallery/<product_id>')
 def view_product(product_id):
   product = products[product_id]
-  return render_template('view_product.html', flags=flags, call_hours=is_call_hours(), product=product)
+  return render_template('view_product.html', flags=get_flags(request), 
+                         call_hours=is_call_hours(), product=product)
 
 
 @app.route('/faq')
 def landing_faq():
-  return render_template('pages/faq.html', flags=flags, call_hours=is_call_hours())
+  return render_template('pages/faq.html', flags=get_flags(request), 
+                         call_hours=is_call_hours())
 
 
 @app.route('/occasions')
 def landing_occasions():
-  return render_template('pages/landing_occasions.html', flags=flags, call_hours=is_call_hours())
+  return render_template('pages/landing_occasions.html', flags=get_flags(request), 
+                         call_hours=is_call_hours())
 
 
 @app.route('/weddings')
 def landing_weddings():
-  return render_template('pages/landing_weddings.html', flags=flags, call_hours=is_call_hours())
+  return render_template('pages/landing_weddings.html', flags=get_flags(request), 
+                         call_hours=is_call_hours())
 
 
 @app.route('/gifts')
 def landing_gifts():
-  return render_template('pages/landing_gifts.html', flags=flags, posts=[], call_hours=is_call_hours())
+  return render_template('pages/landing_gifts.html', flags=get_flags(request),  
+                         posts=[], call_hours=is_call_hours())
 
 
 @app.route('/faq')
 def faq():
-  return render_template('faq.html', flags=flags, call_hours=is_call_hours())
+  return render_template('faq.html', flags=get_flags(request), 
+                         call_hours=is_call_hours())
 
 
 @app.route('/blog')
 def blog():
-  return render_template('blog.html', flags=flags, posts=[], call_hours=is_call_hours())
+  return render_template('blog.html', flags=get_flags(request), 
+                         posts=[], call_hours=is_call_hours())
 
 
 @app.route('/blog/<string:post_id>')
 def blog_post(post_id):
-  return render_template('blog_post.html', flags=flags, post={}, call_hours=is_call_hours())
+  return render_template('blog_post.html', flags=get_flags(request),
+                         post={}, call_hours=is_call_hours())
 
 
 @app.route('/urllist.txt')
