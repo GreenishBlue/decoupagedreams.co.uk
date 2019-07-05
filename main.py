@@ -76,15 +76,13 @@ def is_call_hours():
 
 
 def get_flags(request):
-  gtm = request.args.get('gtm')
-  my_flags = flags
-  if not gtm:
-    return my_flags
-  elif gtm == str(0):
+  nogtm = request.args.get('nogtm')
+  if nogtm == str(1):
+    my_flags = dict(flags) # copy dict
     my_flags['ENABLE_GTM'] = False
-  elif gtm == str(1):
-    my_flags['ENABLE_GTM'] = True 
-  return my_flags
+    return my_flags
+  else:
+    return flags
 
 
 @app.route('/')
