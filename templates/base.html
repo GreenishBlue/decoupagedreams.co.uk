@@ -93,6 +93,9 @@
   
   }
   </script>
+
+  {% block head %}
+  {% endblock %}
 </head>
 
 <body class="mdc-typography">
@@ -159,7 +162,8 @@
           <span class="mdc-list-item__text">Testimonials</span>
         </a>
 
-        <a class="mdc-list-item" href="/#fold-faq">
+        <a class="mdc-list-item {%if short_title == "FAQ" %}mdc-list-item--activated{% endif %}" href="/faq" 
+	  {% if short_title == "FAQ" %} aria-current="page"{% endif %}>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">question_answer</i>
           <span class="mdc-list-item__text">FAQ</span>
         </a>

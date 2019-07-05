@@ -102,6 +102,11 @@ def landing_gifts():
   return render_template('pages/landing_gifts.html', flags=flags, posts=[], call_hours=is_call_hours())
 
 
+@app.route('/faq')
+def faq():
+  return render_template('faq.html', flags=flags, call_hours=is_call_hours())
+
+
 @app.route('/blog')
 def blog():
   return render_template('blog.html', flags=flags, posts=[], call_hours=is_call_hours())

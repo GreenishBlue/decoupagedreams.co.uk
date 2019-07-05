@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% set title = "FAQ - Decoupage Dreams" %}
+{% set short_title = "FAQ" %}
+{% set transparent_header = False %}
+{% set cta = "View The Product Gallery" %}
+{% set cta_url = "/gallery" %}
+
+{# Set faqs array which will be rendered out in HTML and Microdata (for Google Search #}
+{# https://developers.google.com/search/docs/data-types/faqpage #}
+{% set faqs = {
+  "What payment methods do you accept?": "We accept PayPal, Cheque, Cash and Direct Debit.",
+  "What styles and colours are available?": "We do modern, vintage and winter themes but can work with you to craft any design you wish. We've got an extensive collection of colours but we can order in any colour on request.",
+  "How soon should we get in touch about our event?": "Interested event hosts (weddings, occasions, etc..) should get in touch ASAP. Please use the form below, and we'll reserve your date obligation-free.",
+  "I have a request about my data I've given you (such as email address or wedding info).": "Please send an email to cameron@decoupagedreams.co.uk for all requests relating to personal data.",
+} %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{% for question, answer in faqs.items() %}{"@type": "Question",
+    "name": "{{ question }}",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text":"{{ answer }}"}
+    }{% if loop.index != faqs | length %},{% endif %}{% endfor %}]
+  }
+</script>
+{% endblock %}
+{% block content %}
+<!-- Masthead -->
+<header class="fold-masthead data-masthead mdc-card">
+  <h1 class="fold-title mdc-typography--headline1">Decoupage Dreams</h1>
+  <div class="fold-subtitle mdc-typography--subtitle2">Based in Lancashire UK, we provide bespoke wedding
+  stationery and venue dressing services in our local community and beyond. Why not contact us for an
+  obligation-free conversation?
+  </div>
+
+  {% include 'includes/form_email.html' %}
+
+  <br><br>
+
+  <div class="shade"></div>
+</header>
+
+<section class="container fold-section" id="fold-faq">
+  <div class="mdc-typography--headline4">Frequently Asked Questions</div>
+  <div class="mdc-typography--subtitle2">We get asked these questions really often, so we've decided to write them down here to help you!</div>
+
+  {% for question, answer in faqs.items() %}
+  <details>
+    <summary>{{ question }}</summary>
+    <p>{{ answer }}</p>
+  </details>
+  {% endfor %}
+
+  <!--details>
+    <summary>You mentioned business insurance - got any more details?</summary>
+    <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+  </details>
+
+  <details>
+    <summary>What budget sizes do you normally work with?</summary>
+    <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+  </details>
+
+  <details>
+    <summary>What is your refund policy?</summary>
+    <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+  </details-->
+
+</section>
+
+{% include 'includes/cta_inquiry.html' %}
+
+{% endblock %}
