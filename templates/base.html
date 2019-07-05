@@ -57,6 +57,8 @@
   <meta name="msapplication-TileColor" content="#fffbba">
   <meta name="theme-color" content="#B77EDB">
 
+  <script>document.documentElement.classList.remove("no-js");</script>
+
   <link rel="stylesheet" href="/build/bundle.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab:400,700|Material+Icons&display=swap">
   <link rel="manifest" href="/static/manifest.json">
@@ -102,7 +104,7 @@
   {% endblock %}
 </head>
 
-<body class="mdc-typography">
+<body class="no-js mdc-typography">
   <!-- Google Tag Manager (noscript) -->
   {% if flags.ENABLE_GTM %}
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDGMNRW"
