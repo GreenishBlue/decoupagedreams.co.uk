@@ -4,16 +4,19 @@
   "url": "https://www.facebook.com/Decoupage-Dreams-1258375284223753",
   "icon_url": "/static/social/fb_dark.png",
   "icon_url_light": "/static/social/fb.png",
+  "alt": "View our Facebook",
 }, {
   "name": "Instagram",
   "url": "https://www.instagram.com/decoupagedreamsuk",
   "icon_url": "/static/social/ig_dark.png",
   "icon_url_light": "/static/social/ig.png",
+  "alt": "View our Instagram",
 }, {
   "name": "Pinterest",
   "url": "https://www.pinterest.co.uk/decoupagedreamsuk",
   "icon_url": "/static/social/pin_dark.png",
   "icon_url_light": "/static/social/pin.png",
+  "alt": "View our Pinterest",
 }] %}
 
 
@@ -39,10 +42,10 @@
   <!-- End Google Tag Manager -->
   {% endif %}
 	
-  <title>{{ title or "Decoupage Dreams" }}</title>
+  <title>{{ title | safe or "Decoupage Dreams" }}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ description }}">
+  <meta name="description" content="{{ description | safe }}">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
@@ -180,13 +183,13 @@
 
 	{% for s in social %}
 	<a class="mdc-list-item" href="{{ s.url }}" target="_blank" rel="noopener">
-	  <img src="{{ s.icon_url }}" class="fold-drawer-social-icon mdc-list-item__graphic">
+	  <img src="{{ s.icon_url }}" class="fold-drawer-social-icon mdc-list-item__graphic" alt="">
 	  <span class="mdc-list-item__text">{{ s.name }}</span>
         </a>
 	{% endfor %}
 
         <a class="mdc-list-item" href="https://www.twitter.com/decoupagedreams" target="_blank" rel="noopener">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">link</i>
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true" alt="">link</i>
           <span class="mdc-list-item__text">Twitter</span>
         </a>
       </nav>
@@ -205,11 +208,11 @@
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
 	{% if transparent_header %}
 	  {% for s in social %}
-	  <a href="{{ s.url }}" target="_blank" rel="noopener"><img src="{{ s.icon_url_light }}" class="mdc-top-app-bar__action-item"></a>
+	  <a href="{{ s.url }}" target="_blank" rel="noopener"><img src="{{ s.icon_url_light }}" alt="{{ s.alt }}" class="mdc-top-app-bar__action-item"></a>
 	  {% endfor %}
 	{% else %}
 	  {% for s in social %}
-	  <a href="{{ s.url }}" target="_blank"  rel="noopener"><img src="{{ s.icon_url }}" class="mdc-top-app-bar__action-item"></a>
+	  <a href="{{ s.url }}" target="_blank"  rel="noopener"><img src="{{ s.icon_url }}" alt={{ s.alt }}" class="mdc-top-app-bar__action-item"></a>
 	  {% endfor %}
 	{% endif %}
       </section>
