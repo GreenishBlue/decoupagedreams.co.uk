@@ -1,9 +1,25 @@
 const autoprefixer = require('autoprefixer');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   entry: ['./src/scss/app.scss', './src/js/app.js'],
   output: {
     filename: 'build/bundle.js',
+  },
+  optimization: {
+    minimizer: [
+      //Incase you want to uglify/minify js
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: { discardComments: { removeAll: true } },
+        canPrint: true
+      })
+    ]
   },
   module: {
     rules: [
@@ -40,5 +56,5 @@ module.exports = {
         },
       }
     ],
-  }
+  },
 }

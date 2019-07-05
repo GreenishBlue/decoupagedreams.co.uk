@@ -190,7 +190,7 @@ def confirm():
   return render_template('confirmed.html', flags=flags)
 
 
-@app.route('/build/bundle.css')
+@app.route('/dist/build/bundle.css')
 def build_css():
   """Request compiled CSS. This is only for development, and will be
   overridden by the Google App Engine config.
@@ -200,7 +200,7 @@ def build_css():
                   mimetype='text/css')
 
 
-@app.route('/build/bundle.js')
+@app.route('/dist/build/bundle.js')
 def build_js():
   """Request compiled JS. This is only for development, and will be
   overridden by the Google App Engine config.
