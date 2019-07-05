@@ -34,6 +34,11 @@ body {
   margin: 0;
 }
 
+// Hide lazy loaded images in no-JS mode to prevent dupes.
+.no-js .data-img-lazy {
+  display: none;
+}
+
 .easter-egg {
   font-family: "Comic Sans MS", cursive, sans-serif !important;
   background-color: pink !important;

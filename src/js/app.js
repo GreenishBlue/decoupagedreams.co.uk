@@ -36,6 +36,34 @@ class App {
       }, false)
     });
 
+    const lazyImages = [].slice.call(document.querySelectorAll('img.data-img-lazy'));
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target;
+	  if(lazyImage == null || lazyImage == undefined) {
+            return;
+	  }
+          lazyImage.src = lazyImage.dataset.src;
+          lazyImage.srcset = lazyImage.dataset.srcset;
+          lazyImage.classList.remove('data-img-lazy');
+          lazyImageObserver.unobserve(lazyImage);
+
+ 	  console.log('lazy loading image: ' + src);
+        }
+      });
+    });
+    lazyImages.forEach((imageElement) => {
+      // Check if InteractionObserver is supported, otherwise just load images.
+      if (!'IntersectionObserver' in window &&
+          !'IntersectionObserverEntry' in window &&
+          !'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
+        imageElement.setAttribute('src', this.source); 
+      } else {
+        lazyImageObserver.observe(imageElement);
+      }
+    });
+
 
     // Register service worker.
     if ('serviceWorker' in navigator) {
@@ -61,8 +89,6 @@ class App {
     document.onkeydown = (e) => {
       recentKeys.push(e.keyCode);
       const lastKeys = recentKeys.slice(-11);
-	    console.log(lastKeys);
-	    console.log(konamiKeys);
       if(JSON.stringify(konamiKeys) == JSON.stringify(lastKeys)) {
 	      console.log("triggered!");
         const easterEggStyle = 'easter-egg';
