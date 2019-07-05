@@ -65,6 +65,29 @@ class App {
     });
 
 
+    // Lazy load iframes.
+    let lazyFrameObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyFrame = entry.target;
+	  if(lazyFrame == null || lazyFrame == undefined) {
+            return;
+	  }
+          lazyFrame.src = lazyFrame.dataset.src;
+ 	  console.log('lazy loading frame: ' + src);
+        }
+      });
+    });
+
+    const frameElement = document.querySelector('iframe.lazy');
+    if (!'IntersectionObserver' in window &&
+        !'IntersectionObserverEntry' in window &&
+        !'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
+      frameElement.setAttribute('src', frameElement.dataset.src); 
+    } else {
+      lazyFrameObserver.observe(frameElement);
+    }
+
     // Register service worker.
     if ('serviceWorker' in navigator) {
       console.log("Attempting to reigster service worker.");
