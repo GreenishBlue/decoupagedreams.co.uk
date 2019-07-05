@@ -2,9 +2,15 @@
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell">
       <div class="mdc-card fold-testimonial-card">
-        <img class="fold-testimonial-couple-photo"
-	     alt="Photo of Mr. And Mrs. Wilson"
-             src="https://images.unsplash.com/photo-1493970172592-658147e0a761?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=200&q=80">
+        {% with image={
+          "class": "fold-testimonial-couple-photo",
+	  "alt": "Photo of Mr. And Mrs. Wilson",
+	  "src": "https://images.unsplash.com/photo-1493970172592-658147e0a761?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=200&q=80",
+	  "srcset": "https://images.unsplash.com/photo-1493970172592-658147e0a761?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=200&q=80 1x",
+	  "preview_src": "https://images.unsplash.com/photo-1493970172592-658147e0a761?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=20&h=20&q=20",
+        } %}
+          {% include 'includes/lazy_img.html' %}
+        {% endwith %}
         <div class="mdc-typography--headline5">Mr. &amp; Mrs. Wilson</div>
         <div class="mdc-typography--caption">June 2018</div>
         <div class="mdc-typography--body2">
@@ -42,9 +48,15 @@
 
     <div class="mdc-layout-grid__cell">
       <div class="mdc-card fold-testimonial-card">
-        <img class="fold-testimonial-couple-photo"
-	     alt="Photo of Paul Rodman"
-             src="https://media.licdn.com/dms/image/C4D03AQFRVysgMmNlZg/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=joaqYBVTRR7w36oKBIBL0upeQZ0_PLDN5El-ixEnl8Y">
+        {% with image={
+          "class": "fold-testimonial-couple-photo",
+	  "alt": "Photo of Paul Rodman",
+	  "src": "https://media.licdn.com/dms/image/C4D03AQFRVysgMmNlZg/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=joaqYBVTRR7w36oKBIBL0upeQZ0_PLDN5El-ixEnl8Y",
+	  "srcset": "https://media.licdn.com/dms/image/C4D03AQFRVysgMmNlZg/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=joaqYBVTRR7w36oKBIBL0upeQZ0_PLDN5El-ixEnl8Y 1x",
+	  "preview_src": "https://media.licdn.com/dms/image/C4D03AQFRVysgMmNlZg/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=joaqYBVTRR7w36oKBIBL0upeQZ0_PLDN5El-ixEnl8Y"
+        } %}
+          {% include 'includes/lazy_img.html' %}
+        {% endwith %}
         <div class="mdc-typography--headline5">Paul Rodman, Kendal Wills</div>
         <div class="mdc-typography--caption">February 2019</div>
         <div class="mdc-typography--body2">
