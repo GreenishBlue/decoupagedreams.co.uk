@@ -12,6 +12,15 @@ flags = {
   "ENABLE_GTM": (os.environ.get("FLAG_GTM") == "True"),
 }
 
+
+URLLIST_PATHS = [
+  '/',
+  '/weddings',
+  '/faq',
+  '/contact',
+]
+
+
 # The URL to the Google Apps Script service which to send emails to.
 # Param: ?email=XXXXXXXXXX
 APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macros/s/AKfycbxClyaeZUd5mjsdPYjWJqrmESeI9ch5BZdQ-k_5/exec"
@@ -115,6 +124,18 @@ def blog():
 @app.route('/blog/<string:post_id>')
 def blog_post(post_id):
   return render_template('blog_post.html', flags=flags, post={}, call_hours=is_call_hours())
+
+
+@app.route('/urllist.txt')
+def urlist():
+  url_prefix = 'https://www.decoupagedreams.co.uk'
+  generated = ''
+  for path in URLLIST_PATHS:
+    generated += url_prefix
+    generated += path
+    generated += '\n'
+  from flask import Response
+  return Response(generated, mimetype='text/plain')
 
 
 @app.route('/confirm_expanded')
