@@ -178,13 +178,13 @@
 
 
 	{% for s in social %}
-	<a class="mdc-list-item" href="{{ s.url }}" target="_blank">
+	<a class="mdc-list-item" href="{{ s.url }}" target="_blank" rel="noopener">
 	  <img src="{{ s.icon_url }}" class="fold-drawer-social-icon mdc-list-item__graphic">
 	  <span class="mdc-list-item__text">{{ s.name }}</span>
         </a>
 	{% endfor %}
 
-        <a class="mdc-list-item" href="https://www.twitter.com/decoupagedreams" target="_blank">
+        <a class="mdc-list-item" href="https://www.twitter.com/decoupagedreams" target="_blank" rel="noopener">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">link</i>
           <span class="mdc-list-item__text">Twitter</span>
         </a>
@@ -204,11 +204,11 @@
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
 	{% if transparent_header %}
 	  {% for s in social %}
-	  <a href="{{ s.url }}"><img src="{{ s.icon_url_light }}" class="mdc-top-app-bar__action-item"></a>
+	  <a href="{{ s.url }}" target="_blank" rel="noopener"><img src="{{ s.icon_url_light }}" class="mdc-top-app-bar__action-item"></a>
 	  {% endfor %}
 	{% else %}
 	  {% for s in social %}
-	  <a href="{{ s.url }}"><img src="{{ s.icon_url }}" class="mdc-top-app-bar__action-item"></a>
+	  <a href="{{ s.url }}" target="_blank"  rel="noopener"><img src="{{ s.icon_url }}" class="mdc-top-app-bar__action-item"></a>
 	  {% endfor %}
 	{% endif %}
       </section>
