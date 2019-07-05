@@ -74,6 +74,7 @@ class App {
             return;
 	  }
           lazyFrame.src = lazyFrame.dataset.src;
+   	  lazyFrameObserver.unobserve(lazyFrame);
  	  console.log('lazy loading frame: ' + src);
         }
       });
