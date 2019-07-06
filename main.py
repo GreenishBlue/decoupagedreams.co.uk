@@ -50,7 +50,7 @@ collections = {
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget sem eu velit gravida placerat a quis nisl. Ut posuere sodales odio, eu consectetur sem dapibus et. Maecenas imperdiet bibendum pretium.",
     "meta_description": "collection meta description",
     "cta": "Make An Inquiry",
-    "cta_url": "/contact",
+    "cta_url": "#fold-inquiry",
     "cards": [
     ]
   }
@@ -63,7 +63,7 @@ def generate_sample_image():
   return {
     "type": "image",
     "image": {
-      "class": "mdc-image-list__image", # mdc-card
+      "class": "mdc-image-list__image mdc-card",
       "preview_src": "https://picsum.photos/%s/%s?blur=10" % (width, height),
       "src": "https://picsum.photos/%s/%s" % (width, height),
       "srcset": "https://picsum.photos/%s/%s 1x" % (width, height),

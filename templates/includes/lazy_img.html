@@ -1,7 +1,7 @@
 <img class="{{ image.class }} fold-img-lazy" src="{{ image.preview_src }}" data-src="{{ image.src }}" data-srcset="{{ image.srcset }}" src="{{ image.alt }}"
 																       {% if image.width and image.width %}
-		width="{{ image.width }}"
-  		height="{{ image.height }}"
+		data-width="{{ image.width }}"
+  		data-height="{{ image.height }}"
     {% endif %}>
 <noscript>
 	<img src="{{ image.src }}" alt="{{ image.alt }}" data-srcset="{{ image.srcset }}">

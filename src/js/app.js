@@ -130,4 +130,4 @@ class App {
 }
 
 window.app = new App();
-(() => app.onStart())();
+app.onStart();
