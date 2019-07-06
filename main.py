@@ -146,6 +146,12 @@ def blog_post(post_id):
                          post={}, call_hours=is_call_hours())
 
 
+@app.route('/contact')
+def contact():
+  return render_template('contact.html', flags=get_flags(request),
+                         call_hours=is_call_hours())
+
+
 @app.route('/urllist.txt')
 def urlist():
   url_prefix = 'https://www.decoupagedreams.co.uk'
