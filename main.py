@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, Response, request, abort
+from flask import Flask, render_template, Response, request, abort, redirect
 from requests import get
 
 
@@ -43,6 +43,21 @@ products = [
   },
 ] 
 
+
+collections = {
+  "showcase": {
+    "title": "Product Showcase",
+    "description": "Collection description",
+    "meta_description": "collection meta description",
+    "cta": "the CTA",
+    "cta_url": "/contact",
+    "images": [
+      {
+        "url": "https://picsum.photos/200/300"
+      }
+    ]
+  }
+}
 
 tags = [
   "Centrepiece",
@@ -92,16 +107,21 @@ def home():
 
 
 @app.route('/gallery')
-def list_products():
-  return render_template('products.html', flags=get_flags(request),
-                         call_hours=is_call_hours(), products=products, tags=tags)
+def list_collections():
+  return redirect('/gallery/showcase', 302) # temp until gallery list done
+  return render_template('gallery_root.html', flags=get_flags(request),
+                         call_hours=is_call_hours(), collections=collections, 
+                         tags=tags)
 
 
-@app.route('/gallery/<product_id>')
-def view_product(product_id):
-  product = products[product_id]
-  return render_template('view_product.html', flags=get_flags(request), 
-                         call_hours=is_call_hours(), product=product)
+@app.route('/gallery/<collection_id>')
+def view_collection(collection_id):
+  try:
+    collection = collections[collection_id]
+  except KeyError:
+    abort(404)
+  return render_template('gallery_collection.html', flags=get_flags(request), 
+                         call_hours=is_call_hours(), collection=collection)
 
 
 @app.route('/faq')

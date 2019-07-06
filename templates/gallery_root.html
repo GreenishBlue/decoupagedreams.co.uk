@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% set title = "Gallery - Decoupage Dreams" %}
+{% set short_title = "Gallery" %}
+{% set description = "" %}
+{% set transparent_header = False %}
+{% set cta = "Make An Inquiry" %}
+{% set cta_url = "/#fold-inquiry" %}
+{% block content %}
+<header class="fold-masthead data-masthead mdc-card">
+  <h1 class="fold-title mdc-typography--headline1">Decoupage Dreams</h1>
+  <div class="fold-subtitle mdc-typography--subtitle2">Based in Lancashire UK, we provide bespoke wedding
+  stationery and venue dressing services in our local community and beyond. Why not contact us for an
+  obligation-free conversation?
+  </div>
+
+  {% include 'includes/form_email.html' %}
+
+  <br><br>
+
+  <div class="shade"></div>
+</header>
+
+<section class="container fold-section" id="fold-faq">
+  <div>todo</div>
+</section>
+
+{% include 'includes/cta_inquiry.html' %}
+
+{% endblock %}
