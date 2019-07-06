@@ -36,21 +36,27 @@ class App {
       }, false)
     });
 
-    const lazyImages = [].slice.call(document.querySelectorAll('img.data-img-lazy'));
-    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          let lazyImage = entry.target;
-	  if(lazyImage == null || lazyImage == undefined) {
-            return;
-	  }
-          lazyImage.src = lazyImage.dataset.src;
-          lazyImage.srcset = lazyImage.dataset.srcset;
-          lazyImage.classList.remove('data-img-lazy');
-          lazyImageObserver.unobserve(lazyImage);
+    // Lazy images HTML structure:
+    // <div class="fold-data-img-lazy" style="height: ..; width: ..">
+    //  <img class="fold-img" src=".." data-src=".." data-srcset=".." alt="">
+    //   <noscript>
+    //     <img src="..">
+    //   </noscript>
+    // </div>
+    let lazyImages = [].slice.call(document.querySelectorAll('img.fold-img-lazy'));
 
- 	  console.log('lazy loading image: ' + src);
-        }
+    // developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver
+    let lazyImageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return false;
+
+        let lazyImage = entry.target;
+        lazyImage.src = lazyImage.dataset.src;
+        lazyImage.srcset = lazyImage.dataset.srcset;
+        lazyImage.classList.remove('data-img-lazy');
+        lazyImageObserver.unobserve(lazyImage);
+
+        console.log('Lazy loading image: ' + lazyImage.src);
       });
     });
     lazyImages.forEach((imageElement) => {
@@ -61,9 +67,9 @@ class App {
         imageElement.setAttribute('src', this.source); 
       } else {
         lazyImageObserver.observe(imageElement);
+        console.log('Observing image element!');
       }
     });
-
 
     // Lazy load iframes.
     let lazyFrameObserver = new IntersectionObserver(function(entries, observer) {

@@ -1,0 +1,17 @@
+// Hide lazy loaded images in no-JS mode to prevent dupes.
+.no-js .data-img-lazy {
+  display: none;
+}
+
+.fold-img-lazy,
+.fold-img-lazy-preview {
+}
+
+.fold-img-lazy {
+
+}
+
+.fold-img-lazy-preview {
+
+}
+

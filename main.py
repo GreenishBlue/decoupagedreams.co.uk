@@ -47,17 +47,55 @@ products = [
 collections = {
   "showcase": {
     "title": "Product Showcase",
-    "description": "Collection description",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget sem eu velit gravida placerat a quis nisl. Ut posuere sodales odio, eu consectetur sem dapibus et. Maecenas imperdiet bibendum pretium.",
     "meta_description": "collection meta description",
-    "cta": "the CTA",
+    "cta": "Make An Inquiry",
     "cta_url": "/contact",
-    "images": [
-      {
-        "url": "https://picsum.photos/200/300"
-      }
+    "cards": [
     ]
   }
 }
+
+import random
+def generate_sample_image():
+  width = random.randint(2, 4) * 100 
+  height = random.randint(2, 6) * 100 
+  return {
+    "type": "image",
+    "image": {
+      "class": "mdc-image-list__image", # mdc-card
+      "preview_src": "https://picsum.photos/%s/%s?blur=10" % (width, height),
+      "src": "https://picsum.photos/%s/%s" % (width, height),
+      "srcset": "https://picsum.photos/%s/%s 1x" % (width, height),
+      "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in tincidunt eros.",
+      "alt": "image alt",
+      "width": width,
+      "height": height,
+    }
+  }
+
+def generate_sample_card():
+  lipsums = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Aenean non enim metus. Quisque id nulla dolor.",
+    "Fusce feugiat fermentum ligula, quis egestas risus elementum ut. Suspendisse fringilla vehicula libero, at fringilla sapien eleifend et."
+  ]
+  return {
+    "type": "text",
+    "caption": lipsums[random.randrange(len(lipsums))]
+  }
+
+for i in range(0, 5):
+  collections["showcase"]["cards"].append(generate_sample_image())
+
+for i in range(0, 5):
+  pass
+  # collections["showcase"]["cards"].append(generate_sample_card())
+
+for i in range(0, 15):
+  collections["showcase"]["cards"].append(generate_sample_image())
+
+random.shuffle(collections["showcase"]["cards"])
 
 tags = [
   "Centrepiece",

@@ -1,16 +1,41 @@
 {% extends 'base.html' %}
 {% set title = collection.title + " - Gallery - Decoupage Dreams" %}
 {% set short_title = "Gallery" %}
-{% set description = "" %}
+{% set description = collection.meta_description %}
 {% set transparent_header = False %}
-{% set cta = "Make An Inquiry" %}
-{% set cta_url = "/#fold-inquiry" %}
+{% set cta = collection.cta %}
+{% set cta_url = collection.cta_url %}
 {% block content %}
-<br>
-<section class="container fold-section" id="fold-faq">
-  <div>todo</div>
+<section class="container fold-section" style="padding-top: 42px">
+  <h1 class="mdc-typography--headline3">{{ collection.title }}</h1>
+  <h6 class="mdc-typography--subtitle2">{{ collection.description }}</h6>
+  {% include 'includes/cta_inquiry.html' %}
+</section>
+<section class="container fold-section" style="padding-top: 32px">
+  <ul class="mdc-image-list mdc-image-list--masonry fold-gallery2-image-list" style="padding: 0;">
+    {% for card in collection.cards %}
+    {% if card.type == "image" %}
+    <li class="mdc-image-list__item">
+      <a href="#">
+        <img class="mdc-image-list__image mdc-card" src="">
+	{% with image = card.image %}
+	  {% include "includes/lazy_img.html" %}
+	{% endwith %}
+	{% if card.image.caption %}
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">{{ card.image.caption }}</span>
+        </div>
+	{% endif %}
+      </a>
+    </li>
+    {% elif card.type == "text" %}
+    <li class="mdc-image-list__item mdc-card">
+      {{ card.caption }}
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
 </section>
 
-{% include 'includes/cta_inquiry.html' %}
 
 {% endblock %}
