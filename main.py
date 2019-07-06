@@ -61,7 +61,6 @@ def generate_sample_image():
   width = random.randint(2, 4) * 100 
   height = random.randint(2, 6) * 100 
   return {
-    "type": "image",
     "image": {
       "class": "mdc-image-list__image mdc-card",
       "preview_src": "https://picsum.photos/%s/%s?blur=10" % (width, height),
@@ -74,23 +73,8 @@ def generate_sample_image():
     }
   }
 
-def generate_sample_card():
-  lipsums = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "Aenean non enim metus. Quisque id nulla dolor.",
-    "Fusce feugiat fermentum ligula, quis egestas risus elementum ut. Suspendisse fringilla vehicula libero, at fringilla sapien eleifend et."
-  ]
-  return {
-    "type": "text",
-    "caption": lipsums[random.randrange(len(lipsums))]
-  }
-
 for i in range(0, 5):
   collections["showcase"]["cards"].append(generate_sample_image())
-
-for i in range(0, 5):
-  pass
-  # collections["showcase"]["cards"].append(generate_sample_card())
 
 for i in range(0, 15):
   collections["showcase"]["cards"].append(generate_sample_image())

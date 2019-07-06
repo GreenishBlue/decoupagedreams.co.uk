@@ -14,7 +14,6 @@
 <section class="container fold-section" style="padding-top: 32px">
   <ul class="mdc-image-list mdc-image-list--masonry fold-gallery2-image-list" style="padding: 0;">
     {% for card in collection.cards %}
-    {% if card.type == "image" %}
     <li class="mdc-image-list__item">
       <a href="#">
         <img class="mdc-image-list__image mdc-card" src="">
@@ -27,12 +26,6 @@
         </div>
 	{% endif %}
       </a>
-    </li>
-    {% elif card.type == "text" %}
-    <li class="mdc-image-list__item mdc-card">
-      {{ card.caption }}
-    </li>
-    {% endif %}
     {% endfor %}
   </ul>
 </section>
