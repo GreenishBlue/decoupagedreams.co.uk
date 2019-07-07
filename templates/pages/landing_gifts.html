@@ -28,33 +28,6 @@ url('{{ masthead_url }}');">
 
 
 <section class="container fold-section">
-  <div class="mdc-typography--headline4">Cards</div>
-
-  <div class="mdc-layout-grid">
-    <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-        {% with collection = cards_collection.images[:6] %}
-          {% set class = "fold-gallery2-image-list__micro" %}
-          {% include 'collection.html' %}
-        {% endwith %}
-      </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-     	<ul>
-	  <li>Hand-crafted cards &amp; stationery</li>
-	  <li>Choose from a range of designs, or work with our designer Ann to make something truly bespoke</li>
-	  <li>Discounts available for larger orders</li>
-	</ul>
-      </div>
-    </div>
-  </div>
-
-  {% set cta = "View The Cards Gallery" %}
-  {% set cta_url = "/gallery/cards" %}
-  {% include 'includes/cta_inquiry.html' %}
-</section>
-
-
-<section class="container fold-section">
   <div class="mdc-typography--headline4">Favour Boxes</div>
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
@@ -76,6 +49,33 @@ url('{{ masthead_url }}');">
 
   {% set cta = "View The Favour Box Gallery" %}
   {% set cta_url = "/gallery/favour-boxes" %}
+  {% include 'includes/cta_inquiry.html' %}
+</section>
+
+
+<section class="container fold-section">
+  <div class="mdc-typography--headline4">Cards</div>
+
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+        {% with collection = cards_collection.images[:6] %}
+          {% set class = "fold-gallery2-image-list__micro" %}
+          {#% include 'collection.html' %#}
+        {% endwith %}
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+     	<ul>
+	  <li>Hand-crafted cards &amp; stationery</li>
+	  <li>Choose from a range of designs, or work with our designer Ann to make something truly bespoke</li>
+	  <li>Discounts available for larger orders</li>
+	</ul>
+      </div>
+    </div>
+  </div>
+
+  {% set cta = "View The Cards Gallery" %}
+  {% set cta_url = "/gallery/cards" %}
   {% include 'includes/cta_inquiry.html' %}
 </section>
 
