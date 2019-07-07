@@ -1,18 +1,25 @@
 {% extends 'base.html' %}
-{% set title = "Gifts - Cards & Favour Boxes - Decoupage Dreams" %}
-{% set short_title = "Gifts" %}
+{% set title = "Gift Shop - Cards & Favours For Giving - Decoupage Dreams" %}
+{% set short_title = "Gift Shop" %}
+{% set description = "Visit our gift shop to find cards & favour boxes for your loved ones. Beautiful hand-crafted designs. Free shipping." %}
+{% set photo_credits = ["@nate_dumlao", "@priscilladupreez", "@kchance8", "@freestocks"] %}
 {% set transparent_header = False %}
-{% set cta = "View The Gallery" %}
-{% set cta_url = "/products" %}
+
 {% block content %}
 <!-- Masthead -->
-<header class="fold-masthead data-masthead mdc-card">
-  <h1 class="fold-title mdc-typography--headline1">Gifts</h1>
-  <div class="fold-subtitle mdc-typography--subtitle2">todo</div>
+<header class="fold-masthead2 data-masthead">
+  <div class="mdc-typography--headline4">Decoupage Dreams</div>
+  <br>
+  <div class="mdc-typography--headline3">Give The Gift Of Decoupage</div>
+  <div class="mdc-typography--subtitle1">Cards &amp; favours for your loved ones. Beautiful hand-crafted designs.</div>
+  <br>
 
-  {% include 'includes/form_weddings.html' %}
+  {% set cta = "View The Gallery" %}
+  {% set cta_url = "/gallery" %}
+  {% include 'includes/cta_inquiry.html' %}
 
-  <br><br>
+  <br>
+  <div class="mdc-typography--caption">Free shipping on all orders via email. PayPal accepted.</div>
 
   <div class="shade"></div>
 </header>
@@ -23,7 +30,12 @@
 
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">photo</div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+        {% with collection = cards_collection.images[:6] %}
+          {% set class = "fold-gallery2-image-list__micro" %}
+          {% include 'collection.html' %}
+        {% endwith %}
+      </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
      	<ul>
 	  <li>Hand-crafted cards &amp; stationery</li>
@@ -34,16 +46,22 @@
     </div>
   </div>
 
+  {% set cta = "View The Cards Gallery" %}
+  {% set cta_url = "/gallery/cards" %}
   {% include 'includes/cta_inquiry.html' %}
 </section>
 
 
 <section class="container fold-section">
   <div class="mdc-typography--headline4">Favour Boxes</div>
-
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">photo</div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+        {% with collection = favour_box_collection.images[:6] %}
+          {% set class = "fold-gallery2-image-list__micro" %}
+          {% include 'collection.html' %}
+        {% endwith %}
+      </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
      	<ul>
 	  <li>Beautiful hand-crafted favors for gifting</li>
@@ -54,11 +72,17 @@
     </div>
   </div>
 
+  {% set cta = "View The Favour Box Gallery" %}
+  {% set cta_url = "/gallery/favour-boxes" %}
   {% include 'includes/cta_inquiry.html' %}
 </section>
 
 
-{% include 'includes/section_testimonials.html' %}
+<div class="mdc-typography--caption" style="text-align: center; padding-top: 42px;">
+Additional photos by {% for p in photo_credits %}
+<a href="https://unsplash.com/{{ p }}">{{ p }}</a> 
+{% endfor %} on <a href="https://www.unsplash.com">Unsplash</a>.
+</div>
 
 
 {% endblock %}

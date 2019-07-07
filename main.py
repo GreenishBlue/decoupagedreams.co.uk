@@ -119,7 +119,9 @@ def landing_weddings():
 @app.route('/gifts')
 def landing_gifts():
   return render_template('pages/landing_gifts.html', flags=get_flags(request),  
-                         posts=[], call_hours=is_call_hours())
+                         posts=[], call_hours=is_call_hours(),
+                         favour_box_collection=collections['favour-boxes'],
+                         cards_collection=collections['favour-boxes'])
 
 
 @app.route('/faq')

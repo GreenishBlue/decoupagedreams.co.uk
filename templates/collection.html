@@ -1,0 +1,16 @@
+<ul class="mdc-image-list mdc-image-list--masonry {{ class }}" style="padding: 0;">
+  {% for image in collection %}
+  <li class="mdc-image-list__item">
+    <a href="#">
+      <img class="mdc-image-list__image mdc-card" src="">
+      {% with image = image %}
+        {% include "includes/lazy_img.html" %}
+      {% endwith %}
+      {% if image.caption %}
+      <div class="mdc-image-list__supporting">
+        <span class="mdc-image-list__label">{{ image.caption }}</span>
+      </div>
+      {% endif %}
+    </a>
+  {% endfor %}
+</ul>
