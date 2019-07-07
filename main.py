@@ -18,6 +18,9 @@ URLLIST_PATHS = [
   '/weddings',
   '/faq',
   '/contact',
+  '/occasions',
+  '/gifts',
+  '/gallery/favour-boxes',
 ]
 
 
