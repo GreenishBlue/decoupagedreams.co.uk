@@ -2,12 +2,14 @@
 {% set title = "Gift Shop - Cards & Favours For Giving - Decoupage Dreams" %}
 {% set short_title = "Gift Shop" %}
 {% set description = "Visit our gift shop to find cards & favour boxes for your loved ones. Beautiful hand-crafted designs. Free shipping." %}
-{% set photo_credits = ["@nate_dumlao", "@priscilladupreez", "@kchance8", "@freestocks"] %}
+{% set photo_credits = ["@sharonmccutcheon"] %}
+{% set masthead_url = "https://images.unsplash.com/photo-1448832945950-bc85f82891bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&h=1000&q=80" %}
 {% set transparent_header = False %}
 
 {% block content %}
 <!-- Masthead -->
-<header class="fold-masthead2 data-masthead">
+<header class="fold-masthead2 data-masthead" style=" background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), 
+url('{{ masthead_url }}');">
   <div class="mdc-typography--headline4">Decoupage Dreams</div>
   <br>
   <div class="mdc-typography--headline3">Give The Gift Of Decoupage</div>

@@ -18,6 +18,7 @@
   "icon_url_light": "/static/social/pin.png",
   "alt": "View our Pinterest",
 }] %}
+{% set masthead_url = masthead_url | default("https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&h=1000&q=80") %}
 
 
 <!doctype html>
@@ -140,8 +141,8 @@
         <hr class="mdc-list-divider">
         <h6 class="mdc-list-group__subheader">Events</h6>
 
-        <a class="mdc-list-item {%if short_title == "Occasions" %}mdc-list-item--activated{% endif %}" href="/occasions" 
-	  {% if short_title == "Occasions" %} aria-current="page"{% endif %}>
+        <a class="mdc-list-item {%if short_title == "For Occasions" %}mdc-list-item--activated{% endif %}" href="/occasions" 
+	  {% if short_title == "For Occasions" %} aria-current="page"{% endif %}>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">event</i>
           <span class="mdc-list-item__text">Occasions</span>
         </a>
@@ -152,10 +153,10 @@
           <span class="mdc-list-item__text">For Weddings</span>
         </a>
 	
-        <a class="mdc-list-item {%if short_title == "Gifts" %}mdc-list-item--activated{% endif %}" href="/gifts" 
-	  {% if short_title == "Gifts" %} aria-current="page"{% endif %}>
+        <a class="mdc-list-item {%if short_title == "Gift Shop" %}mdc-list-item--activated{% endif %}" href="/gifts" 
+	  {% if short_title == "Gift Shop" %} aria-current="page"{% endif %}>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">card_giftcard</i>
-          <span class="mdc-list-item__text">Gifts</span>
+          <span class="mdc-list-item__text">Gift Shop</span>
         </a>
 
         <hr class="mdc-list-divider">
@@ -248,7 +249,8 @@
     </button>
   {% endif %}
 
-  <footer id="fold-inquiry" class="fold-section fold-masthead fold-footer mdc-card" style="margin-top: 60px;">
+  <footer id="fold-inquiry" class="fold-section fold-masthead fold-footer mdc-card" style="margin-top: 60px;
+              background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url('{{ masthead_url }}');">
     <div style="max-width: 600px; margin: 0 auto; padding: 60px 0 80px 0; ">
       <div class="mdc-typography--headline4">Inquiry Form</div>
       <div class="mdc-typography--subtitle2">Want to know more about our service? Fill in your email and we'll be in touch right away! Alternatively you can <a href="https://www.facebook.com/Decoupage-Dreams-1258375284223753">find us on Facebook</a> or phone us directly on <a href="tel:07419 111 922" class="utm-phone">07419 111 922</a>. We'd like to know (roughly) the date of your event, as well as your desired styles &amp; colours. We typically respond within a few hours!</div>
