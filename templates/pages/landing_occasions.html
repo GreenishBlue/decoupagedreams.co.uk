@@ -26,6 +26,39 @@ url('{{ masthead_url }}');">
 
 
 <section class="container fold-section">
+  <div class="mdc-typography--headline4">Any Occasion</div>
+  <div class="mdc-typography--subtitle2">We'll always find a way to make it more beautiful. That's our promise.</div>
+
+  <div class="fold-feature-layout-grid mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      {% set occasions = [{
+        "title": "Birthdays",
+	"image": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=250&q=80",
+      }, {
+        "title": "Funerals",
+	"image": "https://images.unsplash.com/photo-1544813545-4827b64fcacb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=250&q=80",
+      }, {
+        "title": "Christenings",
+	"image": "https://images.unsplash.com/photo-1510073634266-1c59fd23c4cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=250&q=80",
+      },] %}
+      {% for o in occasions %}
+      <div class="mdc-card fold-title-card mdc-layout-grid__cell 
+	   mdc-layout-grid__cell--span-4-desktop
+	   mdc-layout-grid__cell--span-8-tablet
+	   mdc-layout-grid__cell--span-4-phone"
+	   style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('{{ o.image }}');">
+        <div class="mdc-typography--headline5">{{ o.title }}</div>
+	<div class="mdc-typography--subtitle3"></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% include 'includes/cta_inquiry.html' %}
+</section>
+
+
+<section class="container fold-section">
   <div class="mdc-typography--headline4">Our Products</div>
   <div class="mdc-typography--subtitle2">We offer our products at competitive prices. 
 	  Event hosts can choose as much or as little as desired. </div>
@@ -113,46 +146,6 @@ url('{{ masthead_url }}');">
 
 
 {% include 'includes/section_testimonials.html' %}
-
-
-<!--ol class="fold-carousel">
-  <li>
-    <div class="mdc-card" style="background: url('/static/images/products2/IMG_20190504_161833.jpg');"></div>
-  </li>
-</ol-->
-
-
-<section class="container fold-section">
-  <div class="mdc-typography--headline4">Any Occasion</div>
-  <div class="mdc-typography--subtitle2">We'll always find a way to make it more beautiful. That's our promise.</div>
-
-  <div class="fold-feature-layout-grid mdc-layout-grid">
-    <div class="mdc-layout-grid__inner">
-      {% set occasions = [{
-        "title": "Birthdays",
-	"image": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=250&q=80",
-      }, {
-        "title": "Funerals",
-	"image": "https://images.unsplash.com/photo-1544813545-4827b64fcacb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=250&q=80",
-      }, {
-        "title": "Christenings",
-	"image": "https://images.unsplash.com/photo-1510073634266-1c59fd23c4cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=250&q=80",
-      },] %}
-      {% for o in occasions %}
-      <div class="mdc-card fold-title-card mdc-layout-grid__cell 
-	   mdc-layout-grid__cell--span-4-desktop
-	   mdc-layout-grid__cell--span-8-tablet
-	   mdc-layout-grid__cell--span-4-phone"
-	   style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('{{ o.image }}');">
-        <div class="mdc-typography--headline5">{{ o.title }}</div>
-	<div class="mdc-typography--subtitle3"></div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-
-  {% include 'includes/cta_inquiry.html' %}
-</section>
 
 
 {% include 'includes/section_google_map.html' %}
