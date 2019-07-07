@@ -58,6 +58,17 @@
   <meta name="msapplication-TileColor" content="#fffbba">
   <meta name="theme-color" content="#B77EDB">
 
+  <meta property="og:title" content="{{ title | safe or "Decoupage Dreams" }}">
+  <meta property="og:description" content="{{ description | safe }}">
+  {% if opengraph_image %}
+  {# Facebook recommended minimum: 1200x630 with 1.91:1 aspect ratio #}
+  <meta property="og:image" content="{{ opengraph_image }}">
+  <meta name="twitter:image:alt" content="{{ opengraph_image_alt }}">
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:site_name" content="Decoupage Dreams">
+  <meta name="twitter:site" content="@decoupagedreams">
+
   <script>document.documentElement.classList.remove("no-js");</script>
 
   {% with href = "https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab:400,700|Material+Icons&display=swap" %}
