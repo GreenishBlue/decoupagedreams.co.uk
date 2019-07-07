@@ -16,6 +16,11 @@
   background-position-y: 0;
   background-position-x: center;
 
+  @media(min-width: 600px) {
+    padding-top: calc(48px + 10vh);
+    padding-bottom: 6vh;
+  }
+
   .mdc-typography--headline4 {
     font-family: 'Great Vibes', sans-serif;
   }
