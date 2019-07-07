@@ -25,79 +25,28 @@ URLLIST_PATHS = [
 # Param: ?email=XXXXXXXXXX
 APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macros/s/AKfycbxClyaeZUd5mjsdPYjWJqrmESeI9ch5BZdQ-k_5/exec"
 
+import os
+import yaml
 
-products = [
-  {
-    "photo_url": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-    "label": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut dui mattis, pellentesque augue vel, rhoncus lacus."
-  },
 
-  {
-      "photo_url": "https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
-    "label": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut dui mattis, pellentesque augue vel, rhoncus lacus."
-  },
-
-  {
-      "photo_url": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-    "label": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut dui mattis, pellentesque augue vel, rhoncus lacus."
-  },
-] 
-
+"""
+Load a collection's metadata into memory.
+"""
+def load_collection(file_path):
+  loaded_yaml = yaml.load(open(file_path + "/collection.yaml"))
+  images = []
+  for image_file_path in loaded_yaml['images']:
+    loaded_image = yaml.load(open(file_path + "/" + image_file_path))
+    loaded_image['class'] = "mdc-image-list__image mdc-card"
+    images.append(loaded_image)
+  loaded_yaml['images'] = images
+  return loaded_yaml
 
 collections = {
-  "showcase": {
-    "title": "Product Showcase",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget sem eu velit gravida placerat a quis nisl. Ut posuere sodales odio, eu consectetur sem dapibus et. Maecenas imperdiet bibendum pretium.",
-    "meta_description": "collection meta description",
-    "cta": "Make An Inquiry",
-    "cta_url": "#fold-inquiry",
-    "cards": [
-    ]
-  }
+  "showcase": load_collection("./data/gallery/favour_boxes")
 }
 
-import random
-def generate_sample_image():
-  width = random.randint(2, 4) * 100 
-  height = random.randint(2, 6) * 100 
-  return {
-    "image": {
-      "class": "mdc-image-list__image mdc-card",
-      "preview_src": "https://picsum.photos/%s/%s?blur=10" % (width, height),
-      "src": "https://picsum.photos/%s/%s" % (width, height),
-      "srcset": "https://picsum.photos/%s/%s 1x" % (width, height),
-      "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in tincidunt eros.",
-      "alt": "image alt",
-      "width": width,
-      "height": height,
-    }
-  }
-
-for i in range(0, 5):
-  collections["showcase"]["cards"].append(generate_sample_image())
-
-for i in range(0, 15):
-  collections["showcase"]["cards"].append(generate_sample_image())
-
-random.shuffle(collections["showcase"]["cards"])
-
-tags = [
-  "Centrepiece",
-  "Chair Cover",
-  "Sash",
-  "Favour Box",
-  "Stationery",
-  "Table Decoration",
-  "Card",
-  "Wedding",
-  "Invitation",
-  "Extras",
-  "Venue Dressing",
-  "Table Plan"
-] 
-
-import random
-random.shuffle(tags)
+print(collections)
 
 
 def is_call_hours():

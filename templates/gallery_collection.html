@@ -13,16 +13,16 @@
 </section>
 <section class="container fold-section" style="padding-top: 32px">
   <ul class="mdc-image-list mdc-image-list--masonry fold-gallery2-image-list" style="padding: 0;">
-    {% for card in collection.cards %}
+    {% for image in collection.images %}
     <li class="mdc-image-list__item">
       <a href="#">
         <img class="mdc-image-list__image mdc-card" src="">
-	{% with image = card.image %}
+	{% with image = image %}
 	  {% include "includes/lazy_img.html" %}
 	{% endwith %}
-	{% if card.image.caption %}
+	{% if image.caption %}
         <div class="mdc-image-list__supporting">
-          <span class="mdc-image-list__label">{{ card.image.caption }}</span>
+          <span class="mdc-image-list__label">{{ image.caption }}</span>
         </div>
 	{% endif %}
       </a>
