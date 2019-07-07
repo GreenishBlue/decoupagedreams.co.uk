@@ -43,7 +43,7 @@ def load_collection(file_path):
   return loaded_yaml
 
 collections = {
-  "showcase": load_collection("./data/gallery/favour_boxes")
+  "favour-boxes": load_collection("./data/gallery/favour_boxes")
 }
 
 print(collections)
