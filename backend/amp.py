@@ -12,3 +12,8 @@ def show(page):
     return render_template('pages/amp_%s.html' % page)
   except TemplateNotFound:
     abort(404)
+
+
+@amp.errorhandler(404)
+def page_not_found(e):
+    return render_template('pages/amp_404.html'), 404

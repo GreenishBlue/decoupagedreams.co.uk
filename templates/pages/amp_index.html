@@ -1,7 +1,8 @@
 {% extends 'amp_base.html' %}
 
-{% set title = "Decoupage Dreams" %}
-{% set meta_description = "todo" %}
+{% set title = "Decoupage Dreams - Bespoke Venue Dressing & Stationery" %}
+{% set short_title = "Home" %}
+{% set meta_description = "Based in Lancashire UK, we provide beautiful bespoke wedding stationery, favour boxes and venue dressing with high-quality table & chair decorations." %}
 {% set meta_opengraph_title = title %}
 {% set meta_opengraph_description = meta_description %}
 {% set meta_opengraph_image = None %}
@@ -55,7 +56,9 @@ section.container h2 {
       an obligation-free conversation?</div>
     <!-- <div>Email input</div> -->
     <br>
-    <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
+    <a href="{{ cta_href }}">
+      <button class="primary">{{ cta_text }}</button>
+    </a>
   </div>
   <!-- <amp-img src="https://source.unsplash.com/random/1920x400" 
     height="400" 
@@ -69,46 +72,32 @@ section.container h2 {
   <div class="typography-caption">We have a wide range of stationery products and venue dressing services 
     across a range of occasions. Please click to see more.</div>
   <br>
-  
   <ul class="card-deck--3">
-    <li class="card">
-      <div class="supporting">
-        <div class="caption1">Occasions</div>
-        <div class="caption2">Birthdays, Christenings & Funerals</div>
-      </div>
-      <amp-img src="https://source.unsplash.com/random/400x300" 
-        height="300" 
-        width="400"
-        layout="responsive">
-    </li>
-
-    <li class="card">
-      <div class="supporting">
-        <div class="caption1">Weddings</div>
-        <div class="caption2">Bespoke Table Decorations, Chair Covers, Table Plans & Stationery For Your Special Day</div>
-      </div>
-      <amp-img src="https://source.unsplash.com/random/400x300" 
-        height="300" 
-        width="400"
-        layout="responsive">
-    </li>
-
-    <li class="card">
-      <div class="supporting">
-        <div class="caption1">Gifts</div>
-        <div class="caption2">Bespoke Cards & Favour Boxes</div>
-      </div>
-      <amp-img src="https://source.unsplash.com/random/400x300" 
-        height="300" 
-        width="400"
-        layout="responsive">
-    </li>
+    {% set stories = [{
+      "caption1": "Occasions",
+      "caption2": "Birthdays, Christenings & Funerals",
+      "href": "/occasions",
+      "image": "/static/images/products2/IMG_20190504_161833.jpg",
+    }, {
+      "caption1": "Weddings",
+      "caption2": "Bespoke Table Decorations, Chair Covers, Table Plans & Stationery For Your Special Day",
+      "href": "/weddings",
+      "image": "/static/images/products/IMG_20190504_153051.jpg",
+    }, {
+      "caption1": "Gifts",
+      "caption2": "Bespoke Cards & Favour Boxes",
+      "href": "/gifts",
+      "image": "/static/images/products2/IMG_20190504_160743.jpg",
+    }] %}
+    {% with stories = stories %}
+      {% include 'includes/amp_deck_stories.html' %}
+    {% endwith %}
   </ul>
-
   <div style="clear: both"></div>
   <br>
-
-  <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
+  <a href="{{ cta_href }}">
+    <button class="primary">{{ cta_text }}</button>
+  </a>
 </section>
 <br><br>
 
@@ -117,9 +106,11 @@ section.container h2 {
   <div class="typography-caption">We love our customers and work hard to design the best products we can 
     for their day. Here's what they have to say about our service.</div>
   <div style="margin: 24px 0;">
-    {% include 'includes/amp_testimonials.html' %}
+    {% include 'includes/amp_deck_testimonials.html' %}
   </div>
-  <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
+  <a href="{{ cta_href }}">
+    <button class="primary">{{ cta_text }}</button>
+  </a>
 </section>
 <br><br>
 
@@ -132,11 +123,13 @@ section.container h2 {
   <div class="card" style="margin: 24px 0;">
     {% include 'includes/amp_map_embed.html' %}
   </div>
-  <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
+  <a href="{{ cta_href }}">
+    <button class="primary">{{ cta_text }}</button>
+  </a>
 </section>
 <br><br>
 
-<footer class="container">
+<section class="container">
   <h2 class="typography-fancy">Inquiry Form</h2>
   <div class="typography-caption">Want to know more about our service? Fill in your email and we'll be in 
     touch right away! We'd like to know (roughly) the date of your event, as 
@@ -144,8 +137,7 @@ section.container h2 {
   <div>
     {% include 'includes/amp_form_inquiry.html' %}
   </div>
-  <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
-</footer>
+</section>
 
 <br>
 <footer class="jumbo">

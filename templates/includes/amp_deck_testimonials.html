@@ -1,0 +1,56 @@
+<ul class="card-deck--3">
+  {% set testimonials = [{
+    "image": "https://images.unsplash.com/photo-1493970172592-658147e0a761?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=200&q=80",
+    "name": "Mr & Mrs Wilson",
+    "date": "June 2018",
+    "review": "<p>We can highly recommend Decoupage Dreams! Ann is amazing, and
+      goes above and beyond. Our wedding venue and flowers were so beautiful!
+      </p>
+      <p><b>We would have no hesitation to use Decoupage Dreams for future 
+        events.</b></p>"
+  }, {
+    "image": "/static/images/chefs-catering.png",
+    "name": "Chef's Catering Ltd.",
+    "date": "2018",
+    "review": "<p>Ann offers a unique, bespoke service. We have relied on
+      Decoupage Dreams to dress our events and design centre pieces that 
+      showcase our catering service.</p>
+      <p>Ann has dressed our corporate events, provided centre pieces for our 
+      wedding fayres and business expo's, as well as spondoring and designing 
+      our Christmas cards. Finally, she has produced unique packaging for our 
+      clients.</p>
+      <p><b>Chef's Catering believes in Ann because she always delivers!</b>
+      </p>"
+  }, {
+    "image": "https://media.licdn.com/dms/image/C4D03AQFRVysgMmNlZg/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=joaqYBVTRR7w36oKBIBL0upeQZ0_PLDN5El-ixEnl8Y",
+    "name": "Paul Rodman, Kendal Wills",
+    "date": "February 2019",
+    "review": "<p>My stepson is getting married abroad soon, and I wanted some
+      little gifts I could take to the wedding. Ann suggested some little boxes
+      (favour boxes) we could put sweets in</p>
+      <p>She has manufactured fifteen of these, and are made out of card. Each 
+        one is carefully hand-made with a name-tag on. The price was also very 
+        reasonable.</p>
+      <p><b>Thank you Ann again, for your help with these!</b></p>"
+  }] %}
+  {% for t in testimonials %}
+    <li class="card" style="overflow: visible; margin-top: 80px;">
+      <amp-img src="{{ t.image }}" 
+        class="card"
+        height="160" 
+        width="160"
+        style="float: none;
+               border-radius: 80px; 
+               background-color: #e3e3e3; 
+               margin: -60px 0;">
+      </amp-img>
+      <br><br>
+      <div class="supporting" style="padding: 56px 24px; margin-bottom: -30px;">
+        <h3 class="caption1" style="font-weight: 600;">{{ t.name }}</h3>
+        <div class="caption3" style="color: #666;">{{ t.date }}</div>
+        <div class="caption2">{{ t.review | safe  }}</div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+<div style="clear: both"></div>

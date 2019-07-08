@@ -98,8 +98,10 @@
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab:400,700|Material+Icons&display=swap" rel="stylesheet">
 
   <style amp-custom>
+  /* Fonts */
   body,
-  button.primary {
+  button.primary,
+  .fold-input {
     font-family: 'Roboto Slab', Arial, sans-serif;
   }
 
@@ -111,7 +113,19 @@
   a {
     color: #ff9800;
   }
+  
+  /* Containers */
+  #content {
+    padding-top: 46px;
+  }
 
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2vw;
+  }
+
+  /* Typography */
   .typography-caption {
     max-width: 600px;
     margin: 0 auto;
@@ -128,10 +142,28 @@
     font-weight: 100;
   }
 
+  .caption1 {
+    font-size: 1.4rem;
+    margin: 0.2rem 0;
+    font-weight: 500;
+  }
+
+  .caption2 {
+
+  }
+
+  .caption3 {
+    font-size: 0.8rem;
+  }
+
+  /* Toolbar */
   .toolbar {
     height: 46px;
     background-color: #d7b2db;
     z-index: 3000;
+    position: fixed;
+    width: 100%;
+    top: 0;
   }
 
   .toolbar-button {
@@ -152,34 +184,37 @@
     float: left;
   }
 
+  /* Shadows */
   .toolbar,
   .card,
-  .fab,
+  #fab,
   button.primary,
-  #sidebar {
+  #sidebar,
+  .fold-input {
     box-shadow: 
       0 3px 1px -2px rgba(0,0,0,.2), 
       0 2px 2px 0 rgba(0,0,0,.14), 
       0 1px 5px 0 rgba(0,0,0,.12);
   }
 
-  .fab,
-  button.primary:hover {
+  /* #fab,
+  button.primary:hover,
+  .fold-input:hover {
     box-shadow: 
       0 3px 1px -2px rgba(0,0,0,.2), 
       0 2px 2px 0 rgba(0,0,0,.14), 
       0 1px 5px 0 rgba(0,0,0,.12);
-  }
+  } */
 
+  /* Cards */
   .card {
     border-radius: 6px;
-    
     overflow: hidden;
-    
+    background-color: #fff;
     position: relative;
   }
 
-  .card .supporting {
+  .card.story .supporting {
     float: left;
     position: absolute;
     top: 0; left: 0;
@@ -188,22 +223,20 @@
     height: 100%;
     text-align: left;
     color: #fff;
-    /* background-color:  */
-      /* linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)); */
     background: rgba(0,0,0,0.3);
   }
 
-  .card img {
+  .card.story img {
     z-index: 0;
   }
 
-  .card .caption1 {
+  .card.story .caption1 {
     font-size: 2rem;
     padding: 12px;
     padding-bottom: 0;
   }
 
-  .card .caption2 {
+  .card.story .caption2 {
     font-size: 0.9rem;
     padding-top: 0.4rem;
     padding: 12px;
@@ -212,46 +245,65 @@
 
   .card-deck--3 {
     padding: 0; margin: 0;
+    list-style: none;
   }
 
-  .card-deck--3 .card {
-    float: left;
-    width: calc((100% - (10px * 2)) / 3);
-    margin-right: 10px;
+  @media(min-width: 600px) {
+    .card-deck--3 .card {
+      float: left;
+      width: calc((100% - (10px * 2)) / 3);
+      margin-right: 10px;
+    }
+    
+    .card-deck--3 .card:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media(max-width: 600px) {
+    .card-deck--3 .card {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .card-deck--3 .card:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Floating Action Button */
+  #fab {
+    border-radius: 24px;
+    height: 48px;
+    background-color: #ff9800;
+    color: #222;
+    position: fixed;
+    bottom: 8px; right: 8px;
+    padding: 0 16px;
+    z-index: 2;
+  }
+
+  #fab a {
+    color: #222;
+    text-decoration: none;
+  }
+
+  #fab .material-icons {
+    margin-top: 12px;
+    margin-right: 8px;
+  }
+
+  #fab .label {
+    padding-top: 23px;
+    line-height: 2px;
   }
   
-  .card-deck--3 .card:last-child {
-    margin-right: 0;
-  }
-
-  .card-deck--4 .card {
+  #fab .material-icons,
+  #fab .label {
     float: left;
-    width: calc(100% / 4);
   }
 
-  .fab {
-    border-radius: 60px;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2vw;
-  }
-
-  button.primary {
-    background-color: #ff9800;
-    border: 0;
-    border-radius: 4px;
-    padding: 8px 12px;
-
-    color: #121212;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: .875rem;
-    letter-spacing: .08929em;
-  }
-
+  /* Sidebar */
   #sidebar {
     font-size: 14px;
     background-color: #fff;
@@ -305,6 +357,38 @@
     border: 0;
     border-bottom: 1px solid rgba(0,0,0,.2);
   }
+
+  /* Forms */
+  button.primary {
+    background-color: #ff9800;
+    border: 0;
+    border-radius: 4px;
+    padding: 8px 12px;
+
+    color: #121212;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: .875rem;
+    letter-spacing: .08929em;
+  }
+
+  .fold-input {
+    font-size: 1rem;
+    background-color: #fff;
+    border: 0;
+    border-radius: 8px;
+    padding: 12px 0;
+    padding-left: 12px;
+    margin-left: -6px;
+    margin-bottom: 12px;
+  }
+
+  input.fold-input {
+  }
+
+  textarea.fold-input {
+  }
+
   {% block style %}{% endblock %}
   </style>
 
@@ -338,7 +422,7 @@
         <span class="label">Home</span>
       </a>
 
-      <a href="/contact">
+      <a href="/amp/contact">
         <i class="material-icons">email</i>
         <span class="label">Make An Inquiry</span>
       </a>
@@ -346,17 +430,17 @@
       <hr>
       <h6 class="heading">Events</h6>
 
-      <a href="/occasions">
+      <a href="/amp/occasions">
         <i class="material-icons">event</i>
         <span class="label">Occasions</span>
       </a>
 
-      <a href="/weddings">
+      <a href="/amp/weddings">
         <i class="material-icons">favorite</i>
         <span class="label">For Weddings</span>
       </a>
 
-      <a href="/gifts">
+      <a href="/amp/gifts">
         <i class="material-icons">card_giftcard</i>
         <span class="label">Gifts</span>
       </a>
@@ -364,22 +448,22 @@
       <hr>
       <h6 class="heading">Learn More</h6>
 
-      <a href="/gallery">
+      <a href="/amp/gallery">
         <i class="material-icons">photo_album</i>
         <span class="label">Gallery</span>
       </a>
 
-      <a href="/testimonials">
+      <a href="/amp/testimonials">
         <i class="material-icons">star</i>
         <span class="label">Testimonials</span>
       </a>
 
-      <a href="/blog">
+      <a href="/amp/blog">
         <i class="material-icons">notes</i>
         <span class="label">Blog</span>
       </a>
 
-      <a href="/faq">
+      <a href="/amp/faq">
         <i class="material-icons">question_answer</i>
         <span class="label">FAQ</span>
       </a>
@@ -395,11 +479,20 @@
     <button on="tap:sidebar.toggle" class="toolbar-button">
       <i class="material-icons">menu</i>
     </button>
-    <div class="toolbar-title">Home</div>
+    <div class="toolbar-title">{{ short_title }}</div>
   </header>
 
-  {% block main %}
-  {% endblock %}
+  <main id="content">
+    {% block main %}
+    {% endblock %}
+  </main>
+
+  <div id="fab">
+    <a href="tel:07419 111 922">
+      <i class="material-icons">phone</i>
+      <span class="label">07419 111 922</span>
+    </a>
+  </div>
 </body>
 
 

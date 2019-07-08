@@ -1,34 +1,57 @@
-{% set amp_enable_forms = True %}
-
 <form method="post"
 action-xhr="https://example.com/subscribe"
-target="_top">
-<fieldset>
+target="_top"
+style="max-width: 400px; margin: 0 auto; padding: 8px; padding-top: 16px;">
+<fieldset style="border: 0; width: 100%;
+                 margin: 0; padding: 0; 
+                 margin-inline-start: 0; 
+                 margin-inline-end: 0; 
+                 padding-inline-start: 0; 
+                 padding-inline-end: 0;
+                 padding-block-start: 0; 
+                 min-inline-size: 100%;
+                 padding-block-end: 0;">
   <label>
-    <span>Name:</span>
     <input type="text"
       name="name"
+      class="fold-input"
+      placeholder="Your Name"
+      style="width: 100%"
       required>
   </label>
   <br>
   <label>
-    <span>Email:</span>
     <input type="email"
       name="email"
+      class="fold-input"
+      placeholder="Your Email Address"
+      style="width: 100%"
       required>
   </label>
   <br>
-  <input type="submit"
-    value="Subscribe">
+  <label>
+    <input type="email"
+      name="email"
+      class="fold-input"
+      style="width: 100%"
+      placeholder="Your Budget">
+  </label>
+  <br>
+  <label>
+    <textarea type="text"
+      name="email"
+      class="fold-input"
+      placeholder="Additional Details"
+      style="width: 100%"
+      cols="50" 
+      rows="10"></textarea>
+  </label>
+  <button type="submit" class="primary">Make An Inquiry</button>
 </fieldset>
 <div submit-success>
-  <template type="amp-mustache">
-    Subscription successful!
-  </template>
+  Subscription successful!
 </div>
 <div submit-error>
-  <template type="amp-mustache">
-    Subscription failed!
-  </template>
+  Subscription failed!
 </div>
 </form>
