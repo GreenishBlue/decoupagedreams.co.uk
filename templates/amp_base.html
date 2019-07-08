@@ -120,7 +120,6 @@
   
   /* Containers */
   #content {
-    padding-top: 46px;
   }
 
   .container {
@@ -194,7 +193,8 @@
   #fab,
   button.primary,
   #sidebar,
-  .fold-input {
+  .fold-input,
+  .shadow {
     box-shadow: 
       0 3px 1px -2px rgba(0,0,0,.2), 
       0 2px 2px 0 rgba(0,0,0,.14), 
@@ -229,7 +229,7 @@
   }
 
   .card.story .has-img {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.2);
     color: #fff;
   }
 
@@ -425,9 +425,51 @@
   .jumbo amp-img {
   }
 
+  .jumbo {
+    position: relative;
+    height: 656px;
+  }
+
+  .jumbo .subtitle {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .jumbo .inner {
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    color: #fff;
+    /* background-color: rgba(0,0,0, 0.4); */
+  }
+
+  .jumbo .inner .container {
+    padding-top: 200px;
+  }
+
+  .jumbo .logo {
+    font-size: 2.2rem;
+  }
+
+  .jumbo .title {
+    font-size: 4em;
+  }
+
+  .jumbo .subtitle {
+    font-size: 1.2rem;
+    color: #eee;
+  }
+
+  .jumbo .caption {
+    font-size: 0.8rem;
+    color: #e6e6e6;
+  }
+
   @media(min-width: 600px) {
-    header.jumbo .container {
-      padding: 6vh 2vw;
+    header.jumbo .inner {
+      /* padding: 6vh 2vw; */
     }
   }
 
@@ -448,6 +490,7 @@
   <!-- Google Tag Manager -->
   <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-T29NQFV&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
 
+  {% if enable_toolbar %}
   <amp-sidebar id="sidebar"
     class="sample-sidebar"
     layout="nodisplay"
@@ -541,6 +584,7 @@
     </button>
     <div class="toolbar-title">{{ short_title }}</div>
   </header>
+  {% endif %}
 
   <main id="content">
     {% block main %}

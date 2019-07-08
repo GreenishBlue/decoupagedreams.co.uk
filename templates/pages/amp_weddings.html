@@ -1,19 +1,19 @@
 {% extends 'amp_base.html' %}
 
-{% set title = "Decoupage Dreams - Bespoke Venue Dressing & Stationery" %}
-{% set short_title = "Home" %}
-{% set meta_description = "Based in Lancashire UK, we provide beautiful bespoke wedding stationery, favour boxes and venue dressing with high-quality table & chair decorations." %}
+{% set title = "Make Your Wedding Beautiful - Bespoke Venue Dressing & Stationery For Weddings - Decoupage Dreams" %}
+{% set short_title = "For Weddings" %}
+{% set meta_description = "Fully insured, bespoke venue decor and stationery for your wedding venue in Lancashire. Make your venue beautiful with Decoupage Dreams." %}
 {% set meta_opengraph_title = title %}
 {% set meta_opengraph_description = meta_description %}
 {% set meta_opengraph_image = None %}
 {% set meta_opengraph_image_alt = None %}
 
-{% set cta_text = "Make An Inquiry" %}
-{% set cta_href = "/amp/weddings" %}
+{% set cta_text = "Save My Date" %}
+{% set cta_href = "/contact" %}
 
 {% set canonical_url = "https://www.decoupagedreams.co.uk" %}
-
 {% set enable_fab = True %}
+{% set enable_toolbar = True %}
 
 {% block style %}
 {% endblock %}
@@ -24,29 +24,32 @@
 {% endblock %}
 
 {% block main %}
+{% set jumbo_title = "Make Your Wedding Beautiful." %}
+{% set jumbo_subtitle = "Fully insured, bespoke venue decor and stationery for your wedding venue in <b>Lancashire</b>, <b>Yorshire Dales</b> or the <b>Lake District</b>." %}
+{% set jumbo_caption = "Reserve our services for your special date, obligation free." %}
+{% set jumbo_image_url = "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1920&amp;h=656&amp;q=80" %}
 {% include 'includes/amp_section_jumbo.html' %}
 
-<section class="container">
-  <h2 class="typography-fancy">Our Products</h2>
-  <div class="typography-caption">We offer our products at competitive prices. Bride and Bridegroom can choose as much or as little as desired.</div>
-  <br>
+<section class="container" style="margin-top: -50px;">
+  <!-- <h2 class="typography-fancy">Our Products</h2> -->
+  <!-- <div class="typography-caption">We offer our products at competitive prices. Bride and Bridegroom can choose as much or as little as desired.</div> -->
   <ul class="card-deck--4">
     {% set stories = [{
       "caption1": "Chair Covers & Sashes",
       "caption2": "Any colour, any style",
-      "image": "https://images.unsplash.com/photo-1498192512043-a20305136767?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+      "image": "/static/images/products2/IMG_20190504_164701.jpg",
     }, {
       "caption1": "Table Decorations",
       "caption2": "Bespoke table centrepieces and sashes",
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+      "image": "/static/images/products/IMG_20190504_165613.jpg",
     }, {
       "caption1": "Stationery",
       "caption2": "Place cards, RSVPs, breakfast invites and more...",
-      "image": "https://images.unsplash.com/photo-1518199128314-4f127ebfece8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+      "image": "/static/images/products2/IMG_20190504_152910.jpg",
     }, {
       "caption1": "Favour Boxes",
       "caption2": "Hand-crafted luxury favours",
-      "image": "https://images.unsplash.com/photo-1518199128314-4f127ebfece8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+      "image": "/static/images/products2/IMG_20190504_163416.jpg",
     }] %}
     {% with stories = stories %}
       {% include 'includes/amp_deck_stories_img.html' %}
