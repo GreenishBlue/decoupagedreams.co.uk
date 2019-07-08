@@ -1,0 +1,24 @@
+{% extends 'amp_base.html' %}
+
+{% set title = "Make An Inquiry - Decoupage Dreams" %}
+{% set short_title = "Make An Inquiry" %}
+
+{% set canonical_url = "https://www.decoupagedreams.co.uk/contact" %}
+
+{% set enable_fab = False %}
+
+{% block style %}
+{% endblock %}
+
+{% block amp_scripts %}
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+{% endblock %}
+
+{% block main %}
+  <br>
+  <br>
+  {% include 'includes/amp_section_form_inquiry.html' %}
+  <br>
+  <br>
+  <br>
+{% endblock %}

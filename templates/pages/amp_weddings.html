@@ -1,4 +1,129 @@
 {% extends 'amp_base.html' %}
+
+{% set title = "Decoupage Dreams - Bespoke Venue Dressing & Stationery" %}
+{% set short_title = "Home" %}
+{% set meta_description = "Based in Lancashire UK, we provide beautiful bespoke wedding stationery, favour boxes and venue dressing with high-quality table & chair decorations." %}
+{% set meta_opengraph_title = title %}
+{% set meta_opengraph_description = meta_description %}
+{% set meta_opengraph_image = None %}
+{% set meta_opengraph_image_alt = None %}
+
+{% set cta_text = "Make An Inquiry" %}
+{% set cta_href = "/amp/weddings" %}
+
+{% set canonical_url = "https://www.decoupagedreams.co.uk" %}
+
+{% set enable_fab = True %}
+
+{% block style %}
+{% endblock %}
+
+{% block amp_scripts %}
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+{% endblock %}
+
 {% block main %}
-hello, world!
+{% include 'includes/amp_section_jumbo.html' %}
+
+<section class="container">
+  <h2 class="typography-fancy">Our Products</h2>
+  <div class="typography-caption">We offer our products at competitive prices. Bride and Bridegroom can choose as much or as little as desired.</div>
+  <br>
+  <ul class="card-deck--4">
+    {% set stories = [{
+      "caption1": "Chair Covers & Sashes",
+      "caption2": "Any colour, any style",
+      "image": "https://images.unsplash.com/photo-1498192512043-a20305136767?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+    }, {
+      "caption1": "Table Decorations",
+      "caption2": "Bespoke table centrepieces and sashes",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+    }, {
+      "caption1": "Stationery",
+      "caption2": "Place cards, RSVPs, breakfast invites and more...",
+      "image": "https://images.unsplash.com/photo-1518199128314-4f127ebfece8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+    }, {
+      "caption1": "Favour Boxes",
+      "caption2": "Hand-crafted luxury favours",
+      "image": "https://images.unsplash.com/photo-1518199128314-4f127ebfece8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+    }] %}
+    {% with stories = stories %}
+      {% include 'includes/amp_deck_stories_img.html' %}
+    {% endwith %}
+  </ul>
+  <div style="clear: both"></div>
+  <ul class="card-deck--3" style="padding-top: 12px;">
+    {% set stories = [{
+      "caption1": "Fully Insured",
+      "caption2": "We carry full business insurance, to make sure that your 
+                    day goes your way no matter what.",
+    }, {
+      "caption1": "Bespoke, End-To-End",
+      "caption2": "We'll work with you to produce the best designs tailored
+                    to your personal taste.",
+    }, {
+      "caption1": "Full Service Included",
+      "caption2": "We'll setup your venue, and collect everything once your 
+                    day is over - all included.",
+    }] %}
+    {% with stories = stories %}
+      {% include 'includes/amp_deck_stories_text.html' %}
+    {% endwith %}
+  </ul>
+  <div style="clear: both"></div>
+  <br>
+  <a href="{{ cta_href }}">
+    <button class="primary">{{ cta_text }}</button>
+  </a>
+</section>
+<br><br>
+
+
+{% include 'includes/amp_section_testimonials.html' %}
+<br><br>
+
+
+<section class="container">
+  <h2 class="typography-fancy">Any Occasion</h2>
+  <div class="typography-caption">We'll always find a way to make it more beautiful. That's our promise.</div>
+  <br>
+  <ul class="card-deck--3">
+    {% set stories = [{
+      "caption1": "Wedding Day",
+      "image": "https://images.unsplash.com/photo-1498192512043-a20305136767?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+    }, {
+      "caption1": "Hen Nights & Stag Dos",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+    }, {
+      "caption1": "Anniversaries",
+      "image": "https://images.unsplash.com/photo-1518199128314-4f127ebfece8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+    }] %}
+    {% with stories = stories %}
+      {% include 'includes/amp_deck_stories_img.html' %}
+    {% endwith %}
+  </ul>
+  <div style="clear: both"></div>
+  <br>
+  <a href="{{ cta_href }}">
+    <button class="primary">{{ cta_text }}</button>
+  </a>
+</section>
+<br><br>
+
+
+{% include 'includes/amp_section_googlemap.html' %}
+<br><br>
+
+
+{% include 'includes/amp_section_form_inquiry.html' %}
+<br><br>
+
+
+{% set photo_credits = ["@nate_dumlao", "@priscilladupreez", "@kchance8", "@freestocks"] %}
+<footer class="mdc-typography--caption" style="text-align: center; padding-top: 42px;">
+Additional photos by {% for p in photo_credits %}
+<a href="https://unsplash.com/{{ p }}">{{ p }}</a> 
+{% endfor %} on <a href="https://www.unsplash.com">Unsplash</a>.
+</footer><br><br>
 {% endblock %}

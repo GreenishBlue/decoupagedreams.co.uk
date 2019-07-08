@@ -97,7 +97,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab:400,700|Material+Icons&display=swap" rel="stylesheet">
 
-  <style amp-custom>
+  <style>
   /* Fonts */
   body,
   button.primary,
@@ -112,6 +112,10 @@
 
   a {
     color: #ff9800;
+  }
+
+  a button {
+    cursor: pointer;
   }
   
   /* Containers */
@@ -222,8 +226,11 @@
     width: 100%;
     height: 100%;
     text-align: left;
-    color: #fff;
+  }
+
+  .card.story .has-img {
     background: rgba(0,0,0,0.3);
+    color: #fff;
   }
 
   .card.story img {
@@ -231,7 +238,7 @@
   }
 
   .card.story .caption1 {
-    font-size: 2rem;
+    font-size: 1.4rem;
     padding: 12px;
     padding-bottom: 0;
   }
@@ -243,30 +250,42 @@
     padding-top: 4px;
   }
 
-  .card-deck--3 {
+  .card-deck--3,
+  .card-deck--4 {
     padding: 0; margin: 0;
     list-style: none;
   }
 
   @media(min-width: 600px) {
-    .card-deck--3 .card {
+    .card-deck--3 .card,
+    .card-deck--4 .card {
       float: left;
-      width: calc((100% - (10px * 2)) / 3);
       margin-right: 10px;
     }
+
+    .card-deck--3 .card {
+      width: calc((100% - (10px * 2)) / 3);
+    }
+
+    .card-deck--4 .card {
+      width: calc((100% - (10px * 3)) / 4);
+    }
     
-    .card-deck--3 .card:last-child {
+    .card-deck--3 .card:last-child,
+    .card-deck--4 .card:last-child {
       margin-right: 0;
     }
   }
 
   @media(max-width: 600px) {
-    .card-deck--3 .card {
+    .card-deck--3 .card,
+    .card-deck--4 .card {
       width: 100%;
       margin-bottom: 10px;
     }
     
-    .card-deck--3 .card:last-child {
+    .card-deck--3 .card:last-child,
+    .card-deck--4 .card:last-child {
       margin-bottom: 0;
     }
   }
@@ -389,6 +408,32 @@
   textarea.fold-input {
   }
 
+  /* Misc */
+  header, footer, section {
+    text-align: center;
+  }
+
+  footer.jumbo {
+    background-color: #333;
+    color: #fff;
+    padding: 2vh 0;
+  }
+
+  .jumbo .container {
+  }
+
+  .jumbo amp-img {
+  }
+
+  @media(min-width: 600px) {
+    header.jumbo .container {
+      padding: 6vh 2vw;
+    }
+  }
+
+  section.container h2 {
+    font-size: 2rem;
+  }
   {% block style %}{% endblock %}
   </style>
 
@@ -417,56 +462,71 @@
     <br>
 
     <nav>
-      <a class="active" href="/">
-        <i class="material-icons">home</i>
-        <span class="label">Home</span>
-      </a>
-
-      <a href="/amp/contact">
-        <i class="material-icons">email</i>
-        <span class="label">Make An Inquiry</span>
-      </a>
-
-      <hr>
-      <h6 class="heading">Events</h6>
-
-      <a href="/amp/occasions">
-        <i class="material-icons">event</i>
-        <span class="label">Occasions</span>
-      </a>
-
-      <a href="/amp/weddings">
-        <i class="material-icons">favorite</i>
-        <span class="label">For Weddings</span>
-      </a>
-
-      <a href="/amp/gifts">
-        <i class="material-icons">card_giftcard</i>
-        <span class="label">Gifts</span>
-      </a>
-
-      <hr>
-      <h6 class="heading">Learn More</h6>
-
-      <a href="/amp/gallery">
-        <i class="material-icons">photo_album</i>
-        <span class="label">Gallery</span>
-      </a>
-
-      <a href="/amp/testimonials">
-        <i class="material-icons">star</i>
-        <span class="label">Testimonials</span>
-      </a>
-
-      <a href="/amp/blog">
-        <i class="material-icons">notes</i>
-        <span class="label">Blog</span>
-      </a>
-
-      <a href="/amp/faq">
-        <i class="material-icons">question_answer</i>
-        <span class="label">FAQ</span>
-      </a>
+      {% set links = [{
+        "type": "link",
+        "icon": "home",
+        "label": "Home",
+        "href": "/amp"
+      }, {
+        "type": "link",
+        "icon": "email",
+        "label": "Make An Inquiry",
+        "href": "/amp/contact"
+      }, {
+        "type": "header",
+        "label": "Events"
+      }, {
+        "type": "link",
+        "icon": "event",
+        "label": "Occasions",
+        "href": "/amp/occasions"
+      }, {
+        "type": "link",
+        "icon": "favorite",
+        "label": "For Weddings",
+        "href": "/amp/weddings"
+      }, {
+        "type": "link",
+        "icon": "card_giftcard",
+        "label": "Gifts",
+        "href": "/amp/gifts"
+      }, {
+        "type": "header",
+        "label": "Learn More"
+      }, {
+        "type": "link",
+        "icon": "photo_album",
+        "label": "Gallery",
+        "href": "/amp/gallery"
+      }, {
+        "type": "link",
+        "icon": "notes",
+        "label": "Blog",
+        "href": "/amp/blog"
+      }, {
+        "type": "link",
+        "icon": "star",
+        "label": "Testimonials",
+        "href": "/amp/testimonials"
+      }, {
+        "type": "link",
+        "icon": "question_answer",
+        "label": "FAQ",
+        "href": "/amp/faq"
+      }] %}
+      {% with t = short_title %}
+        {% for l in links %}
+          {% if l.type == 'link' %}
+          <a href="{{ l.href }}" {% if t == l.label %}class="active"{% endif %}>
+            <i class="material-icons">{{ l.icon }}</i>
+            <span class="label">{{ l.label }}</span>
+          </a>
+          {% else %}
+          <hr>
+          <h6 class="heading">{{ l.label }}</h6>
+          {% endif %}
+        {% endfor %}
+      {% endwith %}
 
       <!-- <a>Facebook</a>
       <a>Instagram</a>
@@ -487,12 +547,14 @@
     {% endblock %}
   </main>
 
+  {% if enable_fab %}
   <div id="fab">
     <a href="tel:07419 111 922">
       <i class="material-icons">phone</i>
       <span class="label">07419 111 922</span>
     </a>
   </div>
+  {% endif %}
 </body>
 
 
