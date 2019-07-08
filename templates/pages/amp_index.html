@@ -1,0 +1,154 @@
+{% extends 'amp_base.html' %}
+
+{% set title = "Decoupage Dreams" %}
+{% set meta_description = "todo" %}
+{% set meta_opengraph_title = title %}
+{% set meta_opengraph_description = meta_description %}
+{% set meta_opengraph_image = None %}
+{% set meta_opengraph_image_alt = None %}
+
+{% set cta_text = "Make An Inquiry" %}
+{% set cta_href = "/amp/weddings" %}
+
+{% set canonical_url = "https://www.decoupagedreams.co.uk" %}
+
+{% block style %}
+{{ super() }}
+header, footer, section {
+  text-align: center;
+}
+
+footer.jumbo {
+  background-color: #333;
+  color: #fff;
+  padding: 2vh 0;
+}
+
+.jumbo .container {
+}
+
+.jumbo amp-img {
+}
+
+@media(min-width: 600px) {
+  header.jumbo .container {
+    padding: 6vh 2vw;
+  }
+}
+
+section.container h2 {
+  font-size: 2rem;
+}
+{% endblock %}
+
+{% block amp_scripts %}
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+{% endblock %}
+
+{% block main %}
+<header class="jumbo">
+  <div class="container">
+    <h1 class="typography-fancy" style="font-size:54px">Decoupage Dreams</h1>
+    <div class="typography-caption">Based in Lancashire UK, we provide bespoke wedding stationery and venue 
+      dressing services in our local community and beyond. Why not contact us for 
+      an obligation-free conversation?</div>
+    <!-- <div>Email input</div> -->
+    <br>
+    <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
+  </div>
+  <!-- <amp-img src="https://source.unsplash.com/random/1920x400" 
+    height="400" 
+    width="1920"
+    layout="responsive"> -->
+</header>
+
+
+<section class="container">
+  <h2 class="typography-fancy">Any Occasion</h2>
+  <div class="typography-caption">We have a wide range of stationery products and venue dressing services 
+    across a range of occasions. Please click to see more.</div>
+  <br>
+  
+  <ul class="card-deck--3">
+    <li class="card">
+      <div class="supporting">
+        <div class="caption1">Occasions</div>
+        <div class="caption2">Birthdays, Christenings & Funerals</div>
+      </div>
+      <amp-img src="https://source.unsplash.com/random/400x300" 
+        height="300" 
+        width="400"
+        layout="responsive">
+    </li>
+
+    <li class="card">
+      <div class="supporting">
+        <div class="caption1">Weddings</div>
+        <div class="caption2">Bespoke Table Decorations, Chair Covers, Table Plans & Stationery For Your Special Day</div>
+      </div>
+      <amp-img src="https://source.unsplash.com/random/400x300" 
+        height="300" 
+        width="400"
+        layout="responsive">
+    </li>
+
+    <li class="card">
+      <div class="supporting">
+        <div class="caption1">Gifts</div>
+        <div class="caption2">Bespoke Cards & Favour Boxes</div>
+      </div>
+      <amp-img src="https://source.unsplash.com/random/400x300" 
+        height="300" 
+        width="400"
+        layout="responsive">
+    </li>
+  </ul>
+
+  <div style="clear: both"></div>
+  <br>
+
+  <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
+</section>
+<br><br>
+
+<section class="container">
+  <h2 class="typography-fancy">Testimonials</h2>
+  <div class="typography-caption">We love our customers and work hard to design the best products we can 
+    for their day. Here's what they have to say about our service.</div>
+  <div style="margin: 24px 0;">
+    {% include 'includes/amp_testimonials.html' %}
+  </div>
+  <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
+</section>
+<br><br>
+
+<section class="container">
+  <h2 class="typography-fancy">Based in Lancashire</h2>
+  <div class="typography-caption">Founded in Morecambe, we have since branched out to serve the whole 
+    Lancashire area. We work with hotels & venues across the area and beyond.
+  </div>
+    <br>
+  <div class="card" style="margin: 24px 0;">
+    {% include 'includes/amp_map_embed.html' %}
+  </div>
+  <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
+</section>
+<br><br>
+
+<footer class="container">
+  <h2 class="typography-fancy">Inquiry Form</h2>
+  <div class="typography-caption">Want to know more about our service? Fill in your email and we'll be in 
+    touch right away! We'd like to know (roughly) the date of your event, as 
+    well as your desired styles & colours.</div>
+  <div>
+    {% include 'includes/amp_form_inquiry.html' %}
+  </div>
+  <button class="primary" href="{{ cta_href }}">{{ cta_text }}</button>
+</footer>
+
+<br>
+<footer class="jumbo">
+  <a href="/">Home</a>
+</footer>
+{% endblock %}

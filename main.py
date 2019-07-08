@@ -1,11 +1,15 @@
 import os
+import yaml
 from flask import Flask, render_template, Response, request, abort, redirect
 from requests import get
+from backend.amp import amp
 
 
 app = Flask(__name__)
+app.register_blueprint(amp, url_prefix='/amp')
 
 
+"""Product flags for production."""
 flags = {
   "ENABLE_BLOG": (os.environ.get("FLAG_ENABLE_BLOG") == "True"),
   "ENABLE_PRODUCTS": (os.environ.get("FLAG_ENABLE_PRODUCTS") == "True"),
@@ -13,6 +17,7 @@ flags = {
 }
 
 
+"""Slugs to add to the /urllist.txt sitemap"""
 URLLIST_PATHS = [
   '/',
   '/weddings',
@@ -24,18 +29,17 @@ URLLIST_PATHS = [
 ]
 
 
-# The URL to the Google Apps Script service which to send emails to.
-# Param: ?email=XXXXXXXXXX
+"""The URL to the Google Apps Script service which to send emails to.
+Param: ?email=XXXXXXXXXX"""
 APPS_SCRIPT_EMAIL_URL = "https://script.google.com/a/decoupagedreams.co.uk/macros/s/AKfycbxClyaeZUd5mjsdPYjWJqrmESeI9ch5BZdQ-k_5/exec"
 
-import os
-import yaml
 
-
-"""
-Load a collection's metadata into memory.
-"""
 def load_collection(file_path):
+  """Load a collection's metadata into memory.
+  Args:
+  - (string) file_path   The path to the collection's definition.
+  Returns:
+  - (yaml)  The loaded/parsed collection."""
   loaded_yaml = yaml.load(open(file_path + "/collection.yaml"))
   images = []
   for image_file_path in loaded_yaml['images']:
@@ -45,11 +49,10 @@ def load_collection(file_path):
   loaded_yaml['images'] = images
   return loaded_yaml
 
+
 collections = {
   "favour-boxes": load_collection("./data/gallery/favour_boxes")
 }
-
-print(collections)
 
 
 def is_call_hours():
@@ -61,7 +64,6 @@ def is_call_hours():
   if time(8) <= now.time() <= time(18):
     return True 
   return False 
-
 
 
 def get_flags(request):

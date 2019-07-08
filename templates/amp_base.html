@@ -1,0 +1,406 @@
+<!doctype html>
+
+{% set social = [{
+  "name": "Facebook",
+  "url": "https://www.facebook.com/decoupagedreamsuk",
+  "icon_url": "/static/social/fb_dark.png",
+  "icon_url_light": "/static/social/fb.png",
+  "alt": "View our Facebook",
+}, {
+  "name": "Instagram",
+  "url": "https://www.instagram.com/decoupagedreamsuk",
+  "icon_url": "/static/social/ig_dark.png",
+  "icon_url_light": "/static/social/ig.png",
+  "alt": "View our Instagram",
+}, {
+  "name": "Pinterest",
+  "url": "https://www.pinterest.co.uk/decoupagedreamsuk",
+  "icon_url": "/static/social/pin_dark.png",
+  "icon_url_light": "/static/social/pin.png",
+  "alt": "View our Pinterest",
+}] %}
+
+<html ⚡ lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <title>{{ title | safe or "Decoupage Dreams" }}</title>
+  <link rel="manifest" href="/static/manifest.json">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="description" content="{{ meta_description | safe }}">
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Store",
+    "name": "Decoupage Dreams",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "",
+      "addressLocality": "Morecambe",
+      "addressRegion": "Lancashire",
+      "postalCode": ""
+    },
+    "image": "https://www.decoupagedreams.co.uk/static/images/products2/IMG_20190504_161833.jpg",
+    "email": "ann@decoupagedreams.co.uk",
+    "telePhone": "07419 111922",
+    "url": "https://www.decoupagedreams.co.uk",
+    "paymentAccepted": [ "cash", "check", "invoice", "paypal" ],
+    "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 08:00-18:00",
+    "openingHoursSpecification": [ {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "08:00",
+      "closes": "18:00"
+    } ],
+    "priceRange":"$$"
+  
+  }
+  </script>
+
+  <!-- Web Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+  <link rel="manifest" href="/static/site.webmanifest">
+  <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#ce93d8">
+  <meta name="apple-mobile-web-app-title" content="Decoupage Dreams">
+  <meta name="application-name" content="Decoupage Dreams">
+  <meta name="msapplication-TileColor" content="#fffbba">
+  <meta name="theme-color" content="#d7b2db">
+
+  <!-- Facebook OpenGraph & Twitter Cards -->
+  <meta property="og:title" content="{{ meta_opengraph_title | safe or "Decoupage Dreams" }}">
+  <meta property="og:description" content="{{ meta_opengraph_description | safe }}">
+  {% if opengraph_image %}
+    {# Facebook recommended minimum: 1200x630 with 1.91:1 aspect ratio #}
+    <meta property="og:image" content="{{ meta_opengraph_image }}">
+    <meta name="twitter:image:alt" content="{{ meta_opengraph_image_alt }}">
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:site_name" content="Decoupage Dreams">
+  <meta name="twitter:site" content="@decoupagedreams">
+  
+  <!-- Pinterest & Bing Validation -->
+  <meta name="msvalidate.01" content="E0869EA03135E694C4A0DBF18FDF519D" />
+  <meta name="p:domain_verify" content="20e20f458311ae914e415a85cfd86f0a"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab:400,700|Material+Icons&display=swap" rel="stylesheet">
+
+  <style amp-custom>
+  body,
+  button.primary {
+    font-family: 'Roboto Slab', Arial, sans-serif;
+  }
+
+  body {
+    background-color: #f9f9f9;
+    line-height: 1.75em;
+  }
+
+  a {
+    color: #ff9800;
+  }
+
+  .typography-caption {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .fold-typography-headline {
+  }
+
+  .fold-typography-caption {
+  }
+
+  .typography-fancy {
+    font-family: 'Great Vibes', Arial, sans-serif;
+    font-weight: 100;
+  }
+
+  .toolbar {
+    height: 46px;
+    background-color: #d7b2db;
+    z-index: 3000;
+  }
+
+  .toolbar-button {
+    background: transparent;
+    border: none;
+    height: 46px; width: 46px;
+  }
+
+  .toolbar-title {
+    padding: calc((42px) / 2) 0 0 0;
+    height: calc(46px / 2);
+    font-size: 20px;
+    line-height: 1px;
+  }
+
+  .toolbar-title,
+  .toolbar-button {
+    float: left;
+  }
+
+  .toolbar,
+  .card,
+  .fab,
+  button.primary,
+  #sidebar {
+    box-shadow: 
+      0 3px 1px -2px rgba(0,0,0,.2), 
+      0 2px 2px 0 rgba(0,0,0,.14), 
+      0 1px 5px 0 rgba(0,0,0,.12);
+  }
+
+  .fab,
+  button.primary:hover {
+    box-shadow: 
+      0 3px 1px -2px rgba(0,0,0,.2), 
+      0 2px 2px 0 rgba(0,0,0,.14), 
+      0 1px 5px 0 rgba(0,0,0,.12);
+  }
+
+  .card {
+    border-radius: 6px;
+    
+    overflow: hidden;
+    
+    position: relative;
+  }
+
+  .card .supporting {
+    float: left;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    color: #fff;
+    /* background-color:  */
+      /* linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)); */
+    background: rgba(0,0,0,0.3);
+  }
+
+  .card img {
+    z-index: 0;
+  }
+
+  .card .caption1 {
+    font-size: 2rem;
+    padding: 12px;
+    padding-bottom: 0;
+  }
+
+  .card .caption2 {
+    font-size: 0.9rem;
+    padding-top: 0.4rem;
+    padding: 12px;
+    padding-top: 4px;
+  }
+
+  .card-deck--3 {
+    padding: 0; margin: 0;
+  }
+
+  .card-deck--3 .card {
+    float: left;
+    width: calc((100% - (10px * 2)) / 3);
+    margin-right: 10px;
+  }
+  
+  .card-deck--3 .card:last-child {
+    margin-right: 0;
+  }
+
+  .card-deck--4 .card {
+    float: left;
+    width: calc(100% / 4);
+  }
+
+  .fab {
+    border-radius: 60px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2vw;
+  }
+
+  button.primary {
+    background-color: #ff9800;
+    border: 0;
+    border-radius: 4px;
+    padding: 8px 12px;
+
+    color: #121212;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: .875rem;
+    letter-spacing: .08929em;
+  }
+
+  #sidebar {
+    font-size: 14px;
+    background-color: #fff;
+    width: 260px;
+  }
+
+  #sidebar nav a {
+    display: block;
+    color: #333;
+    margin: 8px 8px;
+    border-radius: 6px;
+    height: 34px;
+    padding-top: 8px;
+  }
+
+  #sidebar nav a:hover {
+    background-color: rgba(0,0,0, 0.1);
+  }
+  
+  #sidebar nav a.active {
+    background-color: rgba(215, 178, 219, 0.87);
+  }
+
+  #sidebar nav a .label {
+    display: inline-block;
+    float: left;
+  }
+
+  #sidebar nav a .material-icons {
+    display: inline-block;
+    margin-top: 1px;
+    margin-left: 12px;
+    margin-right: 32px;
+    float: left;
+  }
+
+  #sidebar nav a .material-icons,
+  #sidebar nav a .label {
+    color: #666;
+  }
+
+  #sidebar nav .heading {
+    font-weight: 100;
+    margin: 0;
+    margin-left: 20px;
+    color: rgba(0,0,0,.6);
+    font-size: 14px;
+  }
+
+  #sidebar nav hr {
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+  }
+  {% block style %}{% endblock %}
+  </style>
+
+  <!-- AMP Scripts -->  
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+  {% block amp_scripts %}{% endblock %}
+</head>
+
+<body>
+  <!-- Google Tag Manager -->
+  <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-T29NQFV&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
+
+  <amp-sidebar id="sidebar"
+    class="sample-sidebar"
+    layout="nodisplay"
+    side="left">
+    <button on="tap:sidebar.toggle" class="toolbar-button">
+      <i class="material-icons">close</i>
+    </button>
+    
+    <br>
+    <!-- <h3 class="typography-fancy">Decoupage Dreams</h3> -->
+    <!-- <div class="typography-caption">Your Day, Your Way</div> -->
+    <br>
+
+    <nav>
+      <a class="active" href="/">
+        <i class="material-icons">home</i>
+        <span class="label">Home</span>
+      </a>
+
+      <a href="/contact">
+        <i class="material-icons">email</i>
+        <span class="label">Make An Inquiry</span>
+      </a>
+
+      <hr>
+      <h6 class="heading">Events</h6>
+
+      <a href="/occasions">
+        <i class="material-icons">event</i>
+        <span class="label">Occasions</span>
+      </a>
+
+      <a href="/weddings">
+        <i class="material-icons">favorite</i>
+        <span class="label">For Weddings</span>
+      </a>
+
+      <a href="/gifts">
+        <i class="material-icons">card_giftcard</i>
+        <span class="label">Gifts</span>
+      </a>
+
+      <hr>
+      <h6 class="heading">Learn More</h6>
+
+      <a href="/gallery">
+        <i class="material-icons">photo_album</i>
+        <span class="label">Gallery</span>
+      </a>
+
+      <a href="/testimonials">
+        <i class="material-icons">star</i>
+        <span class="label">Testimonials</span>
+      </a>
+
+      <a href="/blog">
+        <i class="material-icons">notes</i>
+        <span class="label">Blog</span>
+      </a>
+
+      <a href="/faq">
+        <i class="material-icons">question_answer</i>
+        <span class="label">FAQ</span>
+      </a>
+
+      <!-- <a>Facebook</a>
+      <a>Instagram</a>
+      <a>Pinterest</a>
+      <a>Twitter</a> -->
+    </nav>
+  </amp-sidebar>
+
+  <header class="toolbar">
+    <button on="tap:sidebar.toggle" class="toolbar-button">
+      <i class="material-icons">menu</i>
+    </button>
+    <div class="toolbar-title">Home</div>
+  </header>
+
+  {% block main %}
+  {% endblock %}
+</body>
+
+
+</html>

@@ -1,0 +1,34 @@
+{% set amp_enable_forms = True %}
+
+<form method="post"
+action-xhr="https://example.com/subscribe"
+target="_top">
+<fieldset>
+  <label>
+    <span>Name:</span>
+    <input type="text"
+      name="name"
+      required>
+  </label>
+  <br>
+  <label>
+    <span>Email:</span>
+    <input type="email"
+      name="email"
+      required>
+  </label>
+  <br>
+  <input type="submit"
+    value="Subscribe">
+</fieldset>
+<div submit-success>
+  <template type="amp-mustache">
+    Subscription successful!
+  </template>
+</div>
+<div submit-error>
+  <template type="amp-mustache">
+    Subscription failed!
+  </template>
+</div>
+</form>
