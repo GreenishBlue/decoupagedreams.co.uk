@@ -162,7 +162,7 @@ def urlist():
   return Response(generated, mimetype='text/plain')
 
 
-@app.route('/confirm_expanded')
+@app.route('/confirm_expanded', methods=['GET', 'POST'])
 def confirm_expanded():
   email_addr = request.args.get('email')
   if not email_addr:
@@ -179,10 +179,10 @@ def confirm_expanded():
   print("New signup: " + email_addr)
   get(APPS_SCRIPT_EMAIL_URL + "?email=" + email_addr + "&name=" + name +
       "&message=" + message + "&budget=" + budget)
-  resp = Response("Confirmed!")
-  resp.headers['AMP-Redirect-To'] = 'https://www.decoupagedreams.co.uk/thankyou'
-  resp.headers['Access-Control-Expose-Headers'] = 'AMP-Access-Control-Allow-Source-Origin, AMP-Redirect-To'
-  return resp
+  # resp = Response("Confirmed!")
+  # resp.headers['AMP-Redirect-To'] = 'https://www.decoupagedreams.co.uk/thankyou'
+  # resp.headers['Access-Control-Expose-Headers'] = 'AMP-Access-Control-Allow-Source-Origin, AMP-Redirect-To'
+  return redirect('/thankyou')
 
 
 def confirm():
