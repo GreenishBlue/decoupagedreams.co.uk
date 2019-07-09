@@ -20,9 +20,6 @@
 
 {% block style %}
 @media(max-width: 600px) {
-  .cards-deck--features .card {
-  }
-
   .products .card-deck--3 .card {
     height: 140px;
   }
@@ -71,9 +68,7 @@
 {% set jumbo_image_url_450 = "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=80" %}
 {% include 'includes/amp_section_jumbo.html' %}
 
-<section class="container products">
-  <!-- <h2 class="typography-fancy">Our Products</h2> -->
-  <!-- <div class="typography-caption">We offer our products at competitive prices. Bride and Bridegroom can choose as much or as little as desired.</div> -->
+<section id="fold-features" class="container products">
   <ul class="card-deck--4 cards-deck--features">
     {% set stories = [{
       "caption1": "Chair Covers & Sashes",
@@ -128,7 +123,7 @@
 <br><br>
 
 
-<section class="container">
+<section id="fold-features" class="container">
   <h2 class="typography-fancy">Any Occasion</h2>
   <div class="typography-caption">We'll always find a way to make it more beautiful. That's our promise.</div>
   <br>
