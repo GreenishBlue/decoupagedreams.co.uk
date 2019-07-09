@@ -6,7 +6,7 @@ from backend.amp import amp
 
 
 app = Flask(__name__)
-app.register_blueprint(amp, url_prefix='/amp')
+app.register_blueprint(amp)
 
 
 """Product flags for production."""
@@ -76,78 +76,78 @@ def get_flags(request):
     return flags
 
 
-@app.route('/')
-def home():
-  return render_template('pages/index.html', flags=get_flags(request), 
-                         call_hours=is_call_hours())
+# @app.route('/')
+# def home():
+#   return render_template('pages/index.html', flags=get_flags(request), 
+#                          call_hours=is_call_hours())
 
 
-@app.route('/gallery')
-def list_collections():
-  return redirect('/gallery/showcase', 302) # temp until gallery list done
-  return render_template('gallery_root.html', flags=get_flags(request),
-                         call_hours=is_call_hours(), collections=collections, 
-                         tags=tags)
+# @app.route('/gallery')
+# def list_collections():
+#   return redirect('/gallery/showcase', 302) # temp until gallery list done
+#   return render_template('gallery_root.html', flags=get_flags(request),
+#                          call_hours=is_call_hours(), collections=collections, 
+#                          tags=tags)
 
 
-@app.route('/gallery/<collection_id>')
-def view_collection(collection_id):
-  try:
-    collection = collections[collection_id]
-  except KeyError:
-    abort(404)
-  return render_template('gallery_collection.html', flags=get_flags(request), 
-                         call_hours=is_call_hours(), collection=collection)
+# @app.route('/gallery/<collection_id>')
+# def view_collection(collection_id):
+#   try:
+#     collection = collections[collection_id]
+#   except KeyError:
+#     abort(404)
+#   return render_template('gallery_collection.html', flags=get_flags(request), 
+#                          call_hours=is_call_hours(), collection=collection)
 
 
-@app.route('/faq')
-def landing_faq():
-  return render_template('pages/faq.html', flags=get_flags(request), 
-                         call_hours=is_call_hours())
+# @app.route('/faq')
+# def landing_faq():
+#   return render_template('pages/faq.html', flags=get_flags(request), 
+#                          call_hours=is_call_hours())
 
 
-@app.route('/occasions')
-def landing_occasions():
-  return render_template('pages/landing_occasions.html', flags=get_flags(request), 
-                         call_hours=is_call_hours())
+# @app.route('/occasions')
+# def landing_occasions():
+#   return render_template('pages/landing_occasions.html', flags=get_flags(request), 
+#                          call_hours=is_call_hours())
 
 
-@app.route('/weddings')
-def landing_weddings():
-  return render_template('pages/landing_weddings.html', flags=get_flags(request), 
-                         call_hours=is_call_hours())
+# @app.route('/weddings')
+# def landing_weddings():
+#   return render_template('pages/landing_weddings.html', flags=get_flags(request), 
+#                          call_hours=is_call_hours())
 
 
-@app.route('/gifts')
-def landing_gifts():
-  return render_template('pages/landing_gifts.html', flags=get_flags(request),  
-                         posts=[], call_hours=is_call_hours(),
-                         favour_box_collection=collections['favour-boxes'],
-                         cards_collection=collections['favour-boxes'])
+# @app.route('/gifts')
+# def landing_gifts():
+#   return render_template('pages/landing_gifts.html', flags=get_flags(request),  
+#                          posts=[], call_hours=is_call_hours(),
+#                          favour_box_collection=collections['favour-boxes'],
+#                          cards_collection=collections['favour-boxes'])
 
 
-@app.route('/faq')
-def faq():
-  return render_template('faq.html', flags=get_flags(request), 
-                         call_hours=is_call_hours())
+# @app.route('/faq')
+# def faq():
+#   return render_template('faq.html', flags=get_flags(request), 
+#                          call_hours=is_call_hours())
 
 
-@app.route('/blog')
-def blog():
-  return render_template('blog.html', flags=get_flags(request), 
-                         posts=[], call_hours=is_call_hours())
+# @app.route('/blog')
+# def blog():
+#   return render_template('blog.html', flags=get_flags(request), 
+#                          posts=[], call_hours=is_call_hours())
 
 
-@app.route('/blog/<string:post_id>')
-def blog_post(post_id):
-  return render_template('blog_post.html', flags=get_flags(request),
-                         post={}, call_hours=is_call_hours())
+# @app.route('/blog/<string:post_id>')
+# def blog_post(post_id):
+#   return render_template('blog_post.html', flags=get_flags(request),
+#                          post={}, call_hours=is_call_hours())
 
 
-@app.route('/contact')
-def contact():
-  return render_template('contact.html', flags=get_flags(request),
-                         call_hours=is_call_hours())
+# @app.route('/contact')
+# def contact():
+#   return render_template('contact.html', flags=get_flags(request),
+#                          call_hours=is_call_hours())
 
 
 @app.route('/urllist.txt')
@@ -179,16 +179,24 @@ def confirm_expanded():
   print("New signup: " + email_addr)
   get(APPS_SCRIPT_EMAIL_URL + "?email=" + email_addr + "&name=" + name +
       "&message=" + message + "&budget=" + budget)
-  return render_template('confirmed.html', flags=flags)
+  resp = Response("Confirmed!")
+  resp.headers['AMP-Redirect-To'] = 'https://www.decoupagedreams.co.uk/thankyou'
+  resp.headers['Access-Control-Expose-Headers'] = 'AMP-Access-Control-Allow-Source-Origin, AMP-Redirect-To'
+  return resp
 
 
-@app.route('/confirm')
 def confirm():
   email_addr = request.args.get('email')
   if not email_addr:
     abort(500)
   print("New signup: " + email_addr)
   get(APPS_SCRIPT_EMAIL_URL + "?email=" + email_addr)
+  return render_template('confirmed.html', flags=flags)
+
+
+@app.route('/confirm')
+@app.route('/thankyou')
+def thanks():
   return render_template('confirmed.html', flags=flags)
 
 
