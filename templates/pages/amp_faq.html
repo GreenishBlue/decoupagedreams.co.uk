@@ -1,0 +1,72 @@
+{% extends 'amp_base.html' %}
+
+{% set title = "FAQ - Decoupage Dreams" %}
+{% set short_title = "FAQ" %}
+{% set meta_description = "Learn more about our products & services. We get asked these questions really often, so we've decided to write them down to help!" %}
+{% set meta_opengraph_title = title %}
+{% set meta_opengraph_description = meta_description %}
+{% set meta_opengraph_image = None %}
+{% set meta_opengraph_image_alt = None %}
+
+{% set cta_text = "View The Product Gallery" %}
+{% set cta_href = "/gallery" %}
+
+{% set canonical_url = "https://www.decoupagedreams.co.uk/faq" %}
+{% set enable_fab = True %}
+{% set enable_toolbar = True %}
+
+{# Set faqs array which will be rendered out in HTML and Microdata (for Google Search #}
+{# https://developers.google.com/search/docs/data-types/faqpage #}
+{% set faqs = {
+  "What payment methods do you accept?": "We accept PayPal, Cheque, Cash and Direct Debit.",
+  "What styles and colours are available?": "We do modern, vintage and winter themes but can work with you to craft any design you wish. We've got an extensive collection of colours but we can order in any colour on request.",
+  "How soon should we get in touch about our event?": "Interested event hosts (weddings, occasions, etc..) should get in touch ASAP. Please use the form below, and we'll reserve your date obligation-free.",
+  "I have a request about my data I've given you (such as email address or wedding info).": "Please send an email to cameron@decoupagedreams.co.uk for all requests relating to personal data.",
+} %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{% for question, answer in faqs.items() %}{"@type": "Question",
+    "name": "{{ question }}",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text":"{{ answer }}"}
+    }{% if loop.index != faqs | length %},{% endif %}{% endfor %}]
+  }
+</script>
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block amp_scripts %}
+<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+{% endblock %}
+
+{% block main %}
+<br><br>
+<section class="container">
+  <h2 class="typography-fancy">FAQ</h2>
+  <div class="typography-caption">Learn more about our products & services. We 
+    get asked these questions really often, so we've decided to write them 
+    down to help. Click a question to see our answer.</div>
+  <div style="margin: 24px 0;">
+    <amp-accordion disable-session-states>
+    {% for question, answer in faqs.items() %}
+    <section>
+      <header>{{ question }}</header>
+      <p>{{ answer }}</p>
+    </section>
+    {% endfor %}
+  </amp-accordion>
+  </div>
+  <a href="{{ cta_href }}">
+    <button class="primary">{{ cta_text }}</button>
+  </a>
+</section>
+<br><br><br>
+{#% include 'includes/amp_section_form_inquiry.html' %#}
+{% endblock %}

@@ -20,8 +20,14 @@
 <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 {% endblock %}
 
+{% block style %}
+.mega {
+  padding: 9vh 0 6vh 0;
+}
+{% endblock %}
+
 {% block main %}
-<header class="jumbo">
+<header class="mega">
   <br>
   <div class="container">
     <h1 class="typography-fancy" style="font-size:54px">Decoupage Dreams</h1>
@@ -48,20 +54,20 @@
   <br>
   <ul class="card-deck--3">
     {% set stories = [{
-      "caption1": "Occasions",
+      "caption1": "An Occasion To Remember",
       "caption2": "Birthdays, Christenings & Funerals",
       "href": "/occasions",
-      "image": "/static/images/products2/IMG_20190504_161833.jpg",
+      "image": "https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
     }, {
-      "caption1": "Weddings",
-      "caption2": "Bespoke Table Decorations, Chair Covers, Table Plans & Stationery For Your Special Day",
+      "caption1": "Make Your Wedding Beautiful",
+      "caption2": "Bespoke table decor, chair covers, table plans & stationery for your special day",
       "href": "/weddings",
-      "image": "/static/images/products/IMG_20190504_153051.jpg",
+      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=400&h=300&amp;q=80",
     }, {
-      "caption1": "Gifts",
-      "caption2": "Bespoke Cards & Favour Boxes",
+      "caption1": "Stress-Free Corporate Events",
+      "caption2": "Professional venue decoration & stationery designed with your corporate branding in-mind.",
       "href": "/gifts",
-      "image": "/static/images/products2/IMG_20190504_160743.jpg",
+      "image": "https://images.unsplash.com/photo-1545498967-7b51dcb8bfd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
     }] %}
     {% with stories = stories %}
       {% include 'includes/amp_deck_stories_img.html' %}
@@ -86,9 +92,4 @@
 
 {% include 'includes/amp_section_form_inquiry.html' %}
 <br><br>
-
-
-<footer class="jumbo">
-  <a href="/">Home</a>
-</footer>
 {% endblock %}

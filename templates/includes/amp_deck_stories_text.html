@@ -1,8 +1,23 @@
 {% for s in stories %}
-<li class="card story" style="height: 120px;">
+<li class="card story" style="min-height: 180px;">
   {% if s.href %}<a href="{{ s.href }}">{% endif %}
     <div class="supporting">
-      <h3 class="caption1">{{ s.caption1 }}</h3>
+      <div style="background-color: #e3e3e3; 
+                 display: inline-block;
+                 border-radius: 20px;
+                 width: 40px; 
+                 height: 40px;
+                 text-align: center;
+                 margin-left: 8px;
+                 margin-top: 8px;">
+        <i class="material-icons" 
+          style="color: green; 
+                 font-size: 24px;
+                 padding: 8px;">done_outlined</i>
+      </div>
+      <h3 class="caption1">
+        <span>{{ s.caption1 }}</span>
+      </h3>
       <div class="caption2">{{ s.caption2 }}</div>
     </div>
   {% if s.href %}</a>{% endif %}

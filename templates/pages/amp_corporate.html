@@ -1,22 +1,18 @@
 {% extends 'amp_base.html' %}
 
-{% set title = "Make Your Wedding Beautiful - Bespoke Venue Dressing & Stationery For Weddings - Decoupage Dreams" %}
-{% set short_title = "For Weddings" %}
-{% set meta_description = "Make your venue beautiful with Decoupage Dreams. Fully insured, bespoke venue decor in Lancashire, Yorkshire or the Lake District." %}
+{% set title = "Corporate Events - Venue Decor For Corporate Events - Decoupage Dreams" %}
+{% set short_title = "Corporate Events" %}
+{% set meta_description = "Make your wedding corporate special with Decoupage Dreams. Fully insured, bespoke venue decor in Lancashire, Yorkshire or the Lake District." %}
 {% set meta_opengraph_title = title %}
 {% set meta_opengraph_description = meta_description %}
 {% set meta_opengraph_image = None %}
 {% set meta_opengraph_image_alt = None %}
 
-{% set cta_text = "Reserve My Wedding Date" %}
+{% set cta_text = "Reserve My Date" %}
 {% set cta_href = "/contact" %}
 
-{% set canonical_url = "https://www.decoupagedreams.co.uk/weddings" %}
-
-{% block amp_scripts %}
-<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-{% endblock %}
+{% set canonical_url = "https://www.decoupagedreams.co.uk/corporate" %}
+{% set enable_fab = True %}
 
 {% block style %}
 @media(max-width: 600px) {
@@ -39,33 +35,38 @@
 }
 {% endblock %}
 
+{% block amp_scripts %}
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+{% endblock %}
+
 {% block main %}
-{% set jumbo_title = "Make Your Wedding Beautiful." %}
-{% set jumbo_subtitle = "Fully insured, bespoke decor and stationery for your wedding venue in <b>Lancashire</b>, <b>Yorshire Dales</b> or the <b>Lake District</b>." %}
+{% set jumbo_title = "Stress-Free Corporate Events." %}
+{% set jumbo_subtitle = "Fully insured, bespoke decor and stationery for your event venue in <b>Lancashire</b>, <b>Yorshire Dales</b> or the <b>Lake District</b>." %}
 {% set jumbo_caption = "Reserve our services for your special date, obligation free." %}
-{% set jumbo_image_url_650 = "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1920&amp;h=650&amp;q=80" %}
-{% set jumbo_image_url_450 = "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=80" %}
+{% set jumbo_image_url_650 = "https://images.unsplash.com/photo-1545498967-7b51dcb8bfd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&h=650&q=80" %}
+{% set jumbo_image_url_450 = "https://images.unsplash.com/photo-1545498967-7b51dcb8bfd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&h=450&q=80" %}
 {% include 'includes/amp_section_jumbo.html' %}
 
-<section class="container products">
+<section class="container" style="margin-top: -50px;">
   <!-- <h2 class="typography-fancy">Our Products</h2> -->
   <!-- <div class="typography-caption">We offer our products at competitive prices. Bride and Bridegroom can choose as much or as little as desired.</div> -->
-  <ul class="card-deck--4 cards-deck--features">
+  <ul class="card-deck--4">
     {% set stories = [{
       "caption1": "Chair Covers & Sashes",
-      "caption2": "Any colour, any style",
+      "caption2": "Customised to your company's branding & style",
       "image": "/static/images/products2/IMG_20190504_164701.jpg",
     }, {
       "caption1": "Table Decorations",
-      "caption2": "Bespoke table centrepieces and sashes",
+      "caption2": "Professional table centrepieces and sashes",
       "image": "/static/images/products/IMG_20190504_165613.jpg",
     }, {
       "caption1": "Stationery",
-      "caption2": "Place cards, RSVPs, breakfast invites and more...",
+      "caption2": "Customised place cards with names and corporate branding",
       "image": "/static/images/products2/IMG_20190504_152910.jpg",
     }, {
       "caption1": "Favour Boxes",
-      "caption2": "Hand-crafted luxury favours",
+      "caption2": "A little something extra to impress your guests",
       "image": "/static/images/products2/IMG_20190504_163416.jpg",
     }] %}
     {% with stories = stories %}
@@ -77,15 +78,15 @@
     {% set stories = [{
       "caption1": "Fully Insured",
       "caption2": "We carry full business insurance, to make sure that your 
-                    day goes your way no matter what.",
+                    event goes perfectly.",
     }, {
-      "caption1": "Your Day, Your Style",
+      "caption1": "Custom Branding",
       "caption2": "We'll work with you to produce the best designs tailored
-                    to your personal taste.",
+                    to your corporate brand.",
     }, {
-      "caption1": "Our Service Included",
-      "caption2": "We'll setup your venue, and collect everything once your 
-                    day is over - all included.",
+      "caption1": "Full Service Included",
+      "caption2": "We'll setup the venue, and collect everything once the 
+                    event is over - all included.",
     }] %}
     {% with stories = stories %}
       {% include 'includes/amp_deck_stories_text.html' %}
@@ -110,14 +111,14 @@
   <br>
   <ul class="card-deck--3">
     {% set stories = [{
-      "caption1": "Wedding Day",
-      "image": "https://images.unsplash.com/photo-1498192512043-a20305136767?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+      "caption1": "Conferences",
+      "image": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
     }, {
-      "caption1": "Hen Nights & Stag Dos",
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+      "caption1": "Networking Events",
+      "image": "https://images.unsplash.com/photo-1550177977-ad69e8f3cae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
     }, {
-      "caption1": "Anniversaries",
-      "image": "https://images.unsplash.com/photo-1518199128314-4f127ebfece8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
+      "caption1": "Investor Relations",
+      "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80",
     }] %}
     {% with stories = stories %}
       {% include 'includes/amp_deck_stories_img.html' %}

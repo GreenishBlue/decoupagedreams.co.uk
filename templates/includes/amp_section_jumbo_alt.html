@@ -1,0 +1,26 @@
+<header class="jumbo shadow">
+  <div class="inner">
+    <div class="container">
+      <div class="logo typography-fancy">Decoupage Dreams</div>
+      <br>
+      <h1 class="title">{{ jumbo_title }}</h1>
+      <p class="subtitle">{{ jumbo_subtitle | safe }}</p>
+      <br>
+      <a href="{{ cta_href }}">
+        <button class="primary">{{ cta_text }}</button>
+      </a>
+      <br><br>
+      <div class="caption">{{ jumbo_caption }}</div>
+    </div>
+  </div>
+  <amp-img alt="Photo of couple getting married"
+    media="(min-width: 601px)"
+    width="1920"
+    height="650"
+    src="{{ jumbo_image_url_650 }}"></amp-img>
+    <amp-img alt="Photo of couple getting married"
+      media="(max-width: 600px)"
+      width="600"
+      height="450"
+      src="{{ jumbo_image_url_450 }}"></amp-img>
+</header>

@@ -1,0 +1,28 @@
+{% extends 'amp_base.html' %}
+
+{% set title = "Testimonials - Decoupage Dreams" %}
+{% set short_title = "Testimonials" %}
+{% set meta_description = "Make your venue beautiful with Decoupage Dreams. Fully insured, bespoke venue decor in Lancashire, Yorkshire or the Lake District." %}
+{% set meta_opengraph_title = title %}
+{% set meta_opengraph_description = meta_description %}
+{% set meta_opengraph_image = None %}
+{% set meta_opengraph_image_alt = None %}
+
+{% set cta_text = "View The Product Gallery" %}
+{% set cta_href = "/gallery" %}
+
+{% set canonical_url = "https://www.decoupagedreams.co.uk/testimonials" %}
+{% set enable_fab = True %}
+{% set enable_toolbar = True %}
+
+{% block style %}
+{% endblock %}
+
+{% block amp_scripts %}
+{% endblock %}
+
+{% block main %}
+<br><br>
+{% include 'includes/amp_section_testimonials.html' %}
+<br><br><br>
+{% endblock %}

@@ -187,8 +187,13 @@
     float: left;
   }
 
+  .toolbar.transparent .material-icons,
+  .toolbar.transparent {
+    background-color: transparent;
+    color: #fff;
+  }
+
   /* Shadows */
-  .toolbar,
   .card,
   #fab,
   button.primary,
@@ -282,6 +287,18 @@
     .card-deck--4 .card {
       width: 100%;
       margin-bottom: 10px;
+    }
+
+    /* .card-deck--4 .card {
+      width: calc(50% - 8px);
+      float: left;
+      margin-bottom: 8px;
+      margin-right: 8px;
+    } */
+    
+    .card-deck--3 .card:last-child,
+    .card-deck--4 .card:last-child {
+      margin-right: 0;
     }
     
     .card-deck--3 .card:last-child,
@@ -383,12 +400,22 @@
     border: 0;
     border-radius: 4px;
     padding: 8px 12px;
+    font-weight: 500;
+
+    height: 40px;
+    /* font-weight: bold; */
 
     color: #121212;
     text-transform: uppercase;
-    font-weight: 500;
     font-size: .875rem;
     letter-spacing: .08929em;
+  }
+
+  @media(max-width: 600px) {
+    button.primary {
+      width: 100%;
+      height: 40px;
+    }
   }
 
   .fold-input {
@@ -425,9 +452,91 @@
   .jumbo amp-img {
   }
 
+  @media(min-width: 600px) {
+    .jumbo {
+      height: 650px;
+    }
+
+    .jumbo .inner .container {
+      padding-top: 80px;
+    }
+
+    .jumbo .logo {
+      font-size: 2.2rem;
+    }
+
+    .jumbo .title {
+      font-size: 4em;
+      line-height: 1em;
+    }
+
+    .jumbo .subtitle {
+      font-size: 1.2rem;
+      color: #eee;
+    }
+
+    .jumbo .caption {
+      font-size: 0.8rem;
+      color: #e6e6e6;
+    }
+  }
+  
+  @media(max-width: 960px) {
+    .jumbo .title {
+      font-size: 2.7em;
+      line-height: 1em;
+      margin-top: 0;
+    }
+  }
+
+  @media(max-width: 600px) {
+    .jumbo {
+      height: 450px;
+    }
+
+    .jumbo .logo {
+      font-size: 2.4rem;
+      margin-top: 30px;
+    }
+
+    .jumbo .title {
+      font-size: 2.7em;
+      line-height: 1em;
+      margin-top: 0;
+    }
+
+    .jumbo .subtitle {
+      font-size: 1rem;
+      color: #eee;
+    }
+
+    .jumbo .caption {
+      font-size: 0.8rem;
+      color: #e6e6e6;
+    }
+  }
+
+  @media(max-width: 420px) {
+    .jumbo .logo {
+      font-size: 1.8rem;
+      margin-top: 20px;
+    }
+
+    .jumbo .title {
+      font-size: 2em;
+      line-height: 1em;
+      margin-top: 0;
+    }
+  }
+
+  @media(max-width: 320px) {
+    .jumbo {
+      line-height: 1.4em;
+    }
+  }
+
   .jumbo {
     position: relative;
-    height: 656px;
   }
 
   .jumbo .subtitle {
@@ -445,28 +554,6 @@
     /* background-color: rgba(0,0,0, 0.4); */
   }
 
-  .jumbo .inner .container {
-    padding-top: 200px;
-  }
-
-  .jumbo .logo {
-    font-size: 2.2rem;
-  }
-
-  .jumbo .title {
-    font-size: 4em;
-  }
-
-  .jumbo .subtitle {
-    font-size: 1.2rem;
-    color: #eee;
-  }
-
-  .jumbo .caption {
-    font-size: 0.8rem;
-    color: #e6e6e6;
-  }
-
   @media(min-width: 600px) {
     header.jumbo .inner {
       /* padding: 6vh 2vw; */
@@ -481,14 +568,18 @@
 
   <!-- AMP Scripts -->  
   <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  {% if enable_gtm %}
   <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  {% endif %}
   <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
   {% block amp_scripts %}{% endblock %}
 </head>
 
 <body>
+  {% if enable_gtm %}
   <!-- Google Tag Manager -->
   <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-T29NQFV&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
+  {% endif %}
 
   {% if enable_toolbar %}
   <amp-sidebar id="sidebar"
@@ -520,20 +611,20 @@
         "label": "Events"
       }, {
         "type": "link",
-        "icon": "event",
-        "label": "Occasions",
-        "href": "/amp/occasions"
-      }, {
-        "type": "link",
         "icon": "favorite",
         "label": "For Weddings",
         "href": "/amp/weddings"
       }, {
         "type": "link",
-        "icon": "card_giftcard",
-        "label": "Gifts",
-        "href": "/amp/gifts"
+        "icon": "business_center",
+        "label": "Corporate Events",
+        "href": "/amp/corporate"
       }, {
+        "type": "link",
+        "icon": "event",
+        "label": "Occasions",
+        "href": "/amp/occasions"
+      },  {
         "type": "header",
         "label": "Learn More"
       }, {
@@ -541,11 +632,6 @@
         "icon": "photo_album",
         "label": "Gallery",
         "href": "/amp/gallery"
-      }, {
-        "type": "link",
-        "icon": "notes",
-        "label": "Blog",
-        "href": "/amp/blog"
       }, {
         "type": "link",
         "icon": "star",
@@ -578,7 +664,7 @@
     </nav>
   </amp-sidebar>
 
-  <header class="toolbar">
+  <header class="toolbar /*transparent*/ shadow">
     <button on="tap:sidebar.toggle" class="toolbar-button">
       <i class="material-icons">menu</i>
     </button>

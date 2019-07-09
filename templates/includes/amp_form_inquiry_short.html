@@ -1,7 +1,7 @@
 <form method="post"
-action-xhr="/confirm_expanded"
+action-xhr="/confirm"
 target="_top"
-style="max-width: 400px; margin: 0 auto; padding: 8px; padding-top: 16px;">
+style="width: 100%; margin: 0 auto; padding: 8px; padding-top: 16px;">
 <fieldset style="border: 0; width: 100%; padding: 0; margin: 0;">
   <label>
     <input type="text"
@@ -11,7 +11,6 @@ style="max-width: 400px; margin: 0 auto; padding: 8px; padding-top: 16px;">
       style="width: 100%"
       required>
   </label>
-  <br>
   <label>
     <input type="email"
       name="email"
@@ -20,24 +19,15 @@ style="max-width: 400px; margin: 0 auto; padding: 8px; padding-top: 16px;">
       style="width: 100%"
       required>
   </label>
-  <br>
-  <label>
-    <input type="budget"
-      name="email"
-      class="fold-input"
-      style="width: 100%"
-      placeholder="Your Budget">
-  </label>
-  <br>
   <label>
     <textarea name="message"
       class="fold-input"
-      placeholder="Additional Details"
+      placeholder="Additional Details (budget, wedding date)"
       style="width: 100%"
       cols="50" 
-      rows="10"></textarea>
+      rows="9"></textarea>
   </label>
-  <button type="submit" class="primary">Make An Inquiry</button>
+  <button type="submit" class="primary">{{ cta_text }}</button>
 </fieldset>
 <div submit-success>
   Subscription successful!

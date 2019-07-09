@@ -1,0 +1,29 @@
+{% extends 'amp_base.html' %}
+
+{% set title = "Gallery - Bespoke Venue Dressing & Stationery - Decoupage Dreams" %}
+{% set short_title = "Gallery" %}
+{% set meta_description = "" %}
+{% set meta_opengraph_title = title %}
+{% set meta_opengraph_description = meta_description %}
+{% set meta_opengraph_image = None %}
+{% set meta_opengraph_image_alt = None %}
+
+{% set cta_text = "Save My Date" %}
+{% set cta_href = "/contact" %}
+
+{% set canonical_url = "https://www.decoupagedreams.co.uk/gallery" %}
+{% set enable_fab = True %}
+{% set enable_toolbar = True %}
+
+{% block style %}
+{% endblock %}
+
+{% block amp_scripts %}
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+{% endblock %}
+
+{% block main %}
+<br><br>
+{% include 'includes/amp_section_form_inquiry.html' %}
+<br><br><br>
+{% endblock %}
