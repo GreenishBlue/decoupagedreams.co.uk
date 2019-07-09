@@ -1,14 +1,14 @@
 <form method="post"
 action-xhr="/confirm"
 target="_top"
-style="width: 100%; margin: 0 auto; padding: 8px; padding-top: 16px;">
+style="width: 100%; margin: 0 auto; padding: 0;">
 <fieldset style="border: 0; width: 100%; padding: 0; margin: 0;">
   <label>
     <input type="text"
       name="name"
       class="fold-input"
       placeholder="Your Name"
-      style="width: 100%"
+      style="width: 100%;"
       required>
   </label>
   <label>
@@ -27,7 +27,7 @@ style="width: 100%; margin: 0 auto; padding: 8px; padding-top: 16px;">
       cols="50" 
       rows="9"></textarea>
   </label>
-  <button type="submit" class="primary">{{ cta_text }}</button>
+  <button style="margin-right: -8px;" type="submit" class="primary">{{ cta_text }}</button>
 </fieldset>
 <div submit-success>
   Subscription successful!

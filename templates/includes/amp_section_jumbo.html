@@ -1,15 +1,21 @@
 <header class="jumbo shadow" style="text-align: left;">
   <div class="inner">
     <div class="container">
-      <div style="float: left; width: 65%">
+      <div class="copy">
         <div class="logo typography-fancy">Decoupage Dreams</div>
         <br>
         <h1 class="title">{{ jumbo_title }}</h1>
-        <p class="subtitle" style="margin: 0;">{{ jumbo_subtitle | safe }}</p>
+        <p class="subtitle">{{ jumbo_subtitle | safe }}</p>
         <br>
+        <div class="cta">
+          <a href="{{ cta_href }}">
+            <button class="primary">{{ cta_text }}</button>
+          </a>
+          <br><br>
+        </div>
         <div class="caption">{{ jumbo_caption }}</div>
       </div>
-      <div style="float: right; width: 30%; text-align: right;">
+      <div class="form" style="margin-right: 8px;">
         {% include 'includes/amp_form_inquiry_short.html' %}
       </div>
     </div>
@@ -19,9 +25,9 @@
     width="1920"
     height="650"
     src="{{ jumbo_image_url_650 }}"></amp-img>
-    <amp-img alt="Photo of couple getting married"
-      media="(max-width: 600px)"
-      width="600"
-      height="450"
-      src="{{ jumbo_image_url_450 }}"></amp-img>
+  <amp-img alt="Photo of couple getting married"
+    media="(max-width: 600px)"
+    width="600"
+    height="450"
+    src="{{ jumbo_image_url_450 }}"></amp-img>
 </header>

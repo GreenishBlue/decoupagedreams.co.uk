@@ -9,7 +9,7 @@
 {% set meta_opengraph_image_alt = None %}
 
 {% set cta_text = "Reserve My Wedding Date" %}
-{% set cta_href = "/contact" %}
+{% set cta_href = "#inquiry-form" %}
 
 {% set canonical_url = "https://www.decoupagedreams.co.uk/weddings" %}
 
@@ -32,9 +32,33 @@
   margin-top: -20px;
 }
 
+.jumbo .form {
+  display: none;   
+}
+
 @media(min-width: 600px) {
   .products {
     margin-top: -140px;
+  }
+
+  .jumbo .copy {
+    float: left; width: 65%;
+  }
+
+  .jumbo .subtitle {
+    margin: 0;
+  }
+
+  .jumbo .form {
+    float: right; width: 30%; text-align: right;
+  }
+
+  .jumbo .form {
+    display: block;
+    }
+
+  .jumbo .copy .cta {
+    display: none;
   }
 }
 {% endblock %}
@@ -135,15 +159,29 @@
 {% include 'includes/amp_section_googlemap.html' %}
 <br><br>
 
-
-{% include 'includes/amp_section_form_inquiry.html' %}
+<div id="inquiry-form">
+  {% include 'includes/amp_section_form_inquiry.html' %}
+</div>
 <br><br>
 
+<footer>
+  <div>
+    <a href="/">Home</a>
+    <a href="/">Gallery</a>
+    <a href="/">Blog</a>
+    <br>
+    <a href="/">Facebook</a>
+    <a href="/">Pinterest</a>
+    <a href="/">Instagram</a>
+  </div>
+  <br>
+  <br>
 
-{% set photo_credits = ["@nate_dumlao", "@priscilladupreez", "@kchance8", "@freestocks"] %}
-<footer class="mdc-typography--caption" style="text-align: center; padding-top: 42px;">
-Additional photos by {% for p in photo_credits %}
-<a href="https://unsplash.com/{{ p }}">{{ p }}</a> 
-{% endfor %} on <a href="https://www.unsplash.com">Unsplash</a>.
-</footer><br><br>
+  {% set photo_credits = ["@nate_dumlao", "@priscilladupreez", "@kchance8", "@freestocks"] %}
+  <!-- <footer class="mdc-typography--caption" style="text-align: center; padding-top: 42px;">
+  Additional photos by {% for p in photo_credits %}
+  <a href="https://unsplash.com/{{ p }}">{{ p }}</a> 
+  {% endfor %} on <a href="https://www.unsplash.com">Unsplash</a>.
+  </footer><br><br> -->
+</footer>
 {% endblock %}
