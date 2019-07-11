@@ -8,7 +8,6 @@
   "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_20190504_165613.jpg",
 }, {
   "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0402.jpg",
-  "bg": "#cfaefd"
 }, {
   "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0114-Edit.jpg",
 }, {
@@ -82,8 +81,7 @@
         width="{{ p.width | safe or "1200" }}"
         height="{{ p.height | safe or "900" }}" 
         layout="responsive" 
-        alt="{{ p.alt | safe }}"
-        style="{% if p.bg %}style="background-color: {{ p.bg | safe }}{% endif %}"></amp-img>
+        alt="{{ p.alt | safe }}"></amp-img>
     {% endfor %}
   </amp-carousel>
 </div>
