@@ -1,19 +1,85 @@
 {% set products = [{
-  "img": "https://storage.googleapis.com/decoupage-dreams/landing/IMG_0722.jpg",
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_20190504_161833.jpg",
 }, {
-  "img": "https://storage.googleapis.com/decoupage-dreams/landing/IMG_0722.jpg",
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_20190504_165613.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0402.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/_.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0114-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0139-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0148.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0151.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0157.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0224.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0241.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0248.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0262.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0274.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0310-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0347.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0375-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0380.jpg",
+},  {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0470-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0478-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0487-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0492-2-Edit-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0494-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0502-Edit.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0509.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0553.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0559.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0570.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_9777.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_9790.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_9867.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/_IMG_9805-Edit.jpg",
 }] %}
-{% for p in products %}
-<ul>
-  <li class="card" style="float: left;
-    width: 20%;">
-    <amp-img
-      src="{{ p.img }}"
-      width="400"
-      height="300"
-      layout="responsive">
-  </li>
-</ul>
-{% endfor %}
-<br>
+
+<amp-carousel id="carousel"
+    class="card"
+    width="1200"
+    height="900"
+    layout="responsive"
+    type="slides"
+    lightbox
+    style="cursor: pointer; max-width: 800px; margin: 0 auto;">
+    {% for p in products %}
+      <amp-img src="{{ p.img }}" width="1200" height="900" layout="responsive" alt="a sample image"></amp-img>
+    {% endfor %}
+  </amp-carousel>
+</div>
+<div style="font-style: italic; 
+            color: #444;
+            padding-bottom: 12px;
+            margin-top: -16px;
+            font-size: 14px;">Click on the images to view in full screen.</div>
 <div style="clear: both;"></div>
