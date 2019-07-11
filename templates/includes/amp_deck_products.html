@@ -75,7 +75,6 @@
     lightbox
     style="cursor: pointer; max-width: 800px; margin: 0 auto;">
     {% for p in products %}
-      
       <amp-img 
         src="{{ p.img | safe }}" 
         width="{{ p.width | safe or "1200" }}"
