@@ -1,11 +1,14 @@
+{# Removed Images: #}
+{# https://storage.googleapis.com/decoupage-dreams/wedding_gallery/_.jpg #}
+
 {% set products = [{
   "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_20190504_161833.jpg",
+  "height": "800"
 }, {
   "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_20190504_165613.jpg",
 }, {
   "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0402.jpg",
-}, {
-  "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/_.jpg",
+  "bg": "#cfaefd"
 }, {
   "img": "https://storage.googleapis.com/decoupage-dreams/wedding_gallery/IMG_0114-Edit.jpg",
 }, {
@@ -73,7 +76,14 @@
     lightbox
     style="cursor: pointer; max-width: 800px; margin: 0 auto;">
     {% for p in products %}
-      <amp-img src="{{ p.img }}" width="1200" height="900" layout="responsive" alt="a sample image"></amp-img>
+      
+      <amp-img 
+        src="{{ p.img | safe }}" 
+        width="{{ p.width | safe or "1200" }}"
+        height="{{ p.height | safe or "900" }}" 
+        layout="responsive" 
+        alt="{{ p.alt | safe }}"
+        style="{% if p.bg %}style="background-color: {{ p.bg | safe }}{% endif %}"></amp-img>
     {% endfor %}
   </amp-carousel>
 </div>
