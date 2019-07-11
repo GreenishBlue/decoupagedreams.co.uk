@@ -13,7 +13,32 @@
 
 {% set canonical_url = "https://www.decoupagedreams.co.uk/weddings" %}
 
+{# Set faqs array which will be rendered out in HTML and Microdata (for Google Search #}
+{# https://developers.google.com/search/docs/data-types/faqpage #}
+{% set faqs = {
+  "What payment methods do you accept?": "We accept PayPal, Cheque, Cash and Direct Debit.",
+  "What styles and colours are available?": "We do modern, vintage and winter themes but can work with you to craft any design you wish. We've got an extensive collection of colours but we can order in any colour on request.",
+  "How soon should we get in touch about our event?": "Interested event hosts (weddings, occasions, etc..) should get in touch ASAP. Please use the form below, and we'll reserve your date obligation-free.",
+  "I have a request about my data I've given you (such as email address or wedding info).": "Please send an email to cameron@decoupagedreams.co.uk for all requests relating to personal data.",
+} %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{% for question, answer in faqs.items() %}{"@type": "Question",
+    "name": "{{ question }}",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text":"{{ answer }}"}
+    }{% if loop.index != faqs | length %},{% endif %}{% endfor %}]
+  }
+</script>
+{% endblock %}
+
 {% block amp_scripts %}
+<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
 <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
 <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 {% endblock %}
@@ -152,6 +177,28 @@
 
 
 {% include 'includes/amp_section_googlemap.html' %}
+<br><br>
+
+
+<section id="fold-faq" class="container">
+  <h2 class="typography-fancy">FAQ</h2>
+  <div class="typography-caption">The answers to all your questions (hopefully!). If you'd
+    like to know more, why not use the form below for an obligation-free chat and to reserve
+    our service for your wedding's date?</div>
+  <amp-accordion disable-session-states>
+    {% for question, answer in faqs.items() %}
+    <section>
+      <header>{{ question }}</header>
+      <p>{{ answer }}</p>
+    </section>
+    {% endfor %}
+  </amp-accordion>
+  <div style="clear: both"></div>
+  <br>
+  <a href="{{ cta_href }}">
+    <button class="primary">{{ cta_text }}</button>
+  </a>
+</section>
 <br><br>
 
 <div id="inquiry-form">
