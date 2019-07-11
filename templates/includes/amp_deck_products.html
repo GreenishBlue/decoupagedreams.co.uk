@@ -1,0 +1,19 @@
+{% set products = [{
+  "img": "https://storage.googleapis.com/decoupage-dreams/landing/IMG_0722.jpg",
+}, {
+  "img": "https://storage.googleapis.com/decoupage-dreams/landing/IMG_0722.jpg",
+}] %}
+{% for p in products %}
+<ul>
+  <li class="card" style="float: left;
+    width: 20%;">
+    <amp-img
+      src="{{ p.img }}"
+      width="400"
+      height="300"
+      layout="responsive">
+  </li>
+</ul>
+{% endfor %}
+<br>
+<div style="clear: both;"></div>
