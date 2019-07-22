@@ -2,7 +2,11 @@
   <div class="inner">
     <div class="container">
       <div class="copy">
-        <div class="logo typography-fancy">Decoupage Dreams</div>
+        <div class="logo typography-fancy">
+          {% if enable_toolbar %}<a href="/" style="text-decoration: none; color: #fff;">{% endif %}
+            Decoupage Dreams
+          {% if enable_toolbar %}</a>{% endif %}
+        </div>
         <br>
         <h1 class="title">{{ jumbo_title }}</h1>
         <p class="subtitle">{{ jumbo_subtitle | safe }}</p>
