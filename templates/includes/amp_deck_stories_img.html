@@ -1,9 +1,16 @@
 {% for s in stories %}
-<li class="card story">
+<li class="card story {% if s.href %}href{% endif %}">
   {% if s.href %}<a href="{{ s.href }}">{% endif %}
     <div class="supporting has-img">
       <h3 class="caption1">{{ s.caption1 }}</h3>
-      <div class="caption2">{{ s.caption2 }}</div>
+      <div class="caption2">
+        {{ s.caption2 }}
+        {% if s.href %}
+        <div style="position: absolute; bottom: 12px;" class="icon">
+          <i class="material-icons">arrow_forward</i>
+        </div>
+        {% endif %}
+      </div>
     </div>
     <amp-img src="{{ s.image }}" 
       height="300" 
